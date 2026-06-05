@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
 import { Box, Typography, Button, Container, Stack } from '@mui/material';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
   const { scrollY } = useScroll();
