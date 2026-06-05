@@ -37,7 +37,7 @@ const GlobalBackground = () => {
               left: `${Math.random() * 100}%`,
               width: `${1 + Math.random() * 1.5}px`,
               height: `${1 + Math.random() * 1.5}px`,
-              '--duration': `${3 + Math.random() * 7s}`,
+              '--duration': `${3 + Math.random() * 7}s`,
               opacity: 0.1 + Math.random() * 0.4
             }}
           />

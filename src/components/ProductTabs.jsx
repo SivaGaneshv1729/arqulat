@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Box, Container, Typography, Grid, Paper, Button } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import TerminalIcon from '@mui/icons-material/Terminal';

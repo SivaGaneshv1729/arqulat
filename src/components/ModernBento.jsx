@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Container, Typography, Grid } from '@mui/material';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import PsychologyIcon from '@mui/icons-material/Psychology';
@@ -84,6 +84,18 @@ const GitHubCard = ({ item, index }) => {
       </Box>
     </motion.div>
   );
+};
+
+GitHubCard.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    label: PropTypes.string,
+    icon: PropTypes.node,
+    items: PropTypes.arrayOf(PropTypes.string),
+    color: PropTypes.string,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 const expertise = [

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, IconButton, Container } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

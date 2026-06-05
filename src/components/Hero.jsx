@@ -3,27 +3,11 @@ import { Box, Typography, Button, Container, Stack } from '@mui/material';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const Hero = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const { scrollY } = useScroll();
   
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
   
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePos({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const springConfig = { damping: 25, stiffness: 150 };
-  const mouseX = useSpring(mousePos.x, springConfig);
-  const mouseY = useSpring(mousePos.y, springConfig);
-
   return (
     <Box sx={{ 
       minHeight: { xs: 'auto', md: '100vh' }, 
