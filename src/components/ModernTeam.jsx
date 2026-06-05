@@ -3,34 +3,34 @@ import { motion } from 'framer-motion';
 
 const specialists = [
   { 
-    name: 'SIVA_GANESH', 
-    role: 'AI & AGENTS LEAD', 
-    bio: 'Engineering the next generation of autonomous reasoning systems and agentic swarms.',
+    name: 'Venkat Ganesh', 
+    role: 'AI & COGNITIVE LEAD', 
+    bio: 'Architecting multi-agent swarm frameworks and context orchestration strategies.',
     tech: ['PyTorch', 'LangChain', 'OpenAI'],
     color: '#2f81f7',
     alias: 'core_intel'
   },
   { 
-    name: 'MEMBER_02', 
-    role: 'FULL STACK ARCHITECT', 
-    bio: 'Bridging high-scale backends with immersive, performant user interfaces.',
-    tech: ['Next.js', 'Node.js', 'PostgreSQL'],
+    name: 'Siva Ganesh', 
+    role: 'CORE ARCHITECT', 
+    bio: 'Bridging distributed computation backends with high-performance real-time frontends.',
+    tech: ['Next.js', 'Go', 'PostgreSQL'],
     color: '#8957e5',
     alias: 'app_sync'
   },
   { 
-    name: 'MEMBER_03', 
-    role: 'SYSTEM ARCHITECT', 
-    bio: 'Designing distributed infrastructure for global scalability and high availability.',
-    tech: ['K8s', 'Spring Boot', 'Kafka'],
+    name: 'Sri Ram', 
+    role: 'INFRASTRUCTURE LEAD', 
+    bio: 'Constructing containerized high-concurrency clusters and automated deployment layers.',
+    tech: ['K8s', 'Docker', 'Redis'],
     color: '#38bdf8',
     alias: 'infra_root'
   },
   { 
-    name: 'MEMBER_04', 
-    role: 'GAMING & 3D LEAD', 
-    bio: 'Pushing the boundaries of real-time 3D rendering and spatial UI design.',
-    tech: ['Unity', 'C#', 'Blender'],
+    name: 'Veeranna', 
+    role: 'SPATIAL & 3D LEAD', 
+    bio: 'Creating interactive 3D simulations and photorealistic spatial canvases.',
+    tech: ['Three.js', 'GLSL', 'Blender'],
     color: '#f0883e',
     alias: 'render_eng'
   }
@@ -38,88 +38,83 @@ const specialists = [
 
 const ModernTeam = () => {
   return (
-    <Box sx={{ py: 25, position: 'relative' }}>
+    <Box id="collective" sx={{ py: 10, position: 'relative', borderBottom: '1px solid #30363d' }}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 12 }}>
-          <Box className="section-label" sx={{ mb: 3 }}>
-            [ 03. CORE_CONTRIBUTORS ]
+        <Box sx={{ mb: 6, textAlign: 'center' }}>
+          <Box className="section-label" sx={{ mb: 2, display: 'inline-block' }}>
+            [ 03. CORE_ENGINEERS ]
           </Box>
-          <Typography variant="h2" sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
-            The elite squad <br />
+          <Typography variant="h2" sx={{ fontWeight: 800, fontSize: { xs: '2rem', md: '2.75rem' }, letterSpacing: '-0.04em' }}>
+            The collective <br />
             <span style={{ color: '#8b949e' }}>behind the production.</span>
           </Typography>
         </Box>
 
-        <Grid container spacing={4}>
+        <Box 
+          sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            flexWrap: { xs: 'wrap', md: 'nowrap' }, 
+            gap: 3 
+          }}
+        >
           {specialists.map((member, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Box 
+                sx={{ 
+                  p: 2.5,
+                  minWidth: '240px',
+                  background: '#0d1117',
+                  border: '1px solid #30363d',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 2,
+                  transition: '0.2s',
+                  '&:hover': {
+                    borderColor: member.color,
+                    transform: 'translateY(-4px)',
+                    background: 'rgba(48, 54, 61, 0.1)'
+                  }
+                }}
               >
-                <Box 
+                <Avatar 
                   sx={{ 
-                    p: 4,
-                    height: '100%',
-                    background: '#0d1117',
-                    border: '1px solid #30363d',
-                    borderRadius: '16px',
-                    transition: '0.3s',
-                    position: 'relative',
-                    '&:hover': {
-                      borderColor: member.color,
-                      transform: 'translateY(-8px)',
-                      background: 'rgba(48, 54, 61, 0.1)'
-                    }
+                    width: 48, 
+                    height: 48, 
+                    background: '#161b22', 
+                    border: `1px solid ${member.color}40`,
+                    color: member.color,
+                    fontWeight: 800,
+                    fontSize: '1.2rem',
+                    fontFamily: 'JetBrains Mono'
                   }}
                 >
-                  <Box sx={{ position: 'absolute', top: 16, right: 16 }}>
-                    <Typography className="font-mono" sx={{ fontSize: '0.6rem', color: 'text.secondary', opacity: 0.4 }}>
-                      {member.alias}
-                    </Typography>
-                  </Box>
-                  
-                  <Avatar 
-                    sx={{ 
-                      width: 80, 
-                      height: 80, 
-                      mb: 4, 
-                      background: '#161b22', 
-                      border: `1px solid #30363d`,
-                      color: member.color,
-                      fontWeight: 800,
-                      fontSize: '1.5rem',
-                      fontFamily: 'JetBrains Mono'
-                    }}
-                  >
-                    {member.name[0]}
-                  </Avatar>
-                  
-                  <Typography variant="h5" sx={{ fontWeight: 800, mb: 1 }}>{member.name}</Typography>
-                  <Typography className="font-mono" sx={{ color: member.color, fontSize: '0.65rem', fontWeight: 800, mb: 4, display: 'block', letterSpacing: '0.1em' }}>
+                  {member.name[0]}
+                </Avatar>
+                
+                <Box>
+                  <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '0.95rem', lineHeight: 1.2 }}>
+                    {member.name}
+                  </Typography>
+                  <Typography className="font-mono" sx={{ color: member.color, fontSize: '0.55rem', fontWeight: 800, mt: 0.5, letterSpacing: '0.1em' }}>
                     {member.role}
                   </Typography>
-                  
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 4, lineHeight: 1.7, fontSize: '0.85rem' }}>
-                    {member.bio}
+                  <Typography className="font-mono" sx={{ color: 'text.secondary', fontSize: '0.55rem', mt: 0.5 }}>
+                    ID: {member.alias}
                   </Typography>
-
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                    {member.tech.map((t, i) => (
-                      <Box key={i} sx={{ border: '1px solid rgba(48, 54, 61, 0.5)', px: 1, py: 0.2, borderRadius: '4px' }}>
-                        <Typography className="font-mono" sx={{ fontSize: '0.6rem', color: 'text.secondary' }}>
-                          {t}
-                        </Typography>
-                      </Box>
-                    ))}
-                  </Box>
                 </Box>
-              </motion.div>
-            </Grid>
+              </Box>
+            </motion.div>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );

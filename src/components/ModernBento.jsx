@@ -1,164 +1,336 @@
-import PropTypes from 'prop-types';
-import { Box, Container, Typography, Grid } from '@mui/material';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useState } from 'react';
+import { Box, Container, Typography } from '@mui/material';
+import { motion, AnimatePresence } from 'framer-motion';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import HubIcon from '@mui/icons-material/Hub';
 import LanguageIcon from '@mui/icons-material/Language';
 import ArchitectureIcon from '@mui/icons-material/Architecture';
 
-const GitHubCard = ({ item, index }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    x.set(mouseX / width - 0.5);
-    y.set(mouseY / height - 0.5);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d", height: '100%' }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
-      viewport={{ once: true }}
-    >
-      <Box className="github-bento-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-        <Box sx={{ transform: "translateZ(30px)" }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 4 }}>
-            <Box sx={{ color: item.color, display: 'flex' }}>
-              {item.icon}
-            </Box>
-            <Box className="section-label">
-              {item.label}
-            </Box>
-          </Box>
-          
-          <Typography variant="h4" sx={{ fontWeight: 800, mb: 2, color: 'text.primary', letterSpacing: '-0.03em' }}>
-            {item.title}
-          </Typography>
-          <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.6 }}>
-            {item.desc}
-          </Typography>
-        </Box>
-
-        <Box sx={{ transform: "translateZ(20px)", mt: 'auto' }}>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-            {item.items.map((tech, i) => (
-              <Box 
-                key={i} 
-                sx={{ 
-                  color: 'text.secondary', 
-                  fontSize: '0.7rem',
-                  fontFamily: 'JetBrains Mono',
-                  background: 'rgba(255,255,255,0.03)',
-                  px: 1,
-                  py: 0.3,
-                  border: '1px solid rgba(48, 54, 61, 0.5)',
-                  borderRadius: '4px'
-                }}
-              >
-                {tech}
-              </Box>
-            ))}
-          </Box>
-        </Box>
-      </Box>
-    </motion.div>
-  );
-};
-
-GitHubCard.propTypes = {
-  item: PropTypes.shape({
-    title: PropTypes.string,
-    desc: PropTypes.string,
-    label: PropTypes.string,
-    icon: PropTypes.node,
-    items: PropTypes.arrayOf(PropTypes.string),
-    color: PropTypes.string,
-  }).isRequired,
-  index: PropTypes.number.isRequired,
-};
-
 const expertise = [
   {
-    title: 'Autonomous Intelligence',
-    desc: 'Deep learning systems that evolve and reason across complex workflows.',
-    label: 'NEURAL_OS',
-    icon: <PsychologyIcon sx={{ fontSize: 32 }} />,
-    items: ['Agents', 'LLM_Ops', 'Reasoning'],
+    title: 'Cognitive Agent Swarms',
+    desc: 'Deploy self-directed multi-agent networks featuring dynamic reasoning, execution loops, and autonomous context window management.',
+    label: 'COGNITIVE_CORE',
+    icon: <PsychologyIcon sx={{ fontSize: 24 }} />,
     color: '#2f81f7',
-    grid: { xs: 12, md: 8 }
+    radius: 500,
+    duration: 15,
+    tiltZ: 45,
+    tiltX: 75
   },
   {
-    title: 'Core Systems',
-    desc: 'High-performance distributed infrastructure.',
-    label: 'ARCH_ROOT',
-    icon: <ArchitectureIcon sx={{ fontSize: 32 }} />,
-    items: ['Dist_Sys', 'Spring'],
+    title: 'Hyperscale Infra',
+    desc: 'Distributed compute orchestrators built for real-time model serving at sub-millisecond latencies.',
+    label: 'COMPUTE_ROOT',
+    icon: <ArchitectureIcon sx={{ fontSize: 24 }} />,
     color: '#8957e5',
-    grid: { xs: 12, md: 4 }
+    radius: 500,
+    duration: 18,
+    tiltZ: -45,
+    tiltX: 75
   },
   {
-    title: 'Immersive Tech',
-    desc: 'The frontier of spatial UI and 3D rendering.',
-    label: 'VISUAL_CORE',
-    icon: <HubIcon sx={{ fontSize: 32 }} />,
-    items: ['Unity', 'Blender'],
+    title: 'Spatial UI & 3D',
+    desc: 'Interactive 3D simulation engines, real-time spatial interfaces, and customized canvas rendering environments.',
+    label: 'SPATIAL_VECTOR',
+    icon: <HubIcon sx={{ fontSize: 24 }} />,
     color: '#f0883e',
-    grid: { xs: 12, md: 4 }
+    radius: 500,
+    duration: 22,
+    tiltZ: 0,
+    tiltX: 75
   },
   {
-    title: 'Product Delivery',
-    desc: 'Seamless bridging of intelligence and user experience.',
-    label: 'SYNC_LAYER',
-    icon: <LanguageIcon sx={{ fontSize: 32 }} />,
-    items: ['React', 'Next.js', 'Scaling'],
+    title: 'Enterprise Delivery',
+    desc: 'Production-ready frameworks integrating deep learning services with blazing fast, responsive user experiences.',
+    label: 'SYNC_PROTOCOL',
+    icon: <LanguageIcon sx={{ fontSize: 24 }} />,
     color: '#38bdf8',
-    grid: { xs: 12, md: 8 }
+    radius: 500,
+    duration: 25,
+    tiltZ: 90,
+    tiltX: 75
   }
 ];
 
-const ModernBento = () => {
+const OrbitalNode = ({ item, isAnyHovered, onHover, onLeave }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleEnter = () => {
+    setIsHovered(true);
+    onHover();
+  };
+
+  const handleLeave = () => {
+    setIsHovered(false);
+    onLeave();
+  };
+
   return (
-    <Box sx={{ py: 20, position: 'relative' }}>
-      <Container maxWidth="lg">
-        <Box sx={{ mb: 12 }}>
-          <Box className="section-label" sx={{ mb: 3 }}>
-            [ 01. CORE_CAPABILITIES ]
+    <Box
+      sx={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        width: item.radius,
+        height: item.radius,
+        // Static 3D tilt for the orbital ring (Helium atom style)
+        transform: `translate(-50%, -50%) rotateZ(${item.tiltZ}deg) rotateX(${item.tiltX}deg)`,
+        transformStyle: 'preserve-3d',
+        border: `2px solid ${item.color}30`,
+        borderRadius: '50%',
+        zIndex: isHovered ? 10 : 1,
+        pointerEvents: 'none'
+      }}
+    >
+      {/* Rotating Track */}
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          animation: `orbit-rotate-pure ${item.duration}s linear infinite`,
+          animationPlayState: isAnyHovered ? 'paused' : 'running',
+          transformStyle: 'preserve-3d',
+        }}
+      >
+        {/* Electron Position */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: '50%',
+            marginLeft: '-24px',
+            marginTop: '-24px',
+            pointerEvents: 'auto',
+            animation: `orbit-counter-rotate-pure ${item.duration}s linear infinite`,
+            animationPlayState: isAnyHovered ? 'paused' : 'running',
+            transformStyle: 'preserve-3d'
+          }}
+        >
+          {/* Static Counter-Tilt to keep icon flat to screen */}
+          <Box
+            sx={{
+              transform: `rotateX(${-item.tiltX}deg) rotateZ(${-item.tiltZ}deg)`,
+              transformStyle: 'preserve-3d'
+            }}
+          >
+            <motion.div
+              onMouseEnter={handleEnter}
+              onMouseLeave={handleLeave}
+              animate={{ scale: isHovered ? 1.1 : 1 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+              style={{ position: 'relative' }}
+            >
+              {/* Collapsed Icon State */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: 48,
+                  height: 48,
+                  borderRadius: '50%',
+                  background: '#0d1117',
+                  border: `2px solid ${item.color}`,
+                  color: item.color,
+                  boxShadow: `0 0 20px ${item.color}60`,
+                  cursor: 'pointer',
+                  zIndex: 2,
+                  position: 'relative'
+                }}
+              >
+                {item.icon}
+              </Box>
+
+              {/* Expanded Detail State */}
+              <AnimatePresence>
+                {isHovered && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, x: -160 }}
+                    animate={{ opacity: 1, scale: 1, x: -160 }}
+                    exit={{ opacity: 0, scale: 0.8, x: -160 }}
+                    transition={{ duration: 0.2 }}
+                    style={{
+                      position: 'absolute',
+                      top: '120%',
+                      width: '320px',
+                      zIndex: 3,
+                      transformOrigin: 'top center'
+                    }}
+                  >
+                <Box
+                  sx={{
+                    background: 'rgba(22, 27, 34, 0.95)',
+                    backdropFilter: 'blur(20px)',
+                    border: `1px solid ${item.color}`,
+                    borderRadius: '16px',
+                    p: 3,
+                    boxShadow: `0 20px 40px -10px ${item.color}40`
+                  }}
+                >
+                  <Typography className="mono-text" sx={{ color: item.color, fontSize: '0.65rem', fontWeight: 700, mb: 1, letterSpacing: '0.1em' }}>
+                    {item.label}
+                  </Typography>
+                  <Typography variant="h6" sx={{ color: 'text.primary', fontWeight: 800, mb: 1.5, fontSize: '1rem', lineHeight: 1.2 }}>
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.5, fontSize: '0.85rem' }}>
+                    {item.desc}
+                  </Typography>
+                </Box>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
           </Box>
-          <Typography variant="h2" sx={{ fontWeight: 800, maxWidth: '800px', lineHeight: 1.1, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
-            Technical excellence, <br />
-            <span style={{ color: '#8b949e' }}>distributed across 4 specialists.</span>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+const ModernBento = () => {
+  const [hoveredNode, setHoveredNode] = useState(null);
+
+  return (
+    <Box sx={{ py: { xs: 8, md: 10 }, position: 'relative', borderBottom: '1px solid #30363d', overflow: 'hidden' }}>
+      {/* Global styles for the orbit animations */}
+      <style>
+        {`
+          @keyframes orbit-rotate-pure {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          @keyframes orbit-counter-rotate-pure {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+          }
+        `}
+      </style>
+
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+        <Box sx={{ mb: 6, textAlign: 'center' }}>
+          <Box className="section-label" sx={{ mb: 3, display: 'inline-block' }}>
+            [ 01. CAPABILITIES_INDEX ]
+          </Box>
+          <Typography variant="h2" sx={{ fontWeight: 800, lineHeight: 1.1, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-0.04em' }}>
+            Architected for execution. <br />
+            <span style={{ color: '#8b949e' }}>Built for intelligence.</span>
           </Typography>
         </Box>
-
-        <Grid container spacing={3}>
-          {expertise.map((item, index) => (
-            <Grid item xs={item.grid.xs} md={item.grid.md} key={index}>
-              <GitHubCard item={item} index={index} />
-            </Grid>
-          ))}
-        </Grid>
       </Container>
+
+      {/* Orbital System Container */}
+      <Box sx={{ position: 'relative', height: { xs: '450px', md: '550px' }, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        
+        {/* Central 3D Globe / Atom Core */}
+        <Box 
+          sx={{ 
+            position: 'relative', 
+            width: 160, 
+            height: 160, 
+            zIndex: 0,
+            perspective: '1000px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          {/* Outer Ambient Glow */}
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.8, 0.4] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            style={{
+              position: 'absolute',
+              width: '250px', height: '250px',
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, #2f81f7 0%, transparent 70%)',
+              filter: 'blur(40px)',
+              zIndex: -1
+            }}
+          />
+
+          {/* 3D Rotating Atom / Earth Rings */}
+          <motion.div
+            animate={{ rotateX: [0, 360], rotateY: [0, 360] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+            style={{
+              width: '100%', height: '100%',
+              position: 'absolute',
+              transformStyle: 'preserve-3d'
+            }}
+          >
+            {/* Latitude / Longitude lines (Earth) */}
+            {[...Array(6)].map((_, i) => (
+              <Box
+                key={`lon-${i}`}
+                sx={{
+                  position: 'absolute',
+                  top: 0, left: 0, right: 0, bottom: 0,
+                  border: '1px solid rgba(47, 129, 247, 0.4)',
+                  borderRadius: '50%',
+                  transform: `rotateY(${i * 30}deg)`,
+                  boxShadow: 'inset 0 0 15px rgba(47, 129, 247, 0.2)'
+                }}
+              />
+            ))}
+            {[...Array(6)].map((_, i) => (
+              <Box
+                key={`lat-${i}`}
+                sx={{
+                  position: 'absolute',
+                  top: 0, left: 0, right: 0, bottom: 0,
+                  border: '1px solid rgba(137, 87, 229, 0.3)',
+                  borderRadius: '50%',
+                  transform: `rotateX(${i * 30}deg)`,
+                }}
+              />
+            ))}
+
+            {/* Connecting Nodes (Atom network intersections) */}
+            {[...Array(8)].map((_, i) => (
+              <motion.div
+                key={`node-${i}`}
+                animate={{ opacity: [0.2, 1, 0.2] }}
+                transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                style={{
+                  position: 'absolute',
+                  width: 6, height: 6,
+                  background: '#fff',
+                  borderRadius: '50%',
+                  boxShadow: '0 0 10px #fff',
+                  top: '50%', left: '50%',
+                  transform: `translate(-50%, -50%) rotateX(${i * 45}deg) translateZ(80px)`
+                }}
+              />
+            ))}
+          </motion.div>
+
+          {/* Inner Solid Core */}
+          <Box 
+            sx={{ 
+              width: 50, height: 50, borderRadius: '50%', 
+              background: 'radial-gradient(circle, #fff 0%, #2f81f7 40%, #0d1117 100%)', 
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 0 30px #2f81f7',
+              zIndex: 2,
+              position: 'relative'
+            }}
+          />
+        </Box>
+
+        {/* Orbiting Capabilities */}
+        {expertise.map((item, index) => (
+          <OrbitalNode 
+            key={index} 
+            item={item} 
+            isAnyHovered={hoveredNode !== null}
+            onHover={() => setHoveredNode(index)}
+            onLeave={() => setHoveredNode(null)}
+          />
+        ))}
+
+      </Box>
     </Box>
   );
 };

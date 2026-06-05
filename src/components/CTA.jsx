@@ -38,11 +38,11 @@ const CTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <Typography className="mono-text" variant="body1" color="primary" sx={{ mb: 3, fontWeight: 600 }}>
-            {'// READY_TO_COLLABORATE'}
+          <Typography className="mono-text" variant="body1" color="primary" sx={{ mb: 3, fontWeight: 600, fontSize: '0.85rem', letterSpacing: '0.1em' }}>
+            {'// SYSTEM_INTEGRATION_READY'}
           </Typography>
-          <Typography variant="h2" sx={{ mb: 4, fontWeight: 800, letterSpacing: -1 }}>
-            The world&apos;s largest student <br /> innovation <span style={{ color: '#8b949e' }}>collective.</span>
+          <Typography variant="h2" sx={{ mb: 4, fontWeight: 800, letterSpacing: -1, fontSize: { xs: '2.2rem', md: '3.2rem' } }}>
+            Build the next generation of <br />student-led venture <span style={{ color: '#8b949e' }}>intelligence.</span>
           </Typography>
           
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" alignItems="center">
@@ -50,35 +50,35 @@ const CTA = () => {
               variant="contained"
               size="large"
               sx={{
-                borderRadius: 1,
+                borderRadius: '50px',
                 px: 6,
                 py: 2,
-                fontSize: '1.1rem',
+                fontSize: '1rem',
                 background: '#238636', // GitHub Green
                 color: 'white',
-                fontWeight: 600,
+                fontWeight: 700,
                 '&:hover': {
                   background: '#2ea043'
                 }
               }}
             >
-              Sign up for Neurac
+              Join the Collective
             </Button>
             <Button
               variant="outlined"
               size="large"
               sx={{
-                borderRadius: 1,
+                borderRadius: '50px',
                 px: 6,
                 py: 2,
-                fontSize: '1.1rem',
+                fontSize: '1rem',
                 borderColor: '#30363d',
                 color: 'white',
-                fontWeight: 600,
+                fontWeight: 700,
                 '&:hover': { borderColor: '#8b949e', background: 'rgba(255,255,255,0.05)' }
               }}
             >
-              Contact Sales
+              Explore Research
             </Button>
           </Stack>
         </motion.div>

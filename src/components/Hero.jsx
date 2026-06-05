@@ -11,16 +11,18 @@ const Hero = () => {
     <Box sx={{ 
       minHeight: { xs: 'auto', md: '100vh' }, 
       display: 'flex', 
+      flexDirection: 'column',
       alignItems: 'center', 
+      justifyContent: 'center',
       pt: { xs: 15, md: 12 }, 
       pb: { xs: 10, md: 0 },
       position: 'relative', 
       overflow: 'hidden',
       background: 'transparent'
     }}>
-      <Container maxWidth="lg">
-        <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
-          <Box sx={{ maxWidth: '1000px', position: 'relative', zIndex: 1 }}>
+      <Container maxWidth="lg" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center', width: '100%' }}>
+          <Box sx={{ maxWidth: '1000px', position: 'relative', zIndex: 1, width: '100%' }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -92,6 +94,7 @@ const Hero = () => {
                   agentic workflows, and immersive 3D ecosystems for the digital frontier.
                 </Typography>
 
+                {/* 
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2.5} justifyContent="center" alignItems="center">
                   <Button 
                     variant="contained" 
@@ -129,7 +132,8 @@ const Hero = () => {
                   >
                     Watch Intelligence →
                   </Button>
-                </Stack>
+                </Stack> 
+                */}
               </motion.div>
             </motion.div>
           </Box>
