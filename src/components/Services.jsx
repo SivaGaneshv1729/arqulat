@@ -1,36 +1,42 @@
 import { Box, Container, Typography, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
-import LaptopMacIcon from '@mui/icons-material/LaptopMac';
-import DesignServicesIcon from '@mui/icons-material/DesignServices';
-import AnalyticsIcon from '@mui/icons-material/Analytics';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import ArchitectureIcon from '@mui/icons-material/Architecture';
+import MemoryIcon from '@mui/icons-material/Memory';
+import HubIcon from '@mui/icons-material/Hub';
+import LanguageIcon from '@mui/icons-material/Language';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 
 const services = [
   {
-    title: 'AI Solutions',
-    description: 'Custom machine learning models and intelligent automation.',
-    icon: <SmartToyIcon sx={{ fontSize: 40, color: '#2563EB' }} />,
+    title: 'AI & Machine Learning',
+    description: 'Deep expertise in neural networks, LLMs, and intelligent automation systems.',
+    icon: <PsychologyIcon sx={{ fontSize: 40, color: '#2563EB' }} />,
   },
   {
-    title: 'Web Development',
-    description: 'Scalable, responsive, and modern web applications.',
-    icon: <LaptopMacIcon sx={{ fontSize: 40, color: '#38BDF8' }} />,
+    title: 'Agentic Workflows',
+    description: 'Designing autonomous agents and complex multi-agent orchestration pipelines.',
+    icon: <HubIcon sx={{ fontSize: 40, color: '#38BDF8' }} />,
   },
   {
-    title: 'UI UX Design',
-    description: 'User-centric designs with modern aesthetics.',
-    icon: <DesignServicesIcon sx={{ fontSize: 40, color: '#818CF8' }} />,
+    title: 'Full Stack Excellence',
+    description: 'End-to-end development with modern frameworks and scalable architectures.',
+    icon: <LanguageIcon sx={{ fontSize: 40, color: '#818CF8' }} />,
   },
   {
-    title: 'Research',
-    description: 'Deep tech research and algorithm optimization.',
-    icon: <AnalyticsIcon sx={{ fontSize: 40, color: '#0EA5E9' }} />,
+    title: 'System Architecture',
+    description: 'Robust, distributed systems designed for high availability and performance.',
+    icon: <ArchitectureIcon sx={{ fontSize: 40, color: '#0EA5E9' }} />,
   },
   {
-    title: 'Startup Consulting',
-    description: 'From idea to MVP and scaling strategies.',
-    icon: <AutoGraphIcon sx={{ fontSize: 40, color: '#60A5FA' }} />,
+    title: 'Enterprise Java',
+    description: 'High-performance backend systems powered by Spring Boot and microservices.',
+    icon: <MemoryIcon sx={{ fontSize: 40, color: '#60A5FA' }} />,
+  },
+  {
+    title: 'Game Tech & 3D',
+    description: 'Immersive experiences built with Blender, Unity, and real-time rendering.',
+    icon: <SportsEsportsIcon sx={{ fontSize: 40, color: '#F0883E' }} />,
   }
 ];
 
@@ -40,10 +46,10 @@ const Services = () => {
       <Container maxWidth="lg">
         <Box sx={{ mb: 10 }}>
           <Typography variant="body1" color="primary" className="mono-text" sx={{ mb: 2, fontWeight: 600 }}>
-            {/* 02. CORE_CAPABILITIES */}
+            {/* 02. CORE_DOMAINS */}
           </Typography>
           <Typography variant="h3" sx={{ mb: 2, fontWeight: 700 }}>
-            The power to build <span style={{ color: '#8b949e' }}>anything you imagine.</span>
+            Deep expertise across <span style={{ color: '#8b949e' }}>the entire tech stack.</span>
           </Typography>
         </Box>
 

@@ -124,68 +124,64 @@ h1, h2, h3, h4, h5, h6 {
   50% { opacity: 0.6; transform: scale(1.2); }
 }
 
-@property --border-angle {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0turn;
+/* Premium Text Reveal */
+.reveal-text {
+  display: inline-block;
+  overflow: hidden;
 }
 
-@keyframes bg-spin {
-  to {
-    --border-angle: 1turn;
-  }
+.reveal-text-content {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Tab Styles */
-.github-tab {
-  padding: 8px 16px;
-  cursor: pointer;
-  border: 1px solid transparent;
-  border-bottom: 2px solid transparent;
-  color: var(--text-muted);
-  transition: all 0.3s ease-in-out;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 6px;
+.reveal-text.active .reveal-text-content {
+  transform: translateY(0);
+}
+
+/* Glass Glare Effect */
+.glare-card {
   position: relative;
+  overflow: hidden;
 }
 
-.github-tab::before {
+.glare-card::after {
   content: '';
   position: absolute;
-  inset: 0px;
-  border-radius: inherit;
-  padding: 1.5px;
-  background: conic-gradient(from var(--border-angle, 0turn), transparent 40%, var(--primary) 80%, var(--secondary) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
-.github-tab:hover {
-  color: var(--text-main);
-  background: rgba(47, 129, 247, 0.05);
+.glare-card:hover::after {
+  left: 150%;
 }
 
-.github-tab:hover::before {
-  opacity: 1;
-  animation: bg-spin 2s linear infinite;
+/* Background Layers */
+.bg-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-.github-tab.active {
-  color: var(--text-main);
-  border-bottom-color: var(--primary);
-}
+.bg-layer-1 { opacity: 0.2; }
+.bg-layer-2 { opacity: 0.1; }
 
-/* Glow Borders */
+/* Refined Glow Border */
 .glow-border {
   position: relative;
-  transition: all 0.3s ease-in-out;
+  transition: border-color 0.3s ease;
 }
 
 .glow-border::before {
@@ -193,22 +189,33 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  padding: 1.5px;
-  background: conic-gradient(from var(--border-angle, 0turn), transparent 40%, var(--primary) 80%, var(--secondary) 100%);
+  padding: 1px;
+  background: conic-gradient(from var(--border-angle, 0turn), transparent 70%, var(--primary) 90%, var(--secondary) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.glow-border:hover {
-  border-color: transparent !important;
-  box-shadow: 0 0 20px rgba(47, 129, 247, 0.15);
+  transition: opacity 0.5s ease;
 }
 
 .glow-border:hover::before {
-  opacity: 1;
-  animation: bg-spin 2.5s linear infinite;
+  opacity: 0.8;
+  animation: bg-spin 3s linear infinite;
+}
+
+/* Mesh Gradient Animation */
+@keyframes mesh-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, 5%) scale(1.1); }
+  66% { transform: translate(-5%, 2%) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.mesh-glow {
+  position: absolute;
+  filter: blur(80px);
+  animation: mesh-drift 15s ease-in-out infinite;
+  opacity: 0.4;
+  z-index: -1;
 }

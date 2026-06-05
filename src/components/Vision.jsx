@@ -2,11 +2,9 @@ import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const timeline = [
-  { year: '2026', title: 'Foundation', desc: 'Establishing the core team and values.' },
-  { year: '2027', title: 'Community', desc: 'Expanding network and hosting hackathons.' },
-  { year: '2028', title: 'Products', desc: 'Releasing student-built software to the public.' },
-  { year: '2029', title: 'Startup Launch', desc: 'Incubating internal projects into real startups.' },
-  { year: '2030', title: 'Global Presence', desc: 'Scaling operations and influence globally.' },
+  { year: 'PHASE_01', title: 'Service Foundation', desc: 'Started as a specialized service provider, delivering high-end technical solutions to global clients.' },
+  { year: 'PHASE_02', title: 'Product Incubation', desc: 'Transitioned into designing and launching internal products, shifting our mindset from "builders for hire" to "product owners".' },
+  { year: 'PHASE_03', title: 'Unified Startup', desc: 'Operating as a single, productive unit where services and product expertise merge into a cohesive startup engine.' },
 ];
 
 const Vision = () => {
@@ -14,10 +12,10 @@ const Vision = () => {
     <Box sx={{ py: 15 }}>
       <Container maxWidth="md">
         <Typography variant="h2" sx={{ textAlign: 'center', mb: 2 }}>
-          Vision <span className="text-gradient">2030</span>
+          Our <span className="text-gradient">Evolution</span>
         </Typography>
         <Typography variant="h6" color="text.secondary" sx={{ textAlign: 'center', mb: 10, fontWeight: 400 }}>
-          Our roadmap to shaping the future.
+          From specialized services to a unified product engine.
         </Typography>
 
         <Box sx={{ position: 'relative', pl: { xs: 4, md: 0 } }}>

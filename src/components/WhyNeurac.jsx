@@ -3,10 +3,10 @@ import { Box, Container, Typography, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const steps = [
-  { id: '01', title: 'Learn', desc: 'Master the latest technologies with hands-on experience.' },
-  { id: '02', title: 'Build', desc: 'Work on real-world projects that solve actual problems.' },
-  { id: '03', title: 'Launch', desc: 'Deploy your products to real users and gather feedback.' },
-  { id: '04', title: 'Scale', desc: 'Grow your user base and transition into a startup.' },
+  { id: '01', title: 'Deep Discovery', desc: 'We leverage our service-based roots to deeply understand complex technical problems and market needs.' },
+  { id: '02', title: 'Agile Execution', desc: 'Our elite team of 4 rapidly prototypes and builds using state-of-the-art AI and system architectures.' },
+  { id: '03', title: 'Productization', desc: 'We transform raw engineering power into polished, scalable products that solve real-world challenges.' },
+  { id: '04', title: 'Unified Growth', desc: 'Operating as a single productive unit, we scale our products into the next generation of software.' },
 ];
 
 const StepCard = ({ step }) => {
@@ -59,10 +59,10 @@ const WhyNeurac = () => {
       <Container maxWidth="lg">
         <Box sx={{ mb: 10, textAlign: 'center' }}>
           <Typography variant="body1" color="primary" className="mono-text" sx={{ mb: 2, fontWeight: 600 }}>
-            {/* 03. THE_PROCESS */}
+            {/* 03. THE_METHODOLOGY */}
           </Typography>
           <Typography variant="h2" sx={{ fontWeight: 700 }}>
-            Why <span style={{ color: '#8b949e' }}>Neurac?</span>
+            The <span style={{ color: '#8b949e' }}>Product Engine.</span>
           </Typography>
         </Box>
         
@@ -70,10 +70,10 @@ const WhyNeurac = () => {
           <Grid item xs={12} md={5} sx={{ display: { xs: 'none', md: 'block' } }}>
             <Box sx={{ position: 'sticky', top: '35vh' }}>
               <Typography variant="h3" sx={{ mb: 3, fontWeight: 700 }}>
-                The Pipeline.
+                Our Pipeline.
               </Typography>
               <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, lineHeight: 1.5 }}>
-                A proven roadmap to transform students into builders and founders. From learning the basics to scaling global solutions.
+                A refined process honed through years of technical service delivery, now powering our internal product ecosystem.
               </Typography>
               <Box sx={{ mt: 4, display: 'flex', gap: 1 }}>
                 <Box sx={{ width: 2, height: 100, background: 'linear-gradient(to bottom, #2f81f7, transparent)' }} />

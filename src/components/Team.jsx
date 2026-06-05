@@ -2,10 +2,10 @@ import { Box, Container, Typography, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const team = [
-  { role: 'Founder', name: 'Alex', angle: 0, color: '#2563EB' },
-  { role: 'Tech Lead', name: 'Sam', angle: 90, color: '#38BDF8' },
-  { role: 'Design Lead', name: 'Jordan', angle: 180, color: '#818CF8' },
-  { role: 'Operations Lead', name: 'Taylor', angle: 270, color: '#0EA5E9' },
+  { role: 'AI & Agents Lead', name: 'Member_01', angle: 0, color: '#2563EB' },
+  { role: 'Full Stack Architect', name: 'Member_02', angle: 90, color: '#38BDF8' },
+  { role: 'System Architect', name: 'Member_03', angle: 180, color: '#818CF8' },
+  { role: 'Gaming & 3D Lead', name: 'Member_04', angle: 270, color: '#F0883E' },
 ];
 
 const Team = () => {
@@ -14,10 +14,10 @@ const Team = () => {
       <Container maxWidth="lg">
         <Box sx={{ mb: 10, textAlign: 'center' }}>
           <Typography variant="body1" color="primary" className="mono-text" sx={{ mb: 2, fontWeight: 600 }}>
-            {/* 05. CORE_TEAM */}
+            {/* 05. ELITE_TEAM */}
           </Typography>
           <Typography variant="h2" sx={{ fontWeight: 700 }}>
-            The minds behind <span style={{ color: '#8b949e' }}>innovation.</span>
+            A unified force of <span style={{ color: '#8b949e' }}>4 specialists.</span>
           </Typography>
         </Box>
 

@@ -2,13 +2,9 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
 import ProductTabs from '../components/ProductTabs';
-import BentoGrid from '../components/BentoGrid';
-import Services from '../components/Services';
-import WhyNeurac from '../components/WhyNeurac';
-import Projects from '../components/Projects';
-import Stats from '../components/Stats';
-import Team from '../components/Team';
-
+import ModernBento from '../components/ModernBento';
+import ModernEvolution from '../components/ModernEvolution';
+import ModernTeam from '../components/ModernTeam';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 
@@ -18,14 +14,10 @@ const Home = () => {
       <Navbar />
       <Hero />
       <Marquee />
+      <ModernBento />
+      <ModernEvolution />
       <ProductTabs />
-      <BentoGrid />
-      <Services />
-      <WhyNeurac />
-      <Projects />
-      <Stats />
-      <Team />
-
+      <ModernTeam />
       <CTA />
       <Footer />
     </>
