@@ -33,30 +33,8 @@ const Hero = () => {
       pb: { xs: 10, md: 0 },
       position: 'relative', 
       overflow: 'hidden',
-      background: '#0d1117'
+      background: 'transparent'
     }}>
-      {/* Mesh Glows - Leonardo.ai style atmospheric depth */}
-      <Box className="mesh-glow" sx={{ top: '-10%', left: '10%', width: '40%', height: '40%', background: 'radial-gradient(circle, rgba(47, 129, 247, 0.15) 0%, transparent 70%)' }} />
-      <Box className="mesh-glow" sx={{ bottom: '10%', right: '10%', width: '50%', height: '50%', background: 'radial-gradient(circle, rgba(137, 87, 229, 0.1) 0%, transparent 70%)', animationDelay: '-5s' }} />
-
-      {/* Layered Star Background with Parallax */}
-      <motion.div className="star-container" style={{ x: mouseX, y: mouseY }}>
-        {[...Array(80)].map((_, i) => (
-          <Box
-            key={i}
-            className="star"
-            sx={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${1 + Math.random() * 2}px`,
-              height: `${1 + Math.random() * 2}px`,
-              '--duration': `${2 + Math.random() * 5}s`,
-              opacity: 0.2 + Math.random() * 0.5
-            }}
-          />
-        ))}
-      </motion.div>
-
       <Container maxWidth="lg">
         <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }}>
           <Box sx={{ maxWidth: '1000px', position: 'relative', zIndex: 1 }}>

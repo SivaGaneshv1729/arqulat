@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from './theme/muiTheme';
 import Home from './pages/Home';
+import GlobalBackground from './components/GlobalBackground';
 import Lenis from '@studio-freight/lenis';
 
 function App() {
   useEffect(() => {
+    // ... existing lenis effect code ...
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -31,9 +33,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="bg-lines-container" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: -1, pointerEvents: 'none', background: 'radial-gradient(circle at 50% 0%, #161b22, transparent 50%)' }}>
-        {/* Subtle grid or lines can go here in the future */}
-      </div>
+      <GlobalBackground />
       <Home />
     </ThemeProvider>
   );
