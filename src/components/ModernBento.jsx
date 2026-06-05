@@ -1,20 +1,20 @@
-import { useState, useRef } from 'react';
-import { Box, Container, Typography, Grid, Paper } from '@mui/material';
+import { useState } from 'react';
+import { Box, Container, Typography, Grid } from '@mui/material';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import HubIcon from '@mui/icons-material/Hub';
 import LanguageIcon from '@mui/icons-material/Language';
 import ArchitectureIcon from '@mui/icons-material/Architecture';
 
-const TiltCard = ({ item, index }) => {
+const GitHubCard = ({ item, index }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -22,10 +22,8 @@ const TiltCard = ({ item, index }) => {
     const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
+    x.set(mouseX / width - 0.5);
+    y.set(mouseY / height - 0.5);
   };
 
   const handleMouseLeave = () => {
@@ -43,129 +41,108 @@ const TiltCard = ({ item, index }) => {
       transition={{ duration: 0.8, delay: index * 0.1 }}
       viewport={{ once: true }}
     >
-      <Paper
-        elevation={0}
-        className="glow-border glare-card"
-        sx={{
-          p: 5,
-          height: '100%',
-          background: 'rgba(22, 27, 34, 0.6)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid #30363d',
-          borderRadius: 6,
-          position: 'relative',
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          transition: 'border-color 0.3s',
-          '&:hover': { borderColor: item.color }
-        }}
-      >
-        <Box 
-          sx={{ 
-            position: 'absolute', 
-            top: 0, 
-            right: 0, 
-            width: '200px', 
-            height: '200px', 
-            background: `radial-gradient(circle at top right, ${item.color}20 0%, transparent 70%)`, 
-            zIndex: 0 
-          }} 
-        />
-        
-        <Box sx={{ position: 'relative', zIndex: 1, transform: "translateZ(50px)" }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
-            <Box sx={{ color: item.color, background: `${item.color}15`, p: 2, borderRadius: 3, display: 'flex' }}>
+      <Box className="github-bento-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Box sx={{ transform: "translateZ(30px)" }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 4 }}>
+            <Box sx={{ color: item.color, display: 'flex' }}>
               {item.icon}
             </Box>
-            <Typography className="mono-text" sx={{ fontSize: '0.7rem', color: 'text.secondary', opacity: 0.6, letterSpacing: '0.2em' }}>
+            <Box className="section-label">
               {item.label}
-            </Typography>
+            </Box>
           </Box>
           
-          <Typography variant="h3" sx={{ fontWeight: 800, mb: 2, letterSpacing: '-0.02em' }}>
+          <Typography variant="h4" sx={{ fontWeight: 800, mb: 2, color: 'text.primary', letterSpacing: '-0.03em' }}>
             {item.title}
+          </Typography>
+          <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.6 }}>
+            {item.desc}
           </Typography>
         </Box>
 
-        <Box sx={{ position: 'relative', zIndex: 1, mt: 4, display: 'flex', flexWrap: 'wrap', gap: 1.5, transform: "translateZ(30px)" }}>
-          {item.items.map((tech, i) => (
-            <Typography 
-              key={i} 
-              variant="caption" 
-              className="mono-text"
-              sx={{ 
-                color: 'text.secondary', 
-                background: 'rgba(255,255,255,0.03)', 
-                px: 2, 
-                py: 0.8, 
-                borderRadius: '6px',
-                border: '1px solid rgba(48, 54, 61, 0.5)',
-                fontSize: '0.75rem'
-              }}
-            >
-              {tech}
-            </Typography>
-          ))}
+        <Box sx={{ transform: "translateZ(20px)", mt: 'auto' }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+            {item.items.map((tech, i) => (
+              <Box 
+                key={i} 
+                sx={{ 
+                  color: 'text.secondary', 
+                  fontSize: '0.7rem',
+                  fontFamily: 'JetBrains Mono',
+                  background: 'rgba(255,255,255,0.03)',
+                  px: 1,
+                  py: 0.3,
+                  border: '1px solid rgba(48, 54, 61, 0.5)',
+                  borderRadius: '4px'
+                }}
+              >
+                {tech}
+              </Box>
+            ))}
+          </Box>
         </Box>
-      </Paper>
+      </Box>
     </motion.div>
   );
 };
 
 const expertise = [
   {
-    title: 'AI & Intelligence',
-    label: 'NEURAL_CORE',
-    icon: <PsychologyIcon sx={{ fontSize: 40 }} />,
-    items: ['Deep Learning', 'Agentic Logic', 'LLM_Ops'],
+    title: 'Autonomous Intelligence',
+    desc: 'Deep learning systems that evolve and reason across complex workflows.',
+    label: 'NEURAL_OS',
+    icon: <PsychologyIcon sx={{ fontSize: 32 }} />,
+    items: ['Agents', 'LLM_Ops', 'Reasoning'],
     color: '#2f81f7',
-    grid: { xs: 12, md: 7 }
+    grid: { xs: 12, md: 8 }
   },
   {
-    title: 'System Infra',
-    label: 'SCALABLE_OPS',
-    icon: <ArchitectureIcon sx={{ fontSize: 40 }} />,
-    items: ['Cloud Native', 'Micro-kernels'],
+    title: 'Core Systems',
+    desc: 'High-performance distributed infrastructure.',
+    label: 'ARCH_ROOT',
+    icon: <ArchitectureIcon sx={{ fontSize: 32 }} />,
+    items: ['Dist_Sys', 'Spring'],
     color: '#8957e5',
-    grid: { xs: 12, md: 5 }
+    grid: { xs: 12, md: 4 }
   },
   {
-    title: 'Visual Tech',
-    label: 'RENDER_ENG',
-    icon: <HubIcon sx={{ fontSize: 40 }} />,
-    items: ['Real-time 3D', 'Spatial UI'],
+    title: 'Immersive Tech',
+    desc: 'The frontier of spatial UI and 3D rendering.',
+    label: 'VISUAL_CORE',
+    icon: <HubIcon sx={{ fontSize: 32 }} />,
+    items: ['Unity', 'Blender'],
     color: '#f0883e',
-    grid: { xs: 12, md: 5 }
+    grid: { xs: 12, md: 4 }
   },
   {
-    title: 'Full Stack',
-    label: 'PRODUCT_LAYER',
-    icon: <LanguageIcon sx={{ fontSize: 40 }} />,
-    items: ['Next.js', 'Distributed UI', 'High-speed I/O'],
+    title: 'Product Delivery',
+    desc: 'Seamless bridging of intelligence and user experience.',
+    label: 'SYNC_LAYER',
+    icon: <LanguageIcon sx={{ fontSize: 32 }} />,
+    items: ['React', 'Next.js', 'Scaling'],
     color: '#38bdf8',
-    grid: { xs: 12, md: 7 }
+    grid: { xs: 12, md: 8 }
   }
 ];
 
 const ModernBento = () => {
   return (
-    <Box sx={{ py: 25, position: 'relative', overflow: 'hidden' }}>
+    <Box sx={{ py: 20, position: 'relative' }}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 15, textAlign: 'center' }}>
-          <Typography className="mono-text" variant="caption" sx={{ color: 'primary.main', mb: 2, display: 'block', letterSpacing: '0.3em' }}>
-            [ 02. TECHNICAL_EXCELLENCE ]
-          </Typography>
-          <Typography variant="h2" sx={{ fontWeight: 800, lineHeight: 1, fontSize: { xs: '3rem', md: '4.5rem' } }}>
-            Engineered for the <span className="text-gradient">next frontier.</span>
+        <Box sx={{ mb: 12 }}>
+          <Box className="section-label" sx={{ mb: 3 }}>
+            [ 01. CORE_CAPABILITIES ]
+          </Box>
+          <Typography variant="h2" sx={{ fontWeight: 800, maxWidth: '800px', lineHeight: 1.1, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
+            Technical excellence, <br />
+            <span style={{ color: '#8b949e' }}>distributed across 4 specialists.</span>
           </Typography>
         </Box>
 
-        <Grid container spacing={4} sx={{ perspective: "1000px" }}>
+        <Grid container spacing={3}>
           {expertise.map((item, index) => (
             <Grid item xs={item.grid.xs} md={item.grid.md} key={index}>
-              <TiltCard item={item} index={index} />
+              <GitHubCard item={item} index={index} />
             </Grid>
           ))}
         </Grid>
