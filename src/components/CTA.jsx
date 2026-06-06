@@ -31,12 +31,18 @@ const CTA = () => {
         opacity: 0.5
       }} />
 
-      <Container maxWidth="md" sx={{ textAlign: 'center' }}>
+      <Container maxWidth="md">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            textAlign: 'center' 
+          }}
         >
           <Typography className="mono-text" variant="body1" color="primary" sx={{ mb: 3, fontWeight: 600, fontSize: '0.85rem', letterSpacing: '0.1em' }}>
             {'// SYSTEM_INTEGRATION_READY'}

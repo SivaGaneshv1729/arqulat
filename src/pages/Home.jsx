@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import About from '../components/About';
 import Marquee from '../components/Marquee';
 import ProductTabs from '../components/ProductTabs';
 import ModernBento from '../components/ModernBento';
@@ -14,6 +15,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <Marquee />
+      <About />
       <ModernBento />
       <ModernEvolution />
       <ProductTabs />
