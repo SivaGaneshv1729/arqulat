@@ -8,7 +8,7 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb';
 const cards = [
   {
     title: 'Agency',
-    label: 'NEURAC_PRO',
+    label: 'ARQULAT_PRO',
     icon: <CodeIcon fontSize="large" color="primary" />,
     items: ['Web Development', 'Mobile Apps', 'Branding', 'Automation'],
     colSpan: { xs: 12, md: 8 },
@@ -16,7 +16,7 @@ const cards = [
   },
   {
     title: 'Startup',
-    label: 'NEURAC_LABS',
+    label: 'ARQULAT_LABS',
     icon: <RocketLaunchIcon fontSize="large" color="secondary" />,
     items: ['Product Building', 'Research', 'Innovation'],
     colSpan: { xs: 12, md: 4 },
@@ -24,7 +24,7 @@ const cards = [
   },
   {
     title: 'Club',
-    label: 'NEURAC_ORG',
+    label: 'ARQULAT_ORG',
     icon: <GroupIcon fontSize="large" sx={{ color: '#8957e5' }} />,
     items: ['Hackathons', 'Events', 'Workshops'],
     colSpan: { xs: 12, md: 4 },
@@ -32,9 +32,9 @@ const cards = [
   },
   {
     title: 'Community',
-    label: 'NEURAC_HUB',
+    label: 'ARQULAT_HUB',
     icon: <LightbulbIcon fontSize="large" sx={{ color: '#d29922' }} />,
-    items: ['Networking', 'Collaboration', 'Learning'],
+    items: ['Open Source Contribution', 'Technical Mentorship', 'Algorithm Design'],
     colSpan: { xs: 12, md: 4 },
     rowSpan: 1,
   }

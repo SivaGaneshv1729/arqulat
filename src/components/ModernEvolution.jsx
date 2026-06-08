@@ -4,26 +4,26 @@ import { motion } from 'framer-motion';
 const phases = [
   { 
     id: '01', 
-    title: 'Service & Deep R&D', 
-    label: 'RND_ENGINE',
-    desc: 'Honing engineering depth by delivering advanced, highly scalable architectures for enterprise ecosystems.',
+    title: 'Hackathons & Core R&D', 
+    label: 'HACKATHON_ROOTS',
+    desc: 'Experimental projects, local coding competitions, and academic depth. Winning campus initiatives and building deep engineering foundations.',
     status: 'COMPLETED',
     color: '#3fb950'
   },
   { 
     id: '02', 
-    title: 'Platform Incubation', 
-    label: 'ARQ_LABS_OS',
-    desc: 'Spinning out internal methodologies into modular agent protocols and real-time canvas environments.',
-    status: 'IN_PROGRESS',
+    title: 'Student Agency Launch', 
+    label: 'ARQULAT_AGENCY',
+    desc: 'Deploying high-quality MVPs, custom RAG integrations, and custom database schemas for early-stage clients and startups.',
+    status: 'ACTIVE_NOW',
     color: '#2f81f7'
   },
   { 
     id: '03', 
-    title: 'Autonomous Ecosystem', 
-    label: 'ARQULAT_CORE',
-    desc: 'Unifying proprietary tooling into a cohesive venture engine. We build, invest in, and scale the next generation of high-velocity intelligent software.',
-    status: 'ACTIVE_ROADMAP',
+    title: 'SaaS & Enterprise Scale', 
+    label: 'SCALED_PRODUCTS',
+    desc: 'Polishing internal tools (like Hostel SaaS) into public products and establishing robust enterprise integrations globally.',
+    status: 'ROADMAP',
     color: '#8957e5'
   }
 ];

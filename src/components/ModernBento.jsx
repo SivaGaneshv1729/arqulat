@@ -8,9 +8,9 @@ import ArchitectureIcon from '@mui/icons-material/Architecture';
 
 const expertise = [
   {
-    title: 'Cognitive Agent Swarms',
-    desc: 'Deploy self-directed multi-agent networks featuring dynamic reasoning, execution loops, and autonomous context window management.',
-    label: 'COGNITIVE_CORE',
+    title: 'Custom AI/ML Integrations',
+    desc: 'Build custom RAG pipelines, fine-tuned open-source models, and agentic workflows tailored to your custom database requirements.',
+    label: 'AI_ML_SYSTEMS',
     icon: <PsychologyIcon sx={{ fontSize: 24 }} />,
     color: '#2f81f7',
     radius: 500,
@@ -19,9 +19,9 @@ const expertise = [
     tiltX: 75
   },
   {
-    title: 'Hyperscale Infra',
-    desc: 'Distributed compute orchestrators built for real-time model serving at sub-millisecond latencies.',
-    label: 'COMPUTE_ROOT',
+    title: 'Core Software Eng',
+    desc: 'High-performance full-stack architectures, robust relational database designs, and optimized server integrations.',
+    label: 'CORE_SOFTWARE',
     icon: <ArchitectureIcon sx={{ fontSize: 24 }} />,
     color: '#8957e5',
     radius: 500,
@@ -30,9 +30,9 @@ const expertise = [
     tiltX: 75
   },
   {
-    title: 'Spatial UI & 3D',
-    desc: 'Interactive 3D simulation engines, real-time spatial interfaces, and customized canvas rendering environments.',
-    label: 'SPATIAL_VECTOR',
+    title: 'Student Agility',
+    desc: 'High-velocity development cycles, rapid MVP prototyping, and cost-effective deployments built with a hacker mindset.',
+    label: 'AGILE_HACKERS',
     icon: <HubIcon sx={{ fontSize: 24 }} />,
     color: '#f0883e',
     radius: 500,
@@ -41,9 +41,9 @@ const expertise = [
     tiltX: 75
   },
   {
-    title: 'Enterprise Delivery',
-    desc: 'Production-ready frameworks integrating deep learning services with blazing fast, responsive user experiences.',
-    label: 'SYNC_PROTOCOL',
+    title: 'Modern UI/UX Delivery',
+    desc: 'Premium, responsive interfaces featuring immersive layout patterns and hardware-accelerated animation libraries.',
+    label: 'SLEEK_FRONTENDS',
     icon: <LanguageIcon sx={{ fontSize: 24 }} />,
     color: '#38bdf8',
     radius: 500,
