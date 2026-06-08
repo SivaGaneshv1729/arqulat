@@ -66,7 +66,7 @@ const Hero = () => {
                   transition={{ duration: 1, delay: 0.2 }}
                   style={{ display: 'inline-block' }}
                 >
-                  Engineering Next-Gen Systems
+                  Engineering
                 </motion.span>
                 <br />
                 <motion.span
@@ -76,7 +76,7 @@ const Hero = () => {
                   style={{ display: 'inline-block' }}
                   className="text-gradient"
                 >
-                  AI/ML & Core Software.
+                  Next Gen Software.
                 </motion.span>
               </Typography>
               
