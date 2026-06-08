@@ -45,10 +45,10 @@ const CTA = () => {
           }}
         >
           <Typography className="mono-text" variant="body1" color="primary" sx={{ mb: 3, fontWeight: 600, fontSize: '0.85rem', letterSpacing: '0.1em' }}>
-            {'// SYSTEM_INTEGRATION_READY'}
+            {'// STACK_COLLABORATION_READY'}
           </Typography>
           <Typography variant="h2" sx={{ mb: 4, fontWeight: 800, letterSpacing: -1, fontSize: { xs: '2.2rem', md: '3.2rem' } }}>
-            Build the next generation of <br />student-led venture <span style={{ color: '#8b949e' }}>intelligence.</span>
+            Ready to innovate? <br />Let's build your next <span style={{ color: '#8b949e' }}>solution.</span>
           </Typography>
           
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center" alignItems="center">
@@ -68,7 +68,7 @@ const CTA = () => {
                 }
               }}
             >
-              Join the Collective
+              Schedule MVP Session
             </Button>
             <Button
               variant="outlined"
@@ -84,7 +84,7 @@ const CTA = () => {
                 '&:hover': { borderColor: '#8b949e', background: 'rgba(255,255,255,0.05)' }
               }}
             >
-              Explore Research
+              Explore Our Experience
             </Button>
           </Stack>
         </motion.div>
