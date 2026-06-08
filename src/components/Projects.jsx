@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Container, Typography, Paper, Button } from '@mui/material';
+import { motion } from 'framer-motion';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const ClassmateMock = () => (
@@ -88,73 +89,31 @@ const projects = [
   }
 ];
 
-// Duplicate projects multiple times to ensure enough horizontal width for seamless scroll
+// Duplicate projects to ensure infinite scroll loops
 const marqueeItems = [...projects, ...projects, ...projects, ...projects];
 
 const Projects = () => {
-  const containerRef = useRef(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeftState, setScrollLeftState] = useState(0);
+  const [dragX, setDragX] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Automatic marquee marquee effect via requestAnimationFrame
-  useEffect(() => {
-    let animationFrameId;
-    const scroll = () => {
-      if (containerRef.current && !isPaused && !isDragging) {
-        containerRef.current.scrollLeft += 0.8; // Smooth marquee scrolling speed
-        
-        // Loop back seamlessly when scrolling past the first set of items
-        const halfWidth = containerRef.current.scrollWidth / 2;
-        if (containerRef.current.scrollLeft >= halfWidth) {
-          containerRef.current.scrollLeft -= halfWidth;
-        }
-      }
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-    animationFrameId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isPaused, isDragging]);
-
-  // Handle Mouse Wheel horizontal translation
+  // Translate vertical wheel scroll to horizontal position updates when hovered
   const handleWheel = (e) => {
-    if (containerRef.current) {
-      if (e.deltaY !== 0) {
-        e.preventDefault();
-        containerRef.current.scrollLeft += e.deltaY * 1.2;
-      }
+    if (isHovered && e.deltaY !== 0) {
+      setDragX((prev) => {
+        let next = prev - e.deltaY * 1.5;
+        // Keep bounds aligned
+        const limit = -1500;
+        if (next > 0) next = 0;
+        if (next < limit) next = limit;
+        return next;
+      });
     }
-  };
-
-  // Drag-to-scroll Mouse Event Handlers
-  const handleMouseDown = (e) => {
-    if (!containerRef.current) return;
-    setIsDragging(true);
-    setStartX(e.pageX - containerRef.current.offsetLeft);
-    setScrollLeftState(containerRef.current.scrollLeft);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging || !containerRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5; // Drag speed multiplier
-    containerRef.current.scrollLeft = scrollLeftState - walk;
   };
 
   return (
     <Box sx={{ py: 12, position: 'relative', borderTop: '1px solid #30363d', borderBottom: '1px solid #30363d', background: '#0d1117', overflow: 'hidden' }}>
       
-      {/* Edge Blur Fades */}
+      {/* Edge Fades */}
       <Box 
         sx={{ 
           position: 'absolute', 
@@ -176,33 +135,28 @@ const Projects = () => {
         </Box>
       </Container>
 
-      {/* Draggable & Wheel-controlled Marquee Container */}
+      {/* GPU Accelerated Horizontal Scrolling Container */}
       <Box 
-        ref={containerRef}
         onWheel={handleWheel}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => {
-          setIsDragging(false);
-          setIsPaused(false);
-        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         sx={{ 
           display: 'flex', 
           width: '100%', 
-          overflowX: 'auto', 
+          overflow: 'hidden', 
           position: 'relative',
-          cursor: isDragging ? 'grabbing' : 'grab',
-          userSelect: 'none',
-          // Hide Scrollbars
-          '&::-webkit-scrollbar': { display: 'none' },
-          msOverflowStyle: 'none',
-          scrollbarWidth: 'none',
-          px: 4
+          cursor: isHovered ? 'grab' : 'default',
+          '&:active': { cursor: 'grabbing' }
         }}
       >
-        <Box
+        <motion.div
+          animate={isHovered ? { x: dragX } : { x: ['0%', '-50%'] }}
+          transition={isHovered ? { type: 'spring', stiffness: 350, damping: 40 } : { ease: 'linear', duration: 40, repeat: Infinity }}
+          drag="x"
+          dragConstraints={{ left: -1500, right: 0 }}
+          onDrag={(event, info) => {
+            setDragX(info.offset.x + dragX);
+          }}
           style={{ display: 'flex', gap: '24px', padding: '12px 24px' }}
         >
           {marqueeItems.map((project, index) => {
@@ -260,12 +214,12 @@ const Projects = () => {
                       </Button>
                     </Box>
 
-                    {/* Custom UI Mockup serving as Image (Uniform 150px Height) */}
+                    {/* Custom UI Mockup serving as Image */}
                     <Box sx={{ height: '150px', maxHeight: '150px', overflow: 'hidden', width: '100%', background: '#0d1117', border: '1px solid #21262d', borderRadius: 2, p: 0.5 }}>
                       <Visual />
                     </Box>
 
-                    {/* Info (Uniform Dimensions) */}
+                    {/* Info */}
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.8, height: '85px', maxHeight: '85px', overflow: 'hidden' }}>
                       <Typography variant="h4" sx={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
                         {project.title}
@@ -289,7 +243,7 @@ const Projects = () => {
               </Box>
             );
           })}
-        </Box>
+        </motion.div>
       </Box>
       
     </Box>
