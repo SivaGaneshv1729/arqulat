@@ -89,5 +89,5 @@ To maintain Arqulat's elite technical aesthetic, please adhere to:
 
 ## 📝 License & Identity
 
-© 2026 **ARQULAT_LABS**. All rights reserved.
+© 2026 **ARQULAT**. All rights reserved.
 Engineered with precision by the **Arqulat Core Contributors**.

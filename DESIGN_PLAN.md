@@ -1,7 +1,7 @@
-# Redesign Plan: GitHub-Inspired Aesthetic for Neuarc
+# Redesign Plan: GitHub-Inspired Aesthetic for Arqulat
 
 ## Goal
-To apply the technical, clean, and dark aesthetic of GitHub's homepage to Neuarc, while maintaining Neuarc's existing structure (Hero, Bento Grid, Services, etc.) and utilizing subtle, technical scroll animations.
+To apply the technical, clean, and dark aesthetic of GitHub's homepage to Arqulat, while maintaining Arqulat's existing structure (Hero, Bento Grid, Services, etc.) and utilizing subtle, technical scroll animations.
 
 ## Typography & Colors
 - **Background:** Solid dark `#0d1117` (GitHub Dark).
@@ -42,4 +42,5 @@ Once approved, I will sequentially edit:
 1. `muiTheme.js` and `index.css`
 2. `Navbar.jsx` and `Hero.jsx`
 3. `BentoGrid.jsx` and `Services.jsx`
-4. The remaining sections (`WhyNeurac.jsx`, `Projects.jsx`, `Stats.jsx`, `Team.jsx`, `CTA.jsx`, `Footer.jsx`)
+4. The remaining sections (`WhyArqulat.jsx`, `Projects.jsx`, `Stats.jsx`, `Team.jsx`, `CTA.jsx`, `Footer.jsx`)
+
