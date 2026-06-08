@@ -10,7 +10,8 @@ const testimonials = [
     text: 'The Classmate RAG pipeline resolved student career inquiries seamlessly. Exceptional software craftsmanship.', 
     color: '#2f81f7',
     date: 'May 14',
-    // Position coordinates on desktop grid relative to center
+    region: 'APAC // CHENNAI_NODE',
+    latLong: '13.0827° N, 80.2707° E',
     top: '12%',
     left: '12%',
     lineX: '20%',
@@ -25,6 +26,8 @@ const testimonials = [
     text: 'Hostel SaaS automated room booking and gate security instantly. Exceptional agility and backend design.', 
     color: '#8957e5',
     date: 'Jun 02',
+    region: 'AMER // SF_NODE',
+    latLong: '37.7749° N, 122.4194° W',
     top: '12%',
     right: '12%',
     lineX: '80%',
@@ -39,6 +42,8 @@ const testimonials = [
     text: 'Future Labs matching portal ran without a single lag. Highly responsive frontend layouts, clean code.', 
     color: '#3fb950',
     date: 'May 28',
+    region: 'EMEA // LONDON_NODE',
+    latLong: '51.5074° N, 0.1278° W',
     bottom: '8%',
     left: '50%',
     lineX: '50%',
@@ -99,6 +104,19 @@ const Testimonials = () => {
             pointerEvents: 'none' 
           }}
         >
+          {/* Global Network Map Background Grid */}
+          <defs>
+            <pattern id="networkGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="rgba(139, 148, 158, 0.12)" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#networkGrid)" />
+
+          {/* Styled Latency Rings around Central Hub */}
+          <circle cx="50%" cy="50%" r="130" fill="none" stroke="rgba(48, 54, 61, 0.2)" strokeWidth="1" strokeDasharray="4,8" />
+          <circle cx="50%" cy="50%" r="240" fill="none" stroke="rgba(48, 54, 61, 0.15)" strokeWidth="1" strokeDasharray="4,8" />
+          <circle cx="50%" cy="50%" r="350" fill="none" stroke="rgba(48, 54, 61, 0.08)" strokeWidth="1" strokeDasharray="4,8" />
+
           {/* Main Central Hub Node Connections */}
           {testimonials.map((test, index) => {
             const isTargeted = hoveredIndex === index;
@@ -228,20 +246,20 @@ const Testimonials = () => {
             bubbleStyle = {
               ...bubbleStyle,
               top: '50%',
-              left: '80px',
+              left: '95px',
               transform: isTargeted ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.95)'
             };
           } else if (index === 1) { // Rohan - top right
             bubbleStyle = {
               ...bubbleStyle,
               top: '50%',
-              right: '80px',
+              right: '95px',
               transform: isTargeted ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.95)'
             };
           } else { // Devika - bottom center
             bubbleStyle = {
               ...bubbleStyle,
-              bottom: '80px',
+              bottom: '95px',
               left: '50%',
               transform: isTargeted ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0.95)'
             };
@@ -271,6 +289,7 @@ const Testimonials = () => {
                   sx={{ 
                     position: 'relative',
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer'
@@ -297,6 +316,22 @@ const Testimonials = () => {
                     </svg>
                   </Avatar>
 
+                  {/* Geolocation Region tag under the node avatar */}
+                  <Typography 
+                    className="font-mono" 
+                    sx={{ 
+                      mt: 1.5, 
+                      fontSize: '0.6rem', 
+                      fontWeight: 700, 
+                      color: isTargeted ? test.color : 'text.secondary',
+                      transition: 'color 0.3s',
+                      letterSpacing: '0.05em',
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    {test.region}
+                  </Typography>
+
                   {/* GitHub Style Comment Bubble */}
                   <Paper
                     elevation={0}
@@ -304,9 +339,14 @@ const Testimonials = () => {
                   >
                     {/* comment header */}
                     <Box sx={{ px: 2, py: 1, borderBottom: '1px solid #30363d', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#0d1117' }}>
-                      <Typography sx={{ fontWeight: 800, fontSize: '0.75rem', color: 'text.primary' }}>
-                        {test.username}
-                      </Typography>
+                      <Stack direction="column" spacing={0.2} sx={{ alignItems: 'flex-start' }}>
+                        <Typography sx={{ fontWeight: 800, fontSize: '0.75rem', color: 'text.primary' }}>
+                          {test.username}
+                        </Typography>
+                        <Typography className="font-mono" sx={{ fontSize: '0.5rem', color: 'text.secondary' }}>
+                          {test.latLong}
+                        </Typography>
+                      </Stack>
                       <Box sx={{ px: 0.8, py: 0.1, borderRadius: '8px', border: '1px solid #2ea043', background: 'rgba(46, 160, 67, 0.15)', color: '#3fb950', fontSize: '0.55rem', fontWeight: 700 }}>
                         APPROVED
                       </Box>
