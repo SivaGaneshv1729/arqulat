@@ -1,4 +1,4 @@
-import { Box, Typography, Button, Container, Stack } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
@@ -45,7 +45,7 @@ const Hero = () => {
                     letterSpacing: '0.1em'
                   }}
                 >
-                  [ NEURAC_ECOSYSTEM_V2 ]
+                  [ ARQULAT_AGENCY_v1.0 ]
                 </Typography>
               </Box>
 
@@ -66,7 +66,7 @@ const Hero = () => {
                   transition={{ duration: 1, delay: 0.2 }}
                   style={{ display: 'inline-block' }}
                 >
-                  Unified Engineering
+                  Innovative Solutions
                 </motion.span>
                 <br />
                 <motion.span
@@ -76,7 +76,7 @@ const Hero = () => {
                   style={{ display: 'inline-block' }}
                   className="text-gradient"
                 >
-                  Product Intelligence.
+                  AI/ML & Core Software.
                 </motion.span>
               </Typography>
               
@@ -90,8 +90,8 @@ const Hero = () => {
                   color="text.secondary" 
                   sx={{ mb: 6, mx: 'auto', maxWidth: '750px', fontWeight: 400, lineHeight: 1.6, fontSize: { xs: '1.1rem', md: '1.4rem' }, opacity: 0.8 }}
                 >
-                  The next generation of high-performance software. We build autonomous systems, 
-                  agentic workflows, and immersive 3D ecosystems for the digital frontier.
+                  A student-developed engineering collective ready to deliver custom AI/ML integrations, 
+                  deep learning solutions, and high-performance core software technologies for your challenges.
                 </Typography>
 
                 {/* 
@@ -147,9 +147,9 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1 }}
         >
           <Box className="glow-border" sx={{ background: 'rgba(22, 27, 34, 0.4)', backdropFilter: 'blur(10px)', p: 2, borderRadius: 2, border: '1px solid rgba(48, 54, 61, 0.5)', fontFamily: '"JetBrains Mono", monospace', fontSize: '0.8rem', color: '#8b949e' }}>
-            <span style={{color: '#ff7b72'}}>const</span> neurac = <span style={{color: '#ff7b72'}}>new</span> <span style={{color: '#d2a8ff'}}>Startup</span>();
+            <span style={{color: '#ff7b72'}}>const</span> agency = <span style={{color: '#ff7b72'}}>new</span> <span style={{color: '#d2a8ff'}}>Arqulat</span>();
             <br />
-            neurac.<span style={{color: '#d2a8ff'}}>unify</span>();
+            <span style={{color: '#ff7b72'}}>await</span> agency.<span style={{color: '#d2a8ff'}}>buildSolution</span>(&#123; aiMl: <span style={{color: '#ff7b72'}}>true</span> &#125;);
           </Box>
         </motion.div>
 
@@ -161,9 +161,9 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1.2 }}
         >
           <Box className="glow-border" sx={{ background: 'rgba(22, 27, 34, 0.4)', backdropFilter: 'blur(10px)', p: 2, borderRadius: 2, border: '1px solid rgba(48, 54, 61, 0.5)', fontFamily: '"JetBrains Mono", monospace', fontSize: '0.8rem', color: '#3fb950' }}>
-            ✓ AGENTS_STABLE: 100%
+            ✓ SOLUTIONS_DEPLOYED: ACTIVE
             <br />
-            ✓ SYSTEMS_IDLE: FALSE
+            ✓ STUDENT_BUILDERS: TRUE
           </Box>
         </motion.div>
       </Container>

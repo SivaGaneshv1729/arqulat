@@ -93,27 +93,27 @@ const About = () => {
                 [ 00. ORIGIN_PROTOCOL ]
               </Box>
               <Typography variant="h2" sx={{ fontWeight: 800, mb: 4, letterSpacing: '-0.04em', fontSize: { xs: '2.2rem', md: '3.2rem' } }}>
-                Engineering the <span className="text-gradient">digital frontier.</span>
+                Student intelligence, <span className="text-gradient">production delivery.</span>
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, fontSize: '1.05rem', lineHeight: 1.7 }}>
-                Arqulat is a high-velocity engineering collective dedicated to building the infrastructure of the autonomous age. We specialize in agentic workflows, spatial computing, and hyperscale intelligence.
+                Arqulat is a student-developed engineering agency specializing in custom artificial intelligence, machine learning, and core software solutions. We bridge high-performance academic research with pragmatic software craftsmanship, creating production-grade integrations tailored to real problems.
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.7, opacity: 0.8 }}>
-                Our mission is to unify complex technical stacks into cohesive, production-ready ecosystems that empower the next generation of venture-backed innovation.
+                Founded and operated by a collaborative team of student builders, we work at high-velocity to construct scalable backends, deploy fine-tuned local models, optimize LLM context limits, and engineer intuitive UI/UX layers.
               </Typography>
               
               <Stack direction="row" spacing={5} sx={{ mt: 6 }}>
                 <Box>
-                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'primary.main', mb: 0.5 }}>24/7</Typography>
+                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'primary.main', mb: 0.5 }}>99.9%</Typography>
                   <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.1em' }}>UPTIME_SYNC</Typography>
                 </Box>
                 <Box>
-                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'secondary.main', mb: 0.5 }}>100%</Typography>
-                  <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.1em' }}>DEPLOY_RATE</Typography>
+                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'secondary.main', mb: 0.5 }}>10+</Typography>
+                  <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.1em' }}>SHIPPED_PROTOS</Typography>
                 </Box>
                 <Box>
-                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'info.main', mb: 0.5 }}>∞</Typography>
-                  <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.1em' }}>SCALABILITY</Typography>
+                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'info.main', mb: 0.5 }}>4</Typography>
+                  <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.1em' }}>CORE_BUILDERS</Typography>
                 </Box>
               </Stack>
             </motion.div>
