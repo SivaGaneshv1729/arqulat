@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Avatar, IconButton, Stack, Grid } from '@mui/material';
+import { Box, Container, Typography, Avatar, IconButton, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -9,13 +9,13 @@ const specialists = [
   { 
     name: 'Venkat Ganesh', 
     role: 'AI & COGNITIVE LEAD', 
-    bio: 'Architecting multi-agent swarm frameworks and context orchestration strategies for high-intelligence production systems.',
+    bio: 'Student AI Lead specializing in LLMs, deep learning, local model deployment, and RAG pipelines. Passionate about bringing state-of-the-art research into practical client builds.',
     image: 'https://github.com/github.png', // Placeholder for actual image
     links: {
       github: 'https://github.com',
       linkedin: 'https://linkedin.com',
       portfolio: 'https://portfolio.com',
-      mail: 'mailto:venkat@neurac.com'
+      mail: 'mailto:venkat@arqulat.com'
     },
     tech: ['PyTorch', 'LangChain', 'OpenAI'],
     color: '#2f81f7',
@@ -24,13 +24,13 @@ const specialists = [
   { 
     name: 'Siva Ganesh', 
     role: 'CORE ARCHITECT', 
-    bio: 'Bridging distributed computation backends with high-performance real-time frontends and robust system architecture.',
+    bio: 'Student Core Architect bridging distributed computation backends with high-performance client frontends. Expert in scaling MERN & TypeScript ecosystems.',
     image: 'https://github.com/github.png',
     links: {
       github: 'https://github.com',
       linkedin: 'https://linkedin.com',
       portfolio: 'https://portfolio.com',
-      mail: 'mailto:siva@neurac.com'
+      mail: 'mailto:siva@arqulat.com'
     },
     tech: ['Next.js', 'Go', 'PostgreSQL'],
     color: '#8957e5',
@@ -39,13 +39,13 @@ const specialists = [
   { 
     name: 'Sri Ram', 
     role: 'INFRASTRUCTURE LEAD', 
-    bio: 'Constructing containerized high-concurrency clusters and automated deployment layers for global scalability.',
+    bio: 'Student Infrastructure Lead focusing on automated deployment pipelines, containerized systems, and secure server networking.',
     image: 'https://github.com/github.png',
     links: {
       github: 'https://github.com',
       linkedin: 'https://linkedin.com',
       portfolio: 'https://portfolio.com',
-      mail: 'mailto:sriram@neurac.com'
+      mail: 'mailto:sriram@arqulat.com'
     },
     tech: ['K8s', 'Docker', 'Redis'],
     color: '#38bdf8',
@@ -54,13 +54,13 @@ const specialists = [
   { 
     name: 'Veeranna', 
     role: 'SPATIAL & 3D LEAD', 
-    bio: 'Creating interactive 3D simulations and photorealistic spatial canvases using cutting-edge rendering technologies.',
+    bio: 'Student Creative Lead designing interactive client dashboards, responsive layouts, and modern frontends.',
     image: 'https://github.com/github.png',
     links: {
       github: 'https://github.com',
       linkedin: 'https://linkedin.com',
       portfolio: 'https://portfolio.com',
-      mail: 'mailto:veeranna@neurac.com'
+      mail: 'mailto:veeranna@arqulat.com'
     },
     tech: ['Three.js', 'GLSL', 'Blender'],
     color: '#f0883e',

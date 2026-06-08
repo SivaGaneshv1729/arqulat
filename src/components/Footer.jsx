@@ -65,7 +65,7 @@ const Footer = () => {
         <Box sx={{ borderTop: '1px solid #30363d', pt: 6, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
             <Typography variant="caption" className="font-mono" sx={{ color: 'text.secondary', fontSize: '0.7rem' }}>
-              © {new Date().getFullYear()} ARQULAT_LABS
+              © {new Date().getFullYear()} ARQULAT
             </Typography>
             <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.7rem', cursor: 'pointer', '&:hover': { color: 'primary.main' } }}>
               TERMS

@@ -25,7 +25,7 @@ const Team = () => {
           {/* Center Branding */}
           <Box sx={{ position: 'absolute', zIndex: 10, textAlign: 'center' }}>
             <Typography variant="h4" sx={{ fontWeight: 700, letterSpacing: -1, color: 'text.primary' }}>
-              NEUR<span style={{ color: '#2f81f7' }}>AC</span>
+              ARQU<span style={{ color: '#2f81f7' }}>LAT</span>
             </Typography>
             <Typography variant="caption" className="mono-text" sx={{ color: 'text.secondary', display: 'block' }}>
               [ HUB_CORE ]
