@@ -1,41 +1,56 @@
-import { Box, Container, Typography, Grid, Paper, Avatar } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Avatar, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
-import GitHubIcon from '@mui/icons-material/GitHub';
 
 const testimonials = [
   { 
-    name: 'Alex Rivera', 
-    role: 'Senior Systems Architect', 
-    text: 'The RAG implementation handled our production load without a single bottleneck. Arqulat\'s engineering rigor and focus on low-latency inference is unmatched.', 
+    name: 'Prof. K. Srinivasan', 
+    role: 'HOD, Computer Science', 
+    username: '@srinivasan_cs',
+    text: 'The Classmate RAG pipeline resolved student career inquiries seamlessly. Exceptional software craftsmanship and research execution from student builders.', 
     color: '#2f81f7',
-    alias: 'sys_arch'
+    date: 'on May 14, 2026',
+    reactions: [
+      { emoji: '👍', count: 12 },
+      { emoji: '❤️', count: 6 }
+    ]
   },
   { 
-    name: 'Dr. Marcus Chen', 
-    role: 'AI Research Lead', 
-    text: 'Transitioning from academic LLM concepts to a production-ready agentic swarm was seamless. Their expertise in context window management is top-tier.', 
+    name: 'Rohan Mehta', 
+    role: 'Co-Founder, QuickRent', 
+    username: '@rohan_quickrent',
+    text: 'Hostel SaaS automated our tenant room booking and security passes instantly. Exceptional engineering agility and robust database schema design.', 
     color: '#8957e5',
-    alias: 'ai_research'
+    date: 'on Jun 02, 2026',
+    reactions: [
+      { emoji: '👍', count: 9 },
+      { emoji: '🎉', count: 4 }
+    ]
   },
   { 
-    name: 'Jordan Smith', 
-    role: 'Open Source Contributor', 
-    text: 'Solid architecture and clean, modular code. It\'s rare to find an engineering collective with this level of systems-level thinking and commit discipline.', 
+    name: 'Devika Nair', 
+    role: 'Lead Organizer, Campus Hackfest', 
+    username: '@devika_nair',
+    text: 'Future Labs supported our campus incubator matches without any lag. Highly responsive frontend layouts, clean codebases, and fast sync.', 
     color: '#3fb950',
-    alias: 'oss_contributor'
+    date: 'on May 28, 2026',
+    reactions: [
+      { emoji: '👍', count: 15 },
+      { emoji: '🚀', count: 8 },
+      { emoji: '❤️', count: 5 }
+    ]
   }
 ];
 
 const Testimonials = () => {
   return (
-    <Box sx={{ py: 15, position: 'relative', borderTop: '1px solid #30363d' }}>
+    <Box sx={{ py: 12, position: 'relative', borderTop: '1px solid #30363d', borderBottom: '1px solid #30363d', background: '#0d1117' }}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: 10, textAlign: 'center' }}>
-          <Box className="section-label" sx={{ mb: 2, display: 'inline-block' }}>
+        <Box sx={{ mb: 8, textAlign: 'center' }}>
+          <Box className="section-label" sx={{ mb: 3, display: 'inline-block' }}>
             [ 05. PEER_REVIEWS ]
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-0.04em' }}>
-            Validated by the <span style={{ color: '#8b949e' }}>ecosystem.</span>
+            Approved by the <span style={{ color: '#8b949e' }}>ecosystem.</span>
           </Typography>
         </Box>
 
@@ -52,43 +67,116 @@ const Testimonials = () => {
                 <Paper
                   elevation={0}
                   sx={{ 
-                    p: 4, 
                     height: '100%', 
                     display: 'flex', 
                     flexDirection: 'column', 
-                    position: 'relative',
                     background: '#161b22',
                     border: '1px solid #30363d',
-                    borderRadius: '12px',
-                    transition: 'all 0.3s ease',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    transition: 'border-color 0.3s',
                     '&:hover': {
-                      borderColor: '#8b949e',
-                      transform: 'translateY(-5px)'
+                      borderColor: test.color
                     }
                   }}
                 >
-                  <GitHubIcon sx={{ fontSize: 24, color: 'rgba(255,255,255,0.1)', position: 'absolute', top: 20, right: 20 }} />
-                  
-                  <Typography variant="body1" sx={{ mb: 4, flexGrow: 1, color: 'text.secondary', fontSize: '0.95rem', lineHeight: 1.6, position: 'relative', zIndex: 1 }}>
-                    &quot;{test.text}&quot;
-                  </Typography>
-
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, borderTop: '1px solid rgba(48, 54, 61, 0.5)', pt: 3 }}>
-                    <Avatar sx={{ bgcolor: `${test.color}20`, color: test.color, border: `1px solid ${test.color}40`, width: 40, height: 40, fontSize: '1rem', fontWeight: 800 }}>
-                      {test.name[0]}
-                    </Avatar>
-                    <Box>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary' }}>{test.name}</Typography>
-                      <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.05em' }}>
-                        {test.role.toUpperCase()}
-                      </Typography>
+                  {/* GitHub Review Header Bar */}
+                  <Box 
+                    sx={{ 
+                      px: 2.5, 
+                      py: 1.5, 
+                      background: '#161b22', 
+                      borderBottom: '1px solid #30363d',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      flexWrap: 'wrap',
+                      gap: 1.5
+                    }}
+                  >
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                      <Avatar sx={{ bgcolor: `${test.color}20`, color: test.color, border: `1px solid ${test.color}40`, width: 28, height: 28, fontSize: '0.75rem', fontWeight: 800 }}>
+                        {test.name[0]}
+                      </Avatar>
+                      <Box>
+                        <Typography variant="subtitle2" sx={{ fontWeight: 700, fontSize: '0.8rem', color: 'text.primary', display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                          {test.username}
+                          <span style={{ color: '#8b949e', fontWeight: 400, fontSize: '0.75rem' }}>reviewed</span>
+                        </Typography>
+                      </Box>
+                    </Box>
+                    
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <Box 
+                        sx={{ 
+                          px: 1, 
+                          py: 0.2, 
+                          borderRadius: '10px', 
+                          border: '1px solid #2ea043', 
+                          background: 'rgba(46, 160, 67, 0.15)',
+                          color: '#3fb950',
+                          fontSize: '0.6rem',
+                          fontWeight: 700,
+                          letterSpacing: '0.05em',
+                          fontFamily: '"JetBrains Mono", monospace'
+                        }}
+                      >
+                        APPROVED
+                      </Box>
                     </Box>
                   </Box>
 
-                  {/* ID Tag */}
-                  <Typography className="font-mono" sx={{ position: 'absolute', bottom: 12, right: 12, fontSize: '0.5rem', opacity: 0.3, color: 'text.secondary' }}>
-                    #{test.alias}
-                  </Typography>
+                  {/* Comment Body */}
+                  <Box sx={{ p: 2.5, display: 'flex', flexDirection: 'column', flexGrow: 1, background: '#0d1117', gap: 2 }}>
+                    
+                    {/* Timestamp */}
+                    <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary' }}>
+                      commented {test.date}
+                    </Typography>
+
+                    {/* Feedback content */}
+                    <Typography variant="body1" sx={{ flexGrow: 1, color: 'text.primary', fontSize: '0.85rem', lineHeight: 1.6, fontStyle: 'italic' }}>
+                      &quot;{test.text}&quot;
+                    </Typography>
+
+                    {/* Reviewer Roles info */}
+                    <Box sx={{ pt: 1.5, borderTop: '1px solid #21262d', display: 'flex', flexDirection: 'column' }}>
+                      <Typography sx={{ fontWeight: 800, fontSize: '0.85rem', color: 'text.primary' }}>
+                        {test.name}
+                      </Typography>
+                      <Typography className="font-mono" sx={{ fontSize: '0.6rem', color: 'text.secondary', letterSpacing: '0.05em' }}>
+                        {test.role.toUpperCase()}
+                      </Typography>
+                    </Box>
+
+                    {/* GitHub Reactions Footer */}
+                    <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
+                      {test.reactions.map((react, rIdx) => (
+                        <Box 
+                          key={rIdx}
+                          sx={{ 
+                            px: 1, 
+                            py: 0.3, 
+                            borderRadius: '10px', 
+                            border: '1px solid #30363d', 
+                            background: '#161b22', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: 0.5,
+                            cursor: 'pointer',
+                            transition: 'border-color 0.2s',
+                            '&:hover': {
+                              borderColor: '#8b949e'
+                            }
+                          }}
+                        >
+                          <span style={{ fontSize: '0.7rem' }}>{react.emoji}</span>
+                          <span style={{ fontSize: '0.65rem', color: '#8b949e', fontWeight: 600 }}>{react.count}</span>
+                        </Box>
+                      ))}
+                    </Stack>
+
+                  </Box>
                 </Paper>
               </motion.div>
             </Grid>
