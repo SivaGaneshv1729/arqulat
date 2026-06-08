@@ -66,7 +66,7 @@ const Hero = () => {
                   transition={{ duration: 1, delay: 0.2 }}
                   style={{ display: 'inline-block' }}
                 >
-                  Innovative Solutions
+                  Engineering Next-Gen Systems
                 </motion.span>
                 <br />
                 <motion.span
@@ -90,8 +90,7 @@ const Hero = () => {
                   color="text.secondary" 
                   sx={{ mb: 6, mx: 'auto', maxWidth: '750px', fontWeight: 400, lineHeight: 1.6, fontSize: { xs: '1.1rem', md: '1.4rem' }, opacity: 0.8 }}
                 >
-                  A student-developed engineering collective ready to deliver custom AI/ML integrations, 
-                  deep learning solutions, and high-performance core software technologies for your challenges.
+                  A student engineering collective delivering custom AI/ML integrations and high-performance software solutions.
                 </Typography>
 
                 {/* 
