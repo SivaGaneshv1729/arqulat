@@ -99,6 +99,7 @@ const Testimonials = () => {
             pointerEvents: 'none' 
           }}
         >
+          {/* Main Central Hub Node Connections */}
           {testimonials.map((test, index) => {
             const isTargeted = hoveredIndex === index;
             return (
@@ -109,7 +110,7 @@ const Testimonials = () => {
                 x2={test.lineX}
                 y2={test.lineY}
                 stroke={isTargeted ? test.color : 'rgba(48, 54, 61, 0.4)'}
-                strokeWidth={isTargeted ? 2 : 1}
+                strokeWidth={isTargeted ? 2.5 : 1}
                 strokeDasharray="6,6"
                 style={{
                   animation: 'crawl-data 1s linear infinite',
@@ -118,6 +119,50 @@ const Testimonials = () => {
               />
             );
           })}
+
+          {/* Inter-node connections to form a full network web */}
+          {/* Srinivasan to Rohan */}
+          <line
+            x1="20%"
+            y1="25%"
+            x2="80%"
+            y2="25%"
+            stroke={(hoveredIndex === 0 || hoveredIndex === 1) ? 'rgba(137, 87, 229, 0.5)' : 'rgba(48, 54, 61, 0.25)'}
+            strokeWidth={(hoveredIndex === 0 || hoveredIndex === 1) ? 2 : 1}
+            strokeDasharray="4,4"
+            style={{
+              animation: 'crawl-data 1.5s linear infinite',
+              transition: 'stroke 0.3s, stroke-width 0.3s'
+            }}
+          />
+          {/* Srinivasan to Devika */}
+          <line
+            x1="20%"
+            y1="25%"
+            x2="50%"
+            y2="80%"
+            stroke={(hoveredIndex === 0 || hoveredIndex === 2) ? 'rgba(47, 129, 247, 0.5)' : 'rgba(48, 54, 61, 0.25)'}
+            strokeWidth={(hoveredIndex === 0 || hoveredIndex === 2) ? 2 : 1}
+            strokeDasharray="4,4"
+            style={{
+              animation: 'crawl-data 1.5s linear infinite',
+              transition: 'stroke 0.3s, stroke-width 0.3s'
+            }}
+          />
+          {/* Rohan to Devika */}
+          <line
+            x1="80%"
+            y1="25%"
+            x2="50%"
+            y2="80%"
+            stroke={(hoveredIndex === 1 || hoveredIndex === 2) ? 'rgba(63, 185, 80, 0.5)' : 'rgba(48, 54, 61, 0.25)'}
+            strokeWidth={(hoveredIndex === 1 || hoveredIndex === 2) ? 2 : 1}
+            strokeDasharray="4,4"
+            style={{
+              animation: 'crawl-data 1.5s linear infinite',
+              transition: 'stroke 0.3s, stroke-width 0.3s'
+            }}
+          />
         </svg>
 
         {/* Central Hub Node (ARQULAT) */}
@@ -163,6 +208,45 @@ const Testimonials = () => {
         {/* Floating Review Nodes */}
         {testimonials.map((test, index) => {
           const isTargeted = hoveredIndex === index;
+          
+          // Determine comment bubble style based on position index
+          let bubbleStyle = {
+            position: 'absolute',
+            width: '280px',
+            background: '#161b22',
+            border: `1px solid ${test.color}`,
+            borderRadius: 3,
+            overflow: 'hidden',
+            opacity: isTargeted ? 1 : 0,
+            visibility: isTargeted ? 'visible' : 'hidden',
+            pointerEvents: isTargeted ? 'auto' : 'none',
+            transition: 'opacity 0.3s, visibility 0.3s, transform 0.3s',
+            zIndex: 100
+          };
+
+          if (index === 0) { // Srinivasan - top left
+            bubbleStyle = {
+              ...bubbleStyle,
+              top: '50%',
+              left: '80px',
+              transform: isTargeted ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.95)'
+            };
+          } else if (index === 1) { // Rohan - top right
+            bubbleStyle = {
+              ...bubbleStyle,
+              top: '50%',
+              right: '80px',
+              transform: isTargeted ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.95)'
+            };
+          } else { // Devika - bottom center
+            bubbleStyle = {
+              ...bubbleStyle,
+              bottom: '80px',
+              left: '50%',
+              transform: isTargeted ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0.95)'
+            };
+          }
+
           return (
             <Box
               key={index}
@@ -183,43 +267,40 @@ const Testimonials = () => {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: test.floatDelay }}
               >
-                <Stack 
-                  direction={test.right ? 'row-reverse' : 'row'} 
-                  spacing={2} 
-                  alignItems="center"
-                  sx={{
+                <Box 
+                  sx={{ 
+                    position: 'relative',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     cursor: 'pointer'
                   }}
                 >
-                  {/* Floating Avatar Node */}
+                  {/* Floating Avatar Node with Blank Photo Placeholder */}
                   <Avatar 
                     sx={{ 
-                      bgcolor: `${test.color}20`, 
-                      color: test.color, 
-                      border: isTargeted ? `2px solid ${test.color}` : `1px solid ${test.color}40`, 
-                      width: 52, 
-                      height: 52, 
-                      fontSize: '1.25rem', 
-                      fontWeight: 800,
-                      boxShadow: isTargeted ? `0 0 15px ${test.color}` : 'none',
-                      transition: 'border 0.3s, box-shadow 0.3s'
+                      bgcolor: '#161b22', 
+                      border: isTargeted ? `2px solid ${test.color}` : `1px solid rgba(48, 54, 61, 0.8)`, 
+                      width: 60, 
+                      height: 60, 
+                      boxShadow: isTargeted ? `0 0 20px ${test.color}` : 'none',
+                      transition: 'border 0.3s, box-shadow 0.3s, transform 0.3s',
+                      transform: isTargeted ? 'scale(1.1)' : 'scale(1)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
                     }}
                   >
-                    {test.name[0]}
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={test.color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
                   </Avatar>
 
                   {/* GitHub Style Comment Bubble */}
                   <Paper
                     elevation={0}
-                    sx={{
-                      width: '260px',
-                      background: '#161b22',
-                      border: isTargeted ? `1px solid ${test.color}` : '1px solid #30363d',
-                      borderRadius: 3,
-                      overflow: 'hidden',
-                      transition: 'border-color 0.3s, transform 0.3s',
-                      transform: isTargeted ? 'scale(1.03)' : 'scale(1)'
-                    }}
+                    sx={bubbleStyle}
                   >
                     {/* comment header */}
                     <Box sx={{ px: 2, py: 1, borderBottom: '1px solid #30363d', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#0d1117' }}>
@@ -246,8 +327,7 @@ const Testimonials = () => {
                       </Box>
                     </Box>
                   </Paper>
-
-                </Stack>
+                </Box>
               </motion.div>
             </Box>
           );
