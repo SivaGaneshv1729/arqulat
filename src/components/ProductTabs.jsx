@@ -123,7 +123,7 @@ const features = [
 
 const ProductTabs = () => {
   return (
-    <Box id="labs" sx={{ py: { xs: 6, md: 8 }, background: 'linear-gradient(to bottom, #0d1117, #0a0d12)', borderBottom: '1px solid #30363d' }}>
+    <Box id="labs" sx={{ py: { xs: 6, md: 8 }, background: '#0d1117', borderBottom: '1px solid #30363d' }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 6, textAlign: 'center' }}>
           <Typography className="mono-text" variant="caption" sx={{ color: 'secondary.main', mb: 2, display: 'block', letterSpacing: '0.4em', fontWeight: 600 }}>
