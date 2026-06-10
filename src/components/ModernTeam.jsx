@@ -8,8 +8,8 @@ import EmailIcon from '@mui/icons-material/Email';
 const specialists = [
   { 
     name: 'Venkat Ganesh', 
-    role: 'AI & COGNITIVE LEAD', 
-    bio: 'Student AI Lead specializing in LLMs, deep learning, local model deployment, and RAG pipelines. Passionate about bringing state-of-the-art research into practical client builds.',
+    role: 'Origin — Principal Architect', 
+    bio: 'Shapes the vision behind Arqulat, transforming ambitious ideas into scalable products, intelligent systems, and immersive digital experiences across AI, software, and interactive worlds.',
     image: 'https://github.com/github.png', // Placeholder for actual image
     links: {
       github: 'https://github.com',
@@ -23,8 +23,8 @@ const specialists = [
   },
   { 
     name: 'Siva Ganesh', 
-    role: 'CORE ARCHITECT', 
-    bio: 'Student Core Architect bridging distributed computation backends with high-performance client frontends. Expert in scaling MERN & TypeScript ecosystems.',
+    role: 'Forge — Creative Architect', 
+    bio: 'Crafts product experiences that blend functionality with design, turning complex concepts into intuitive interfaces, compelling visuals, and memorable user journeys.',
     image: 'https://github.com/github.png',
     links: {
       github: 'https://github.com',
@@ -38,8 +38,8 @@ const specialists = [
   },
   { 
     name: 'Sri Ram', 
-    role: 'INFRASTRUCTURE LEAD', 
-    bio: 'Student Infrastructure Lead focusing on automated deployment pipelines, containerized systems, and secure server networking.',
+    role: 'Scout — Intelligence Strategist', 
+    bio: 'Explores emerging AI capabilities, validates new ideas, and identifies opportunities that shape future products.',
     image: 'https://github.com/github.png',
     links: {
       github: 'https://github.com',
@@ -53,8 +53,8 @@ const specialists = [
   },
   { 
     name: 'Veeranna', 
-    role: 'SPATIAL & 3D LEAD', 
-    bio: 'Student Creative Lead designing interactive client dashboards, responsive layouts, and modern frontends.',
+    role: 'Anchor — Operations Steward', 
+    bio: 'Ensures ideas move from concept to completion by coordinating workflows, maintaining documentation, managing communication, and supporting day-to-day execution',
     image: 'https://github.com/github.png',
     links: {
       github: 'https://github.com',
