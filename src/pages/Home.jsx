@@ -2,7 +2,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Projects from '../components/Projects';
-import Testimonials from '../components/Testimonials';
+import ModernVerticalReviews from '../components/ModernVerticalReviews';
 import Marquee from '../components/Marquee';
 import ProductTabs from '../components/ProductTabs';
 import ModernBento from '../components/ModernBento';
@@ -22,7 +22,7 @@ const Home = () => {
       <ModernEvolution />
       <ProductTabs />
       <Projects />
-      <Testimonials />
+      <ModernVerticalReviews />
       <ModernTeam />
       <CTA />
       <Footer />
