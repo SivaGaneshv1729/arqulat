@@ -12,10 +12,8 @@ const testimonials = [
     date: 'May 14',
     region: 'APAC // CHENNAI_NODE',
     latLong: '13.0827° N, 80.2707° E',
-    top: '12%',
-    left: '12%',
-    lineX: '20%',
-    lineY: '25%',
+    mapX: '72%',
+    mapY: '62%',
     floatDelay: 0,
     reactions: '👍 12'
   },
@@ -28,10 +26,8 @@ const testimonials = [
     date: 'Jun 02',
     region: 'AMER // SF_NODE',
     latLong: '37.7749° N, 122.4194° W',
-    top: '12%',
-    right: '12%',
-    lineX: '80%',
-    lineY: '25%',
+    mapX: '15%',
+    mapY: '35%',
     floatDelay: 1.5,
     reactions: '👍 9'
   },
@@ -44,14 +40,48 @@ const testimonials = [
     date: 'May 28',
     region: 'EMEA // LONDON_NODE',
     latLong: '51.5074° N, 0.1278° W',
-    bottom: '8%',
-    left: '50%',
-    lineX: '50%',
-    lineY: '80%',
+    mapX: '48%',
+    mapY: '25%',
     floatDelay: 3,
     reactions: '👍 15 ● 🚀 8'
   }
 ];
+
+const CurvedLine = ({ fromX, fromY, toX, toY, color, isHovered }) => {
+  // Calculate a control point for the quadratic Bezier curve
+  // We want it to curve towards the center (50, 50)
+  const cx = 50;
+  const cy = 50;
+  
+  // Use a control point that is halfway between the points but pulled towards the center
+  const ctrlX = (fromX + toX) / 2;
+  const ctrlY = (fromY + toY) / 2;
+  
+  // Actually, to get a nice arc, let's just use the center as the control point
+  const path = `M ${fromX} ${fromY} Q ${cx} ${fromY} ${toX} ${toY}`;
+
+  return (
+    <motion.path
+      d={path}
+      fill="none"
+      stroke={isHovered ? color : 'rgba(48, 54, 61, 0.3)'}
+      strokeWidth={isHovered ? 2 : 1}
+      strokeDasharray="4,4"
+      initial={{ pathLength: 0, opacity: 0 }}
+      animate={{ 
+        pathLength: 1, 
+        opacity: 1,
+        strokeDashoffset: [0, -20]
+      }}
+      transition={{ 
+        pathLength: { duration: 1.5, ease: "easeInOut" },
+        strokeDashoffset: { duration: 2, repeat: Infinity, ease: "linear" },
+        opacity: { duration: 0.5 }
+      }}
+      style={{ transition: 'stroke 0.3s, stroke-width 0.3s' }}
+    />
+  );
+};
 
 const Testimonials = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -59,131 +89,78 @@ const Testimonials = () => {
   return (
     <Box sx={{ py: 12, position: 'relative', borderTop: '1px solid #30363d', borderBottom: '1px solid #30363d', background: '#0d1117', overflow: 'hidden' }}>
       
-      {/* CSS Keyframe for crawling data dots on SVG connections */}
-      <style>
-        {`
-          @keyframes crawl-data {
-            to {
-              stroke-dashoffset: -20;
-            }
-          }
-        `}
-      </style>
-
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 3 }}>
         <Box sx={{ mb: 6, textAlign: 'center' }}>
           <Box className="section-label" sx={{ mb: 3, display: 'inline-block' }}>
-            [ 05. PEER_REVIEWS ]
+            [ 05. GLOBAL_ECOSYSTEM ]
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-0.04em' }}>
-            Approved by the <span style={{ color: '#8b949e' }}>ecosystem.</span>
+            Trusted across the <span style={{ color: '#8b949e' }}>digital frontier.</span>
           </Typography>
         </Box>
       </Container>
 
-      {/* Network Canvas (Desktop Only) */}
+      {/* World Map & Network Canvas */}
       <Box 
         sx={{ 
           position: 'relative', 
           width: '100%', 
-          maxWidth: '1200px', 
-          height: '550px', 
+          maxWidth: '1100px', 
+          height: '500px', 
           mx: 'auto',
           display: { xs: 'none', md: 'block' } 
         }}
       >
-        {/* SVG Connection Paths */}
+        {/* SVG Background Layer: World Map & Connections */}
         <svg 
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
           style={{ 
             position: 'absolute', 
             top: 0, 
             left: 0, 
             width: '100%', 
             height: '100%', 
-            zIndex: 1, 
-            pointerEvents: 'none' 
+            zIndex: 1,
+            pointerEvents: 'none'
           }}
         >
-          {/* Global Network Map Background Grid */}
           <defs>
-            <pattern id="networkGrid" width="32" height="32" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="1" fill="rgba(139, 148, 158, 0.12)" />
+            <pattern id="worldDotPattern" x="0" y="0" width="0.8" height="1.6" patternUnits="userSpaceOnUse">
+              <circle cx="0.4" cy="0.8" r="0.25" fill="#30363d" />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#networkGrid)" />
 
-          {/* Styled Latency Rings around Central Hub */}
-          <circle cx="50%" cy="50%" r="130" fill="none" stroke="rgba(48, 54, 61, 0.2)" strokeWidth="1" strokeDasharray="4,8" />
-          <circle cx="50%" cy="50%" r="240" fill="none" stroke="rgba(48, 54, 61, 0.15)" strokeWidth="1" strokeDasharray="4,8" />
-          <circle cx="50%" cy="50%" r="350" fill="none" stroke="rgba(48, 54, 61, 0.08)" strokeWidth="1" strokeDasharray="4,8" />
+          {/* Simplified World Map Paths (Dotted) */}
+          <g fill="url(#worldDotPattern)" opacity="0.6">
+            {/* North America */}
+            <path d="M10,20 L25,20 L30,35 L22,50 L12,45 Z" />
+            {/* South America */}
+            <path d="M23,52 L32,52 L35,70 L28,90 L22,70 Z" />
+            {/* Europe & Africa */}
+            <path d="M45,15 L58,15 L60,30 L48,35 Z" />
+            <path d="M46,38 L58,38 L62,55 L58,85 L48,85 L42,55 Z" />
+            {/* Asia */}
+            <path d="M60,10 L92,10 L95,45 L75,65 L60,45 Z" />
+            {/* Australia */}
+            <path d="M80,68 L92,68 L94,85 L82,85 Z" />
+          </g>
 
-          {/* Main Central Hub Node Connections */}
-          {testimonials.map((test, index) => {
-            const isTargeted = hoveredIndex === index;
-            return (
-              <line
-                key={index}
-                x1="50%"
-                y1="50%"
-                x2={test.lineX}
-                y2={test.lineY}
-                stroke={isTargeted ? test.color : 'rgba(48, 54, 61, 0.4)'}
-                strokeWidth={isTargeted ? 2.5 : 1}
-                strokeDasharray="6,6"
-                style={{
-                  animation: 'crawl-data 1s linear infinite',
-                  transition: 'stroke 0.3s, stroke-width 0.3s'
-                }}
-              />
-            );
-          })}
-
-          {/* Inter-node connections to form a full network web */}
-          {/* Srinivasan to Rohan */}
-          <line
-            x1="20%"
-            y1="25%"
-            x2="80%"
-            y2="25%"
-            stroke={(hoveredIndex === 0 || hoveredIndex === 1) ? 'rgba(137, 87, 229, 0.5)' : 'rgba(48, 54, 61, 0.25)'}
-            strokeWidth={(hoveredIndex === 0 || hoveredIndex === 1) ? 2 : 1}
-            strokeDasharray="4,4"
-            style={{
-              animation: 'crawl-data 1.5s linear infinite',
-              transition: 'stroke 0.3s, stroke-width 0.3s'
-            }}
-          />
-          {/* Srinivasan to Devika */}
-          <line
-            x1="20%"
-            y1="25%"
-            x2="50%"
-            y2="80%"
-            stroke={(hoveredIndex === 0 || hoveredIndex === 2) ? 'rgba(47, 129, 247, 0.5)' : 'rgba(48, 54, 61, 0.25)'}
-            strokeWidth={(hoveredIndex === 0 || hoveredIndex === 2) ? 2 : 1}
-            strokeDasharray="4,4"
-            style={{
-              animation: 'crawl-data 1.5s linear infinite',
-              transition: 'stroke 0.3s, stroke-width 0.3s'
-            }}
-          />
-          {/* Rohan to Devika */}
-          <line
-            x1="80%"
-            y1="25%"
-            x2="50%"
-            y2="80%"
-            stroke={(hoveredIndex === 1 || hoveredIndex === 2) ? 'rgba(63, 185, 80, 0.5)' : 'rgba(48, 54, 61, 0.25)'}
-            strokeWidth={(hoveredIndex === 1 || hoveredIndex === 2) ? 2 : 1}
-            strokeDasharray="4,4"
-            style={{
-              animation: 'crawl-data 1.5s linear infinite',
-              transition: 'stroke 0.3s, stroke-width 0.3s'
-            }}
-          />
+          {/* Curved Connections to Central Core (50, 50) */}
+          {testimonials.map((test, index) => (
+            <CurvedLine
+              key={index}
+              fromX={parseFloat(test.mapX)}
+              fromY={parseFloat(test.mapY)}
+              toX={50}
+              toY={50}
+              color={test.color}
+              isHovered={hoveredIndex === index}
+            />
+          ))}
         </svg>
 
-        {/* Central Hub Node (ARQULAT) */}
+        {/* Central Hub Node (ARQULAT CORE) */}
         <Box 
           sx={{ 
             position: 'absolute', 
@@ -194,76 +171,66 @@ const Testimonials = () => {
           }}
         >
           <motion.div
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
             <Box 
               sx={{ 
-                width: '130px', 
-                height: '130px', 
+                width: '100px', 
+                height: '100px', 
                 borderRadius: '50%', 
-                background: '#161b22', 
+                background: '#0d1117', 
                 border: '2px solid #30363d',
-                boxShadow: '0 0 40px rgba(47, 129, 247, 0.25)',
+                boxShadow: '0 0 30px rgba(47, 129, 247, 0.2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                position: 'relative'
               }}
             >
-              {/* Outer Ambient Glow ring */}
-              <Box sx={{ position: 'absolute', inset: -8, borderRadius: '50%', border: '1px dashed rgba(139, 148, 158, 0.15)', animation: 'spin 20s linear infinite' }} />
-              <Typography className="mono-text" sx={{ color: 'primary.main', fontSize: '0.65rem', fontWeight: 800, mb: 0.5, letterSpacing: '0.1em' }}>
-                CENTRAL_HUB
+              <Box sx={{ 
+                position: 'absolute', 
+                inset: -10, 
+                borderRadius: '50%', 
+                border: '1px dashed rgba(47, 129, 247, 0.3)',
+                animation: 'spin 15s linear infinite' 
+              }} />
+              <Typography className="mono-text" sx={{ color: 'primary.main', fontSize: '0.6rem', fontWeight: 800, mb: 0.5 }}>
+                CORE
               </Typography>
-              <Typography sx={{ fontWeight: 900, color: 'text.primary', fontSize: '1rem', letterSpacing: '-0.02em' }}>
+              <Typography sx={{ fontWeight: 900, color: 'text.primary', fontSize: '0.85rem' }}>
                 ARQULAT
               </Typography>
             </Box>
           </motion.div>
         </Box>
 
-        {/* Floating Review Nodes */}
+        {/* Profile Markers */}
         {testimonials.map((test, index) => {
           const isTargeted = hoveredIndex === index;
           
-          // Determine comment bubble style based on position index
           let bubbleStyle = {
             position: 'absolute',
             width: '280px',
             background: '#161b22',
             border: `1px solid ${test.color}`,
             borderRadius: 3,
-            overflow: 'hidden',
             opacity: isTargeted ? 1 : 0,
             visibility: isTargeted ? 'visible' : 'hidden',
             pointerEvents: isTargeted ? 'auto' : 'none',
-            transition: 'opacity 0.3s, visibility 0.3s, transform 0.3s',
-            zIndex: 100
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+            zIndex: 100,
+            boxShadow: `0 10px 30px -10px ${test.color}40`
           };
 
-          if (index === 0) { // Srinivasan - top left
-            bubbleStyle = {
-              ...bubbleStyle,
-              top: '50%',
-              left: '95px',
-              transform: isTargeted ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.95)'
-            };
-          } else if (index === 1) { // Rohan - top right
-            bubbleStyle = {
-              ...bubbleStyle,
-              top: '50%',
-              right: '95px',
-              transform: isTargeted ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.95)'
-            };
-          } else { // Devika - bottom center
-            bubbleStyle = {
-              ...bubbleStyle,
-              bottom: '95px',
-              left: '50%',
-              transform: isTargeted ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0.95)'
-            };
+          // Position bubble relative to marker
+          if (parseFloat(test.mapX) < 50) {
+            bubbleStyle.left = '40px';
+          } else {
+            bubbleStyle.right = '40px';
           }
+          bubbleStyle.top = '-20px';
 
           return (
             <Box
@@ -272,145 +239,103 @@ const Testimonials = () => {
               onMouseLeave={() => setHoveredIndex(null)}
               sx={{
                 position: 'absolute',
-                top: test.top || 'auto',
-                bottom: test.bottom || 'auto',
-                left: test.left || 'auto',
-                right: test.right || 'auto',
-                transform: test.bottom ? 'translateX(-50%)' : 'none',
-                zIndex: isTargeted ? 10 : 2,
-                transition: 'z-index 0.1s'
+                top: test.mapY,
+                left: test.mapX,
+                transform: 'translate(-50%, -50%)',
+                zIndex: isTargeted ? 10 : 2
               }}
             >
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: test.floatDelay }}
-              >
-                <Box 
+              <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                {/* Marker Pulse */}
+                <motion.div
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  style={{
+                    position: 'absolute',
+                    width: '30px',
+                    height: '30px',
+                    borderRadius: '50%',
+                    background: test.color,
+                    zIndex: -1
+                  }}
+                />
+                
+                {/* Profile Avatar Node */}
+                <Avatar 
                   sx={{ 
-                    position: 'relative',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    bgcolor: '#0d1117', 
+                    border: isTargeted ? `2px solid ${test.color}` : `1px solid rgba(48, 54, 61, 0.8)`, 
+                    width: 44, 
+                    height: 44, 
+                    boxShadow: isTargeted ? `0 0 15px ${test.color}60` : 'none',
+                    transition: 'all 0.3s',
                     cursor: 'pointer'
                   }}
                 >
-                  {/* Floating Avatar Node with Blank Photo Placeholder */}
-                  <Avatar 
-                    sx={{ 
-                      bgcolor: '#161b22', 
-                      border: isTargeted ? `2px solid ${test.color}` : `1px solid rgba(48, 54, 61, 0.8)`, 
-                      width: 60, 
-                      height: 60, 
-                      boxShadow: isTargeted ? `0 0 20px ${test.color}` : 'none',
-                      transition: 'border 0.3s, box-shadow 0.3s, transform 0.3s',
-                      transform: isTargeted ? 'scale(1.1)' : 'scale(1)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}
-                  >
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={test.color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
-                  </Avatar>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={test.color} strokeWidth="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </Avatar>
 
-                  {/* Geolocation Region tag under the node avatar */}
-                  <Typography 
-                    className="font-mono" 
-                    sx={{ 
-                      mt: 1.5, 
-                      fontSize: '0.6rem', 
-                      fontWeight: 700, 
-                      color: isTargeted ? test.color : 'text.secondary',
-                      transition: 'color 0.3s',
-                      letterSpacing: '0.05em',
-                      whiteSpace: 'nowrap'
-                    }}
-                  >
-                    {test.region}
-                  </Typography>
+                <Typography 
+                  className="font-mono" 
+                  sx={{ 
+                    mt: 1, 
+                    fontSize: '0.55rem', 
+                    fontWeight: 700, 
+                    color: isTargeted ? test.color : 'text.secondary',
+                    whiteSpace: 'nowrap',
+                    background: 'rgba(13, 17, 23, 0.8)',
+                    px: 1, borderRadius: 1
+                  }}
+                >
+                  {test.region.split(' // ')[1]}
+                </Typography>
 
-                  {/* GitHub Style Comment Bubble */}
-                  <Paper
-                    elevation={0}
-                    sx={bubbleStyle}
-                  >
-                    {/* comment header */}
-                    <Box sx={{ px: 2, py: 1, borderBottom: '1px solid #30363d', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#0d1117' }}>
-                      <Stack direction="column" spacing={0.2} sx={{ alignItems: 'flex-start' }}>
-                        <Typography sx={{ fontWeight: 800, fontSize: '0.75rem', color: 'text.primary' }}>
-                          {test.username}
-                        </Typography>
-                        <Typography className="font-mono" sx={{ fontSize: '0.5rem', color: 'text.secondary' }}>
-                          {test.latLong}
-                        </Typography>
-                      </Stack>
-                      <Box sx={{ px: 0.8, py: 0.1, borderRadius: '8px', border: '1px solid #2ea043', background: 'rgba(46, 160, 67, 0.15)', color: '#3fb950', fontSize: '0.55rem', fontWeight: 700 }}>
-                        APPROVED
-                      </Box>
+                {/* Review Bubble */}
+                <Paper elevation={0} sx={bubbleStyle}>
+                  <Box sx={{ px: 2, py: 1, borderBottom: '1px solid #30363d', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#0d1117' }}>
+                    <Stack>
+                      <Typography sx={{ fontWeight: 800, fontSize: '0.7rem', color: 'text.primary' }}>{test.username}</Typography>
+                      <Typography className="font-mono" sx={{ fontSize: '0.45rem', color: 'text.secondary' }}>{test.latLong}</Typography>
+                    </Stack>
+                    <Box sx={{ px: 0.8, py: 0.1, borderRadius: '4px', border: '1px solid #2ea043', background: 'rgba(46, 160, 67, 0.1)', color: '#3fb950', fontSize: '0.5rem', fontWeight: 700 }}>
+                      VERIFIED
                     </Box>
-                    {/* comment body */}
-                    <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', gap: 1 }}>
-                      <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.75rem', lineHeight: 1.5, fontStyle: 'italic' }}>
-                        &quot;{test.text}&quot;
-                      </Typography>
-                      <Box sx={{ pt: 1, borderTop: '1px solid #21262d', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Box>
-                          <Typography sx={{ fontWeight: 800, fontSize: '0.75rem', color: 'text.primary' }}>{test.name}</Typography>
-                          <Typography sx={{ fontSize: '0.55rem', color: 'text.secondary' }}>{test.role}</Typography>
-                        </Box>
-                        <Box sx={{ px: 0.8, py: 0.2, background: '#0d1117', border: '1px solid #30363d', borderRadius: 1.5, fontSize: '0.6rem', color: '#8b949e' }}>
-                          {test.reactions}
-                        </Box>
+                  </Box>
+                  <Box sx={{ p: 2 }}>
+                    <Typography variant="body2" sx={{ fontSize: '0.75rem', lineHeight: 1.4, mb: 1.5, color: 'text.secondary', fontStyle: 'italic' }}>
+                      "{test.text}"
+                    </Typography>
+                    <Box sx={{ pt: 1, borderTop: '1px solid #21262d', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <Box>
+                        <Typography sx={{ fontWeight: 800, fontSize: '0.7rem' }}>{test.name}</Typography>
+                        <Typography sx={{ fontSize: '0.55rem', color: 'text.secondary' }}>{test.role}</Typography>
                       </Box>
+                      <Typography sx={{ fontSize: '0.6rem', color: '#8b949e' }}>{test.reactions}</Typography>
                     </Box>
-                  </Paper>
-                </Box>
-              </motion.div>
+                  </Box>
+                </Paper>
+              </Box>
             </Box>
           );
         })}
       </Box>
 
-      {/* Fallback Clean List (Mobile Only) */}
+      {/* Mobile Version (Simplified List) */}
       <Box sx={{ display: { xs: 'block', md: 'none' }, px: 2 }}>
-        <Stack spacing={3}>
+        <Stack spacing={2}>
           {testimonials.map((test, index) => (
-            <Paper
-              key={index}
-              elevation={0}
-              sx={{
-                background: '#161b22',
-                border: '1px solid #30363d',
-                borderRadius: 2,
-                overflow: 'hidden'
-              }}
-            >
-              <Box sx={{ px: 2, py: 1.5, display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#0d1117', borderBottom: '1px solid #30363d' }}>
-                <Stack direction="row" spacing={1.5} alignItems="center">
-                  <Avatar sx={{ bgcolor: `${test.color}20`, color: test.color, width: 28, height: 28, fontSize: '0.75rem' }} />
-                  <Typography sx={{ fontWeight: 800, fontSize: '0.75rem' }}>{test.username}</Typography>
-                </Stack>
-                <Box sx={{ px: 0.8, py: 0.1, borderRadius: '8px', border: '1px solid #2ea043', background: 'rgba(46, 160, 67, 0.15)', color: '#3fb950', fontSize: '0.55rem', fontWeight: 700 }}>
-                  APPROVED
+            <Paper key={index} sx={{ p: 2, background: '#161b22', border: '1px solid #30363d', borderRadius: 2 }}>
+              <Stack direction="row" spacing={2} sx={{ mb: 1.5 }}>
+                <Avatar sx={{ bgcolor: `${test.color}20`, color: test.color, width: 32, height: 32, fontSize: '0.8rem' }}>{test.name[0]}</Avatar>
+                <Box>
+                  <Typography sx={{ fontWeight: 800, fontSize: '0.8rem' }}>{test.name}</Typography>
+                  <Typography sx={{ fontSize: '0.6rem', color: 'text.secondary' }}>{test.role}</Typography>
                 </Box>
-              </Box>
-              <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-                <Typography variant="body2" sx={{ fontSize: '0.8rem', lineHeight: 1.5, fontStyle: 'italic' }}>
-                  &quot;{test.text}&quot;
-                </Typography>
-                <Box sx={{ pt: 1, borderTop: '1px solid #21262d', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <Box>
-                    <Typography sx={{ fontWeight: 800, fontSize: '0.75rem' }}>{test.name}</Typography>
-                    <Typography sx={{ fontSize: '0.55rem', color: 'text.secondary' }}>{test.role}</Typography>
-                  </Box>
-                  <Box sx={{ px: 0.8, py: 0.2, background: '#0d1117', border: '1px solid #30363d', borderRadius: 1.5, fontSize: '0.6rem', color: '#8b949e' }}>
-                    {test.reactions}
-                  </Box>
-                </Box>
-              </Box>
+              </Stack>
+              <Typography variant="body2" sx={{ fontSize: '0.85rem', fontStyle: 'italic', color: 'text.secondary' }}>"{test.text}"</Typography>
             </Paper>
           ))}
         </Stack>
