@@ -70,7 +70,7 @@ const specialists = [
 
 const ModernTeam = () => {
   return (
-    <Box id="collective" sx={{ py: 15, position: 'relative', borderBottom: '1px solid #30363d' }}>
+    <Box id="collective" sx={{ py: 15, background: 'transparent', position: 'relative', borderBottom: '1px solid #30363d' }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 10, textAlign: 'center' }}>
           <Box className="section-label" sx={{ mb: 2, display: 'inline-block' }}>

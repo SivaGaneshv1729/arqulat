@@ -30,7 +30,7 @@ const phases = [
 
 const ModernEvolution = () => {
   return (
-    <Box id="evolution" sx={{ py: 15, position: 'relative', borderBottom: '1px solid #30363d' }}>
+    <Box id="evolution" sx={{ py: 15, background: 'transparent', position: 'relative', borderBottom: '1px solid #30363d' }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 10 }}>
           <Box className="section-label" sx={{ mb: 2 }}>

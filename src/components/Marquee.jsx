@@ -15,7 +15,7 @@ const Marquee = () => {
         overflow: 'hidden', 
         borderTop: '1px solid rgba(48, 54, 61, 0.5)', 
         borderBottom: '1px solid rgba(48, 54, 61, 0.5)', 
-        background: 'rgba(13, 17, 23, 0.8)',
+        background: '#0d1117',
         backdropFilter: 'blur(10px)',
         position: 'relative'
       }}

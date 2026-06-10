@@ -111,7 +111,7 @@ const Projects = () => {
   };
 
   return (
-    <Box sx={{ py: 12, position: 'relative', borderTop: '1px solid #30363d', borderBottom: '1px solid #30363d', background: '#0d1117', overflow: 'hidden' }}>
+    <Box sx={{ py: 12, position: 'relative', borderTop: '1px solid #30363d', borderBottom: '1px solid #30363d', background: 'transparent', overflow: 'hidden' }}>
       
       {/* Edge Fades */}
       <Box 

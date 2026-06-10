@@ -70,7 +70,7 @@ const GlobeAnimation = () => {
 
 const About = () => {
   return (
-    <Box sx={{ py: { xs: 10, md: 15 }, background: '#0d1117', position: 'relative', overflow: 'hidden', borderBottom: '1px solid #30363d' }}>
+    <Box sx={{ py: { xs: 10, md: 15 }, background: 'transparent', position: 'relative', overflow: 'hidden', borderBottom: '1px solid #30363d' }}>
       <Container maxWidth="lg">
         <Box 
           sx={{ 
