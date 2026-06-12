@@ -38,10 +38,10 @@ const Footer = () => {
     'Engineering Team': { title: 'COLLECTIVE', content: ['Lead researchers', 'Core engineers', 'Spatial designers'] },
     'Future Labs': { title: 'R&D_HORIZON', content: ['Quantum research', 'Neuro-interfaces', 'Spatial compute'] },
     'Join the Squad': { title: 'CAREERS', content: ['Open roles', 'Culture', 'Equity programs'] },
-    'Hire the Collective': { title: 'CONSULTING', content: ['Enterprise partnerships', 'System audits', 'Custom builds'] },
-    'Inquiry Form': { title: 'GET_IN_TOUCH', content: ['Direct channel', 'Project scoping', 'Partnerships'] },
-    'Global Studio': { title: 'LOCATIONS', content: ['Physical hubs', 'Virtual clusters', 'R&D centers'] },
-    'Support Node': { title: 'HELP_DESK', content: ['24/7 technical', 'Incident support', 'Status pings'] },
+    'Email': { title: 'CONTACT_EMAIL', content: ['contact@arqulat.com', 'Response within 24h'] },
+    'Instagram': { title: 'SOCIAL_INSTAGRAM', content: ['@arqulat_agency', 'Daily lab updates'] },
+    'LinkedIn': { title: 'SOCIAL_LINKEDIN', content: ['Arqulat Agency', 'Professional network'] },
+    'Twitter': { title: 'SOCIAL_TWITTER', content: ['@arqulat', 'Quick updates'] },
     'PRIVACY': { title: 'PRIVACY_PROTOCOL', content: ['Data sovereignty', 'AES-256 encryption', 'No tracking pixels'] },
     'SECURITY': { title: 'SECURITY_MANIFESTO', content: ['Audit history', 'Breach isolation', 'MFA protocols'] }
   };
@@ -61,7 +61,7 @@ const Footer = () => {
     },
     {
       title: 'CONTACT',
-      links: ['Hire the Collective', 'Inquiry Form', 'Global Studio', 'Support Node']
+      links: ['Email', 'Instagram', 'LinkedIn', 'Twitter']
     }
   ];
 
