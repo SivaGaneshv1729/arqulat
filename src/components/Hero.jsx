@@ -1,12 +1,7 @@
 import { Box, Typography, Container } from '@mui/material';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
-  const { scrollY } = useScroll();
-  
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-
   return (
     <Box sx={{ 
       minHeight: { xs: 'auto', md: '100vh' }, 
@@ -97,79 +92,6 @@ const Hero = () => {
             </motion.div>
           </Box>
         </Box>
-
-        {/* Realistic Floating Rocket (Left) */}
-        <motion.div 
-          style={{ position: 'absolute', top: '15%', left: '5%', y: y1 }}
-          initial={{ opacity: 0, x: -100, rotate: -20 }}
-          animate={{ 
-            opacity: 1, 
-            x: 0,
-            y: [0, -30, 0],
-            rotate: -20
-          }}
-          transition={{ 
-            opacity: { duration: 1.2, delay: 1 },
-            y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-          }}
-        >
-          <Box sx={{ position: 'relative' }}>
-            {/* Ambient Glow */}
-            <Box sx={{ 
-              position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-              width: '120%', height: '120%', borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(47, 129, 247, 0.2) 0%, transparent 70%)',
-              filter: 'blur(30px)', zIndex: -1
-            }} />
-            <Box
-              component="img"
-              src="https://www.pngmart.com/files/13/Space-Rocket-PNG-Transparent-Image.png"
-              alt="Realistic Rocket"
-              sx={{ 
-                width: { xs: '120px', md: '200px' },
-                height: 'auto',
-                filter: 'drop-shadow(0 0 20px rgba(47, 129, 247, 0.4))'
-              }}
-            />
-          </Box>
-        </motion.div>
-
-        {/* Realistic Floating Spaceship (Right) */}
-        <motion.div 
-          style={{ position: 'absolute', bottom: '20%', right: '5%', y: y2 }}
-          initial={{ opacity: 0, x: 100, rotate: 15 }}
-          animate={{ 
-            opacity: 1, 
-            x: 0,
-            y: [0, 40, 0],
-            rotate: 15
-          }}
-          transition={{ 
-            opacity: { duration: 1.2, delay: 1.2 },
-            y: { duration: 8, repeat: Infinity, ease: "easeInOut" }
-          }}
-        >
-          <Box sx={{ position: 'relative' }}>
-            {/* Ambient Glow */}
-            <Box sx={{ 
-              position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-              width: '120%', height: '120%', borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(137, 87, 229, 0.2) 0%, transparent 70%)',
-              filter: 'blur(30px)', zIndex: -1
-            }} />
-            <Box
-              component="img"
-              src="https://www.pngmart.com/files/6/Spaceship-PNG-Transparent-Image.png"
-              alt="Realistic Spaceship"
-              sx={{ 
-                width: { xs: '150px', md: '280px' },
-                height: 'auto',
-                filter: 'drop-shadow(0 0 20px rgba(137, 87, 229, 0.4))'
-              }}
-            />
-          </Box>
-        </motion.div>
-
       </Container>
     </Box>
   );
