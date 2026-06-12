@@ -1,12 +1,7 @@
 import { Box, Typography, Container } from '@mui/material';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
-  const { scrollY } = useScroll();
-  
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-  
   return (
     <Box sx={{ 
       minHeight: { xs: 'auto', md: '100vh' }, 
@@ -97,34 +92,6 @@ const Hero = () => {
             </motion.div>
           </Box>
         </Box>
-
-        {/* Floating Code Snippet 1 (Interactive) */}
-        <motion.div 
-          style={{ position: 'absolute', top: '15%', left: '8%', y: y1 }}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 0.6, x: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          <Box className="glow-border" sx={{ background: 'rgba(22, 27, 34, 0.4)', backdropFilter: 'blur(10px)', p: 2, borderRadius: 2, border: '1px solid rgba(48, 54, 61, 0.5)', fontFamily: '"JetBrains Mono", monospace', fontSize: '0.8rem', color: '#8b949e' }}>
-            <span style={{color: '#ff7b72'}}>const</span> agency = <span style={{color: '#ff7b72'}}>new</span> <span style={{color: '#d2a8ff'}}>Arqulat</span>();
-            <br />
-            <span style={{color: '#ff7b72'}}>await</span> agency.<span style={{color: '#d2a8ff'}}>buildSolution</span>(&#123; aiMl: <span style={{color: '#ff7b72'}}>true</span> &#125;);
-          </Box>
-        </motion.div>
-
-        {/* Floating Code Snippet 2 (Interactive) */}
-        <motion.div 
-          style={{ position: 'absolute', bottom: '15%', right: '8%', y: y2 }}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 0.6, x: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-        >
-          <Box className="glow-border" sx={{ background: 'rgba(22, 27, 34, 0.4)', backdropFilter: 'blur(10px)', p: 2, borderRadius: 2, border: '1px solid rgba(48, 54, 61, 0.5)', fontFamily: '"JetBrains Mono", monospace', fontSize: '0.8rem', color: '#3fb950' }}>
-            ✓ SOLUTIONS_DEPLOYED: ACTIVE
-            <br />
-            ✓ STUDENT_BUILDERS: TRUE
-          </Box>
-        </motion.div>
       </Container>
     </Box>
   );
