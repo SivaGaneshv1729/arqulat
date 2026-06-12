@@ -1,7 +1,13 @@
 import { Box, Typography, Container } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Rocket, Navigation } from 'lucide-react';
 
 const Hero = () => {
+  const { scrollY } = useScroll();
+  
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+
   return (
     <Box sx={{ 
       minHeight: { xs: 'auto', md: '100vh' }, 
@@ -92,6 +98,43 @@ const Hero = () => {
             </motion.div>
           </Box>
         </Box>
+
+        {/* Floating Rocket (Left) */}
+        <motion.div 
+          style={{ position: 'absolute', top: '15%', left: '10%', y: y1 }}
+          initial={{ opacity: 0, x: -50, rotate: -45 }}
+          animate={{ 
+            opacity: 0.4, 
+            x: 0,
+            y: [0, -20, 0],
+            rotate: -45
+          }}
+          transition={{ 
+            opacity: { duration: 1, delay: 1 },
+            y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+          }}
+        >
+          <Rocket size={48} color="#2f81f7" strokeWidth={1.5} />
+        </motion.div>
+
+        {/* Floating Spaceship (Right) */}
+        <motion.div 
+          style={{ position: 'absolute', bottom: '20%', right: '10%', y: y2 }}
+          initial={{ opacity: 0, x: 50, rotate: 45 }}
+          animate={{ 
+            opacity: 0.4, 
+            x: 0,
+            y: [0, 25, 0],
+            rotate: 45
+          }}
+          transition={{ 
+            opacity: { duration: 1, delay: 1.2 },
+            y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+          }}
+        >
+          <Navigation size={40} color="#8957e5" strokeWidth={1.5} />
+        </motion.div>
+
       </Container>
     </Box>
   );
