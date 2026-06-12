@@ -193,7 +193,7 @@ const ModernBento = () => {
   const [hoveredNode, setHoveredNode] = useState(null);
 
   return (
-    <Box sx={{ py: { xs: 8, md: 10 }, background: '#0d1117', position: 'relative', borderBottom: '1px solid #30363d', overflow: 'hidden' }}>
+    <Box id="capabilities" sx={{ py: { xs: 8, md: 10 }, background: '#0d1117', position: 'relative', borderBottom: '1px solid #30363d', overflow: 'hidden' }}>
       {/* Global styles for the orbit animations */}
       <style>
         {`
