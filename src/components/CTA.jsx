@@ -68,7 +68,7 @@ const CTA = () => {
                 }
               }}
             >
-              Schedule MVP Session
+              Initiate Project Protocol
             </Button>
             <Button
               variant="outlined"
@@ -84,7 +84,7 @@ const CTA = () => {
                 '&:hover': { borderColor: '#8b949e', background: 'rgba(255,255,255,0.05)' }
               }}
             >
-              Explore Our Experience
+              Browse Intelligence Archives
             </Button>
           </Stack>
         </motion.div>

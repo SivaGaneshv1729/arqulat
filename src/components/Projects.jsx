@@ -210,7 +210,7 @@ const Projects = () => {
                           '&:hover': { color: '#fff', background: 'transparent' }
                         }}
                       >
-                        VIEW
+                        SOURCE_SNAPSHOT
                       </Button>
                     </Box>
 

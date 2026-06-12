@@ -97,6 +97,7 @@ const features = [
     desc: 'Deploy customized retrieval augmented generation (RAG) loops and tailored local model architectures.',
     detailedDesc: 'We build and integrate intelligence modules based on open-source LLMs. By running and fine-tuning models locally or optimizing cloud APIs, we deliver highly customized agentic solutions that handle complex database querying, document retrieval, and workflow automation.',
     color: '#2f81f7',
+    cta: 'View LLM Specs',
     AnimationComponent: AnimatedIntelligence
   },
   { 
@@ -107,6 +108,7 @@ const features = [
     desc: 'Structured databases, resilient microservices, and fast application layers built to scale.',
     detailedDesc: 'We construct production-ready backends using TypeScript, Python, Node.js, and modern relational/NoSQL database schemas. Our focus is on writing maintainable, clean codebases and deploying secure APIs that handle complex workflows, concurrent sessions, and async queues.',
     color: '#8957e5',
+    cta: 'Review Architecture',
     AnimationComponent: AnimatedInfrastructure
   },
   { 
@@ -117,6 +119,7 @@ const features = [
     desc: 'High-performance frontend applications with crisp layouts, responsive grids, and fluid interactions.',
     detailedDesc: 'Using modern tools like React, Next.js, and Framer Motion, we build premium websites and dashboards that offer smooth transitions, fully responsive viewports, and interactive visual modules, ensuring a professional user experience that captivates clients.',
     color: '#f0883e',
+    cta: 'Explore UX Patterns',
     AnimationComponent: AnimatedVisuals
   }
 ];
@@ -188,7 +191,7 @@ const ProductTabs = () => {
                         '&:hover': { background: `${feature.color}10`, borderColor: feature.color }
                       }}
                     >
-                      Explore Module →
+                      {feature.cta} →
                     </Button>
                   </Box>
 

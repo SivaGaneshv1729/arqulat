@@ -130,7 +130,7 @@ const Navbar = () => {
             </Box>
 
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
-              <Button 
+                <Button 
                 variant="contained" 
                 sx={{ 
                   borderRadius: '40px', 
@@ -146,7 +146,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                Get Started
+                Hire the Collective
               </Button>
             </Box>
             
@@ -222,7 +222,7 @@ const Navbar = () => {
               '&:hover': { background: 'rgba(255,255,255,0.9)' }
             }}
           >
-            Get Started
+            Hire the Collective
           </Button>
         </Box>
       </Drawer>

@@ -1,4 +1,4 @@
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Container, Stack, Button } from '@mui/material';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
@@ -93,7 +93,6 @@ const Hero = () => {
                   A student engineering collective delivering custom AI/ML integrations and high-performance software solutions.
                 </Typography>
 
-                {/* 
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2.5} justifyContent="center" alignItems="center">
                   <Button 
                     variant="contained" 
@@ -111,7 +110,7 @@ const Hero = () => {
                       } 
                     }}
                   >
-                    Start Building
+                    Deploy Solution
                   </Button>
                   
                   <Button 
@@ -129,10 +128,10 @@ const Hero = () => {
                       }
                     }}
                   >
-                    Watch Intelligence →
+                    Active Nodes →
                   </Button>
                 </Stack> 
-                */}
+
               </motion.div>
             </motion.div>
           </Box>
