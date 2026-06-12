@@ -92,7 +92,7 @@ const About = () => {
               <Box className="section-label" sx={{ mb: 3 }}>
                 [ 00. ORIGIN_PROTOCOL ]
               </Box>
-              <Typography variant="h2" sx={{ fontWeight: 800, mb: 4, letterSpacing: '-0.04em', fontSize: { xs: '2.2rem', md: '3.2rem' } }}>
+              <Typography variant="h2" sx={{ fontWeight: 800, mb: 4, letterSpacing: '-0.04em', fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
                 Student intelligence, <span className="text-gradient">production delivery.</span>
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, fontSize: '1.05rem', lineHeight: 1.7 }}>

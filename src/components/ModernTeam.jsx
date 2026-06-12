@@ -78,7 +78,7 @@ const ModernTeam = () => {
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-0.04em' }}>
             The technical backbone. <br />
-            <span style={{ color: '#8b949e' }}>Engineered for excellence.</span>
+            Engineered for <span className="text-gradient">excellence.</span>
           </Typography>
         </Box>
 

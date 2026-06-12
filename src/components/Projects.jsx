@@ -130,7 +130,7 @@ const Projects = () => {
             [ 04. CLIENT_PROJECTS ]
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-0.04em' }}>
-            Shipped <span style={{ color: '#8b949e' }}>solutions.</span>
+            Shipped <span className="text-gradient">solutions.</span>
           </Typography>
         </Box>
       </Container>

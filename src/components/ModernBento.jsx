@@ -215,7 +215,7 @@ const ModernBento = () => {
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 800, lineHeight: 1.1, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-0.04em' }}>
             Architected for execution. <br />
-            <span style={{ color: '#8b949e' }}>Built for intelligence.</span>
+            Built for <span className="text-gradient">intelligence.</span>
           </Typography>
         </Box>
       </Container>

@@ -126,10 +126,10 @@ const ProductTabs = () => {
     <Box id="labs" sx={{ py: { xs: 6, md: 8 }, background: '#0d1117', borderBottom: '1px solid #30363d' }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: 6, textAlign: 'center' }}>
-          <Typography className="mono-text" variant="caption" sx={{ color: 'secondary.main', mb: 2, display: 'block', letterSpacing: '0.4em', fontWeight: 600 }}>
-            [ CORE_SYSTEMS_ARCHITECTURE ]
-          </Typography>
-          <Typography variant="h2" sx={{ fontWeight: 800, mb: 4, letterSpacing: '-0.04em', fontSize: { xs: '2rem', md: '2.5rem' } }}>
+          <Box className="section-label" sx={{ mb: 3, display: 'inline-block' }}>
+            [ 03. PRODUCT_ARCHITECTURE ]
+          </Box>
+          <Typography variant="h2" sx={{ fontWeight: 800, mb: 4, letterSpacing: '-0.04em', fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
             A new standard for <span className="text-gradient">production.</span>
           </Typography>
         </Box>
