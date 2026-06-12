@@ -9,7 +9,7 @@ const specialists = [
   { 
     name: 'Venkat Ganesh', 
     role: 'Origin — Principal Architect', 
-    bio: 'Shapes the vision behind Arqulat, transforming ambitious ideas into scalable products, intelligent systems, and immersive digital experiences across AI, software, and interactive worlds.',
+    bio: 'Shapes Arqulat\'s vision, transforming ambitious ideas into scalable products, intelligent systems, and immersive digital experiences across AI and software.',
     image: 'https://github.com/github.png', // Placeholder for actual image
     links: {
       github: 'https://github.com',
@@ -22,24 +22,9 @@ const specialists = [
     alias: 'core_intel'
   },
   { 
-    name: 'Siva Ganesh', 
-    role: 'Forge — Creative Architect', 
-    bio: 'Crafts product experiences that blend functionality with design, turning complex concepts into intuitive interfaces, compelling visuals, and memorable user journeys.',
-    image: 'https://github.com/github.png',
-    links: {
-      github: 'https://github.com',
-      linkedin: 'https://linkedin.com',
-      portfolio: 'https://portfolio.com',
-      mail: 'mailto:siva@arqulat.com'
-    },
-    tech: ['Next.js', 'Go', 'PostgreSQL'],
-    color: '#8957e5',
-    alias: 'app_sync'
-  },
-  { 
     name: 'Sri Ram', 
     role: 'Scout — Intelligence Strategist', 
-    bio: 'Explores emerging AI capabilities, validates new ideas, and identifies opportunities that shape future products.',
+    bio: 'Explores emerging AI capabilities and validates new ideas to identify strategic opportunities that shape the future of our products.',
     image: 'https://github.com/github.png',
     links: {
       github: 'https://github.com',
@@ -48,13 +33,28 @@ const specialists = [
       mail: 'mailto:sriram@arqulat.com'
     },
     tech: ['K8s', 'Docker', 'Redis'],
-    color: '#38bdf8',
+    color: '#8957e5',
     alias: 'infra_root'
+  },
+  { 
+    name: 'Siva Ganesh', 
+    role: 'Forge — Creative Architect', 
+    bio: 'Crafts seamless product experiences blending functionality with design, turning complex concepts into intuitive interfaces and compelling visual user journeys.',
+    image: 'https://github.com/github.png',
+    links: {
+      github: 'https://github.com',
+      linkedin: 'https://linkedin.com',
+      portfolio: 'https://portfolio.com',
+      mail: 'mailto:siva@arqulat.com'
+    },
+    tech: ['Next.js', 'Go', 'PostgreSQL'],
+    color: '#38bdf8',
+    alias: 'app_sync'
   },
   { 
     name: 'Veeranna', 
     role: 'Anchor — Operations Steward', 
-    bio: 'Ensures ideas move from concept to completion by coordinating workflows, maintaining documentation, managing communication, and supporting day-to-day execution',
+    bio: 'Ensures ideas move from concept to completion by coordinating workflows, maintaining documentation, and supporting the team\'s daily execution.',
     image: 'https://github.com/github.png',
     links: {
       github: 'https://github.com',
@@ -74,7 +74,7 @@ const ModernTeam = () => {
       <Container maxWidth="lg">
         <Box sx={{ mb: 10, textAlign: 'center' }}>
           <Box className="section-label" sx={{ mb: 2, display: 'inline-block' }}>
-            [ 03. CORE_ENGINEERS ]
+            [ 04. CORE_DEVELOPERS ]
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-0.04em' }}>
             The technical backbone. <br />
@@ -102,7 +102,8 @@ const ModernTeam = () => {
             >
               <Box 
                 sx={{ 
-                  p: 4,
+                  py: 4,
+                  px: 2.5,
                   height: '100%',
                   background: '#161b22',
                   border: '1px solid #30363d',
@@ -138,16 +139,16 @@ const ModernTeam = () => {
                     }}
                   />
                   
-                  <Box sx={{ mb: 2 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.25rem', mb: 0.5 }}>
+                  <Box sx={{ mb: 2, width: '100%' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.25rem', mb: 0.5, width: '100%' }}>
                       {member.name}
                     </Typography>
-                    <Typography className="font-mono" sx={{ color: member.color, fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em' }}>
+                    <Typography className="font-mono" sx={{ color: member.color, fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em', width: '100%' }}>
                       {member.role}
                     </Typography>
                   </Box>
 
-                  <Typography variant="body2" sx={{ color: 'text.secondary', mb: 4, fontSize: '0.85rem', lineHeight: 1.6, flexGrow: 1 }}>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', mb: 4, fontSize: '0.8rem', lineHeight: 1.6, flexGrow: 1, width: '100%' }}>
                     {member.bio}
                   </Typography>
 
