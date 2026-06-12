@@ -68,7 +68,7 @@ const CTA = () => {
                 }
               }}
             >
-              Initiate Project Protocol
+              Start Building
             </Button>
             <Button
               variant="outlined"
@@ -84,7 +84,7 @@ const CTA = () => {
                 '&:hover': { borderColor: '#8b949e', background: 'rgba(255,255,255,0.05)' }
               }}
             >
-              Browse Intelligence Archives
+              Explore Projects
             </Button>
           </Stack>
         </motion.div>
