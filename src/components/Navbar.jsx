@@ -20,10 +20,11 @@ const Navbar = () => {
   };
 
   const navItems = [
+    { label: 'About', id: 'about' },
     { label: 'Capabilities', id: 'capabilities' },
     { label: 'Evolution', id: 'evolution' },
-    { label: 'Labs', id: 'labs' },
-    { label: 'Collective', id: 'collective' }
+    { label: 'Projects', id: 'projects' },
+    { label: 'Developer\'s', id: 'collective' }
   ];
 
   const handleNavClick = (id) => {
@@ -92,7 +93,7 @@ const Navbar = () => {
               </Box>
             </Box>
             
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4 }}>
+            <Box sx={{ display: { xs: 'none', lg: 'flex' }, gap: 4 }}>
               {navItems.map((item) => (
                 <Typography
                   key={item.id}
@@ -132,6 +133,7 @@ const Navbar = () => {
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
                 <Button 
                 variant="contained" 
+                onClick={() => handleNavClick('collective')}
                 sx={{ 
                   borderRadius: '40px', 
                   px: 3, 
@@ -146,12 +148,12 @@ const Navbar = () => {
                   }
                 }}
               >
-                Hire the Collective
+                Get Started
               </Button>
             </Box>
             
             <IconButton 
-              sx={{ display: { xs: 'block', md: 'none' }, color: 'white' }}
+              sx={{ display: { xs: 'block', lg: 'none' }, color: 'white' }}
               onClick={handleDrawerToggle}
             >
               <MenuIcon />
@@ -213,6 +215,7 @@ const Navbar = () => {
           <Button 
             fullWidth
             variant="contained" 
+            onClick={() => handleNavClick('collective')}
             sx={{ 
               borderRadius: '40px', 
               py: 1.5,
@@ -222,11 +225,12 @@ const Navbar = () => {
               '&:hover': { background: 'rgba(255,255,255,0.9)' }
             }}
           >
-            Hire the Collective
+            Get Started
           </Button>
         </Box>
       </Drawer>
     </Box>
+
   );
 };
 
