@@ -98,6 +98,7 @@ const products = [
     detailedDesc: 'Built with React, TypeScript, and a Spring Boot backend, Loom is designed for rapid prototyping, flowcharting, and collaboration. It features a robust history system, categorized element library, smart layer management, and a highly interactive canvas.',
     color: '#2f81f7',
     cta: 'View Loom',
+    link: 'https://loom.arqulat.com/',
     AnimationComponent: AnimatedVisuals
   },
   { 
@@ -109,6 +110,7 @@ const products = [
     detailedDesc: 'Lattice features a sophisticated multi-tier model architecture (L1 Routing/Execution, L2 Architect/Critic) leveraging Gemini, Groq, and local Ollama models. It integrates directly into the editor and supports MCP servers for advanced context and code execution capabilities.',
     color: '#8957e5',
     cta: 'Explore Lattice',
+    link: '#',
     AnimationComponent: AnimatedIntelligence
   }
 ];
@@ -122,7 +124,7 @@ const ProductTabs = () => {
             [ 03. PRODUCTS ]
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 800, mb: 4, letterSpacing: '-0.04em', fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
-            Shipped & upcoming <span className="text-gradient">solutions.</span>
+            Products in <span className="text-gradient">development.</span>
           </Typography>
         </Box>
 
@@ -170,6 +172,9 @@ const ProductTabs = () => {
 
                     <Button 
                       variant="outlined" 
+                      href={feature.link}
+                      target={feature.link !== '#' ? "_blank" : undefined}
+                      rel={feature.link !== '#' ? "noopener noreferrer" : undefined}
                       sx={{ 
                         borderRadius: '30px', 
                         borderColor: feature.color, 
