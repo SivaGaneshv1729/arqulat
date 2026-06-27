@@ -110,7 +110,7 @@ const products = [
     detailedDesc: 'Lattice features a sophisticated multi-tier model architecture (L1 Routing/Execution, L2 Architect/Critic) leveraging Gemini, Groq, and local Ollama models. It integrates directly into the editor and supports MCP servers for advanced context and code execution capabilities.',
     color: '#8957e5',
     cta: 'Explore Lattice',
-    link: '#',
+    link: 'https://github.com/ganesh714/lattice',
     AnimationComponent: AnimatedIntelligence
   }
 ];

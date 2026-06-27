@@ -10,31 +10,15 @@ const specialists = [
     name: 'Venkat Ganesh', 
     role: 'Origin — Principal Architect', 
     bio: 'Shapes Arqulat\'s vision, transforming ambitious ideas into scalable products, intelligent systems, and immersive digital experiences across AI and software.',
-    image: 'https://github.com/github.png', // Placeholder for actual image
+    image: 'https://github.com/github.png',
     links: {
-      github: 'https://github.com',
-      linkedin: 'https://linkedin.com',
-      portfolio: 'https://portfolio.com',
-      mail: 'mailto:venkat@arqulat.com'
+      github: 'https://github.com/ganesh714/',
+      linkedin: 'https://www.linkedin.com/in/venkata-ganesh-934072291/',
+      mail: 'mailto:evvganesh1@gmail.com'
     },
     tech: ['PyTorch', 'LangChain', 'OpenAI'],
     color: '#2f81f7',
     alias: 'core_intel'
-  },
-  { 
-    name: 'Sri Ram', 
-    role: 'Scout — Intelligence Strategist', 
-    bio: 'Explores emerging AI capabilities and validates new ideas to identify strategic opportunities that shape the future of our products.',
-    image: 'https://github.com/github.png',
-    links: {
-      github: 'https://github.com',
-      linkedin: 'https://linkedin.com',
-      portfolio: 'https://portfolio.com',
-      mail: 'mailto:sriram@arqulat.com'
-    },
-    tech: ['K8s', 'Docker', 'Redis'],
-    color: '#8957e5',
-    alias: 'infra_root'
   },
   { 
     name: 'Siva Ganesh', 
@@ -42,14 +26,27 @@ const specialists = [
     bio: 'Crafts seamless product experiences blending functionality with design, turning complex concepts into intuitive interfaces and compelling visual user journeys.',
     image: 'https://github.com/github.png',
     links: {
-      github: 'https://github.com',
-      linkedin: 'https://linkedin.com',
-      portfolio: 'https://portfolio.com',
-      mail: 'mailto:siva@arqulat.com'
+      github: 'https://github.com/sivaGaneshv1729/',
+      linkedin: 'https://www.linkedin.com/in/siva-ganesh-vemula/',
+      mail: 'mailto:sivaganeshv1729@gmail.com'
     },
     tech: ['Next.js', 'Go', 'PostgreSQL'],
     color: '#38bdf8',
     alias: 'app_sync'
+  },
+  { 
+    name: 'Sri Ram', 
+    role: 'Scout — Intelligence Strategist', 
+    bio: 'Explores emerging AI capabilities and validates new ideas to identify strategic opportunities that shape the future of our products.',
+    image: 'https://github.com/github.png',
+    links: {
+      github: 'https://github.com/srirame5/',
+      linkedin: 'https://www.linkedin.com/in/sriram-chodabattula-09b08a174/',
+      mail: 'mailto:sriramchodabattula777@gmail.com'
+    },
+    tech: ['K8s', 'Docker', 'Redis'],
+    color: '#8957e5',
+    alias: 'infra_root'
   },
   { 
     name: 'Veeranna', 
@@ -57,10 +54,9 @@ const specialists = [
     bio: 'Ensures ideas move from concept to completion by coordinating workflows, maintaining documentation, and supporting the team\'s daily execution.',
     image: 'https://github.com/github.png',
     links: {
-      github: 'https://github.com',
-      linkedin: 'https://linkedin.com',
-      portfolio: 'https://portfolio.com',
-      mail: 'mailto:veeranna@arqulat.com'
+      github: 'https://github.com/NagaVeeranna',
+      linkedin: 'https://www.linkedin.com/in/naga-veeranna-97a133286/',
+      mail: 'mailto:nagaveeranna1234@gmail.com'
     },
     tech: ['Three.js', 'GLSL', 'Blender'],
     color: '#f0883e',
@@ -169,14 +165,16 @@ const ModernTeam = () => {
                     >
                       <LinkedInIcon sx={{ fontSize: 18 }} />
                     </IconButton>
-                    <IconButton 
-                      size="small" 
-                      href={member.links.portfolio} 
-                      target="_blank"
-                      sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main', background: 'rgba(47, 129, 247, 0.05)' } }}
-                    >
-                      <LanguageIcon sx={{ fontSize: 18 }} />
-                    </IconButton>
+                    {member.links.portfolio && (
+                      <IconButton 
+                        size="small" 
+                        href={member.links.portfolio} 
+                        target="_blank"
+                        sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main', background: 'rgba(47, 129, 247, 0.05)' } }}
+                      >
+                        <LanguageIcon sx={{ fontSize: 18 }} />
+                      </IconButton>
+                    )}
                     <IconButton 
                       size="small" 
                       href={member.links.mail}
