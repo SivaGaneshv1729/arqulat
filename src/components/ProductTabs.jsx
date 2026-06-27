@@ -88,38 +88,38 @@ const AnimatedVisuals = ({ color }) => (
   </Box>
 );
 
-const features = [
+const products = [
   { 
-    id: 'intel', 
-    label: 'INTELLIGENCE', 
+    id: 'classmate', 
+    label: 'DEPLOYED_APP', 
     icon: <PsychologyIcon />, 
-    title: 'Custom AI/ML Solutions', 
-    desc: 'Deploy customized retrieval augmented generation (RAG) loops and tailored local model architectures.',
-    detailedDesc: 'We build and integrate intelligence modules based on open-source LLMs. By running and fine-tuning models locally or optimizing cloud APIs, we deliver highly customized agentic solutions that handle complex database querying, document retrieval, and workflow automation.',
+    title: 'Classmate RAG Agent', 
+    desc: 'A student-designed AI assistant integrating academic schedules and career prep.',
+    detailedDesc: 'Built with local LLMs (LlamaIndex) and resilient vector databases, Classmate currently serves over 500 campus peers. It provides instant answers to syllabus queries, assignment deadlines, and placement prep without relying on expensive cloud APIs.',
     color: '#2f81f7',
-    cta: 'View LLM Specs',
+    cta: 'View Source',
     AnimationComponent: AnimatedIntelligence
   },
   { 
-    id: 'infra', 
-    label: 'CORE_SYSTEMS', 
+    id: 'hostelsaas', 
+    label: 'DEPLOYED_SAAS', 
     icon: <StorageIcon />, 
-    title: 'High-Performance Backends & SaaS', 
-    desc: 'Structured databases, resilient microservices, and fast application layers built to scale.',
-    detailedDesc: 'We construct production-ready backends using TypeScript, Python, Node.js, and modern relational/NoSQL database schemas. Our focus is on writing maintainable, clean codebases and deploying secure APIs that handle complex workflows, concurrent sessions, and async queues.',
+    title: 'Hostel SaaS Platform', 
+    desc: 'Comprehensive hostel management platform automating room bookings and gate passes.',
+    detailedDesc: 'This production-ready full-stack application replaces manual ledgers with a unified dashboard. Built on Node.js, Express, and PostgreSQL, it handles real-time occupancy tracking, digital gate pass approvals, and automated fee reminders at scale.',
     color: '#8957e5',
-    cta: 'Review Architecture',
+    cta: 'Review Dashboard',
     AnimationComponent: AnimatedInfrastructure
   },
   { 
-    id: 'render', 
-    label: 'FRONTEND_UX', 
+    id: 'futurelabs', 
+    label: 'UPCOMING_NETWORK', 
     icon: <TerminalIcon />, 
-    title: 'Sleek Client Viewports', 
-    desc: 'High-performance frontend applications with crisp layouts, responsive grids, and fluid interactions.',
-    detailedDesc: 'Using modern tools like React, Next.js, and Framer Motion, we build premium websites and dashboards that offer smooth transitions, fully responsive viewports, and interactive visual modules, ensuring a professional user experience that captivates clients.',
+    title: 'Future Labs Incubator', 
+    desc: 'A centralized networking hub connecting student developers with campus resources.',
+    detailedDesc: 'An upcoming interactive portal designed to accelerate peer collaboration. Built using Next.js and Framer Motion, it features intelligent project matching, mentor networking, and responsive visual modules to deliver a premium experience for builders.',
     color: '#f0883e',
-    cta: 'Explore UX Patterns',
+    cta: 'Explore Platform',
     AnimationComponent: AnimatedVisuals
   }
 ];
@@ -130,15 +130,15 @@ const ProductTabs = () => {
       <Container maxWidth="lg">
         <Box sx={{ mb: 6, textAlign: 'center' }}>
           <Box className="section-label" sx={{ mb: 3, display: 'inline-block' }}>
-            [ 03. PRODUCT_ARCHITECTURE ]
+            [ 03. PRODUCTS ]
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 800, mb: 4, letterSpacing: '-0.04em', fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
-            A new standard for <span className="text-gradient">production.</span>
+            Shipped & upcoming <span className="text-gradient">solutions.</span>
           </Typography>
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 4, md: 6 } }}>
-          {features.map((feature, index) => {
+          {products.map((feature, index) => {
             const Animation = feature.AnimationComponent;
             const isReversed = index % 2 !== 0;
 
