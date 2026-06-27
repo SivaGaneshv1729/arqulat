@@ -90,26 +90,26 @@ const About = () => {
               viewport={{ once: true }}
             >
               <Box className="section-label" sx={{ mb: 3 }}>
-                [ 00. ORIGIN_PROTOCOL ]
+                [ 00. THE_FOUNDATION ]
               </Box>
               <Typography variant="h2" sx={{ fontWeight: 800, mb: 4, letterSpacing: '-0.04em', fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
-                Student intelligence, <span className="text-gradient">production delivery.</span>
+                Where vision meets <span className="text-gradient">relentless execution.</span>
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, fontSize: '1.05rem', lineHeight: 1.7 }}>
-                Arqulat is a student-developed engineering agency specializing in custom artificial intelligence, machine learning, and core software solutions. We bridge high-performance academic research with pragmatic software craftsmanship, creating production-grade integrations tailored to real problems.
+                Born from a shared vision in the summer of 2025, Arqulat emerged as a synergy of minds dedicated to pushing the boundaries of artificial intelligence. What began as a focused academic pursuit has rapidly evolved into a high-velocity innovation lab.
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1rem', lineHeight: 1.7, opacity: 0.8 }}>
-                Founded and operated by a collaborative team of student builders, we work at high-velocity to construct scalable backends, deploy fine-tuned local models, optimize LLM context limits, and engineer intuitive UI/UX layers.
+                Forged in the crucible of competitive environments and refined through rigorous engineering, we bridge the gap between theoretical research and pragmatic software craftsmanship. Today, our singular focus lies in architecting sophisticated platforms that redefine intelligent interaction.
               </Typography>
               
               <Stack direction="row" spacing={5} sx={{ mt: 6 }}>
                 <Box>
-                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'primary.main', mb: 0.5 }}>99.9%</Typography>
-                  <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.1em' }}>UPTIME_SYNC</Typography>
+                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'primary.main', mb: 0.5 }}>2</Typography>
+                  <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.1em' }}>FLAGSHIP_PRODUCTS</Typography>
                 </Box>
                 <Box>
-                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'secondary.main', mb: 0.5 }}>10+</Typography>
-                  <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.1em' }}>SHIPPED_PROTOS</Typography>
+                  <Typography variant="h5" sx={{ fontWeight: 800, color: 'secondary.main', mb: 0.5 }}>1</Typography>
+                  <Typography className="font-mono" sx={{ fontSize: '0.65rem', color: 'text.secondary', letterSpacing: '0.1em' }}>SHARED_VISION</Typography>
                 </Box>
                 <Box>
                   <Typography variant="h5" sx={{ fontWeight: 800, color: 'info.main', mb: 0.5 }}>4</Typography>
