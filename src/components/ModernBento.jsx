@@ -8,8 +8,8 @@ import ArchitectureIcon from '@mui/icons-material/Architecture';
 
 const expertise = [
   {
-    title: 'Custom AI/ML Integrations',
-    desc: 'Build custom RAG pipelines, fine-tuned open-source models, and agentic workflows tailored to your custom database requirements.',
+    title: 'Agentic AI Architecture',
+    desc: 'Building multi-tier LLM integrations, like Lattice AI, leveraging MCP servers and local Ollama models.',
     label: 'AI_ML_SYSTEMS',
     icon: <PsychologyIcon sx={{ fontSize: 24 }} />,
     color: '#2f81f7',
@@ -19,8 +19,8 @@ const expertise = [
     tiltX: 75
   },
   {
-    title: 'Core Software Eng',
-    desc: 'High-performance full-stack architectures, robust relational database designs, and optimized server integrations.',
+    title: 'High-Performance Backends',
+    desc: 'Robust architectures using Spring Boot, Node.js, and structured databases to power platforms like Project Loom.',
     label: 'CORE_SOFTWARE',
     icon: <ArchitectureIcon sx={{ fontSize: 24 }} />,
     color: '#8957e5',
@@ -30,9 +30,9 @@ const expertise = [
     tiltX: 75
   },
   {
-    title: 'Student Agility',
-    desc: 'High-velocity development cycles, rapid MVP prototyping, and cost-effective deployments built with a hacker mindset.',
-    label: 'AGILE_HACKERS',
+    title: 'Hackathon Agility',
+    desc: 'Forged in competitions like Bajaj HackRx 6.0. High-velocity prototyping and cost-effective deployments.',
+    label: 'HACKER_ROOTS',
     icon: <HubIcon sx={{ fontSize: 24 }} />,
     color: '#f0883e',
     radius: 500,
@@ -41,8 +41,8 @@ const expertise = [
     tiltX: 75
   },
   {
-    title: 'Modern UI/UX Delivery',
-    desc: 'Premium, responsive interfaces featuring immersive layout patterns and hardware-accelerated animation libraries.',
+    title: 'Modern Canvas UIs',
+    desc: 'Developing Figma-like interfaces and highly interactive React viewports for rapid prototyping tools.',
     label: 'SLEEK_FRONTENDS',
     icon: <LanguageIcon sx={{ fontSize: 24 }} />,
     color: '#38bdf8',

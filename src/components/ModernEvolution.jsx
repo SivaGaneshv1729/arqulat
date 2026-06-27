@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const timelineData = [
   {
-    date: 'SUMMER 2025 // GENESIS',
+    date: 'SUMMER 2025 // INCEPTION',
     title: 'Inhouse Internship 1.0',
     description: 'The journey began when Venkat and Veeranna were looking for a team in the AIML department. Sriram pitched an approved idea and teamed up with Siva Ganesh. We joined forces, forming the core team that started it all.',
     products: ['Team Formation', 'AIML Dept'],
@@ -45,10 +45,10 @@ const ModernEvolution = () => {
             [ 02. EVOLUTION_TIMELINE ]
           </Box>
           <Typography variant="h2" sx={{ fontWeight: 800, mb: 3, fontSize: { xs: '2.5rem', md: '3.5rem' }, letterSpacing: '-0.04em' }}>
-            Our journey & <span className="text-gradient">products.</span>
+            The evolution of a <span className="text-gradient">collective.</span>
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: '600px', mx: 'auto', fontSize: '1.1rem' }}>
-            From campus hackathons to deploying scalable SaaS architectures. A timeline of our shipped products and upcoming unified ecosystem.
+            From our early roots in a summer internship to forging resilient AI architectures. A timeline of the key milestones that shaped our vision and capabilities.
           </Typography>
         </Box>
 
