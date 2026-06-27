@@ -40,7 +40,7 @@ const Hero = () => {
                     letterSpacing: '0.1em'
                   }}
                 >
-                  [ ARQULAT_AGENCY_v1.0 ]
+                  [ THE_ARQULAT_COLLECTIVE ]
                 </Typography>
               </Box>
 
@@ -61,7 +61,7 @@ const Hero = () => {
                   transition={{ duration: 1, delay: 0.2 }}
                   style={{ display: 'inline-block' }}
                 >
-                  Engineering
+                  Architecting
                 </motion.span>
                 <br />
                 <motion.span
@@ -71,7 +71,7 @@ const Hero = () => {
                   style={{ display: 'inline-block' }}
                   className="text-gradient"
                 >
-                  Next Gen Software.
+                  digital elegance.
                 </motion.span>
               </Typography>
               
@@ -85,7 +85,7 @@ const Hero = () => {
                   color="text.secondary" 
                   sx={{ mb: 6, mx: 'auto', maxWidth: '750px', fontWeight: 400, lineHeight: 1.6, fontSize: { xs: '1.1rem', md: '1.4rem' }, opacity: 0.8 }}
                 >
-                  A student engineering collective delivering custom AI/ML integrations and high-performance software solutions.
+                  A cohort of builders forging intelligent systems and sophisticated software architectures, where high-velocity engineering meets uncompromising design.
                 </Typography>
 
               </motion.div>
