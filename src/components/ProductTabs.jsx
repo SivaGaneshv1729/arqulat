@@ -90,37 +90,26 @@ const AnimatedVisuals = ({ color }) => (
 
 const products = [
   { 
-    id: 'classmate', 
-    label: 'DEPLOYED_APP', 
-    icon: <PsychologyIcon />, 
-    title: 'Classmate RAG Agent', 
-    desc: 'A student-designed AI assistant integrating academic schedules and career prep.',
-    detailedDesc: 'Built with local LLMs (LlamaIndex) and resilient vector databases, Classmate currently serves over 500 campus peers. It provides instant answers to syllabus queries, assignment deadlines, and placement prep without relying on expensive cloud APIs.',
-    color: '#2f81f7',
-    cta: 'View Source',
-    AnimationComponent: AnimatedIntelligence
-  },
-  { 
-    id: 'hostelsaas', 
-    label: 'DEPLOYED_SAAS', 
-    icon: <StorageIcon />, 
-    title: 'Hostel SaaS Platform', 
-    desc: 'Comprehensive hostel management platform automating room bookings and gate passes.',
-    detailedDesc: 'This production-ready full-stack application replaces manual ledgers with a unified dashboard. Built on Node.js, Express, and PostgreSQL, it handles real-time occupancy tracking, digital gate pass approvals, and automated fee reminders at scale.',
-    color: '#8957e5',
-    cta: 'Review Dashboard',
-    AnimationComponent: AnimatedInfrastructure
-  },
-  { 
-    id: 'futurelabs', 
-    label: 'UPCOMING_NETWORK', 
+    id: 'loom', 
+    label: 'WEB_APPLICATION', 
     icon: <TerminalIcon />, 
-    title: 'Future Labs Incubator', 
-    desc: 'A centralized networking hub connecting student developers with campus resources.',
-    detailedDesc: 'An upcoming interactive portal designed to accelerate peer collaboration. Built using Next.js and Framer Motion, it features intelligent project matching, mentor networking, and responsive visual modules to deliver a premium experience for builders.',
-    color: '#f0883e',
-    cta: 'Explore Platform',
+    title: 'Loom Diagramming Tool', 
+    desc: 'High-performance, professional-grade diagramming application with a modern Figma-like interface.',
+    detailedDesc: 'Built with React, TypeScript, and a Spring Boot backend, Loom is designed for rapid prototyping, flowcharting, and collaboration. It features a robust history system, categorized element library, smart layer management, and a highly interactive canvas.',
+    color: '#2f81f7',
+    cta: 'View Loom',
     AnimationComponent: AnimatedVisuals
+  },
+  { 
+    id: 'lattice', 
+    label: 'VSCODE_EXTENSION', 
+    icon: <PsychologyIcon />, 
+    title: 'Lattice AI Assistant', 
+    desc: 'A multi-tier agentic AI coding assistant built as a VS Code extension.',
+    detailedDesc: 'Lattice features a sophisticated multi-tier model architecture (L1 Routing/Execution, L2 Architect/Critic) leveraging Gemini, Groq, and local Ollama models. It integrates directly into the editor and supports MCP servers for advanced context and code execution capabilities.',
+    color: '#8957e5',
+    cta: 'Explore Lattice',
+    AnimationComponent: AnimatedIntelligence
   }
 ];
 
