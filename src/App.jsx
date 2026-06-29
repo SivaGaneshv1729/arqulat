@@ -7,6 +7,9 @@ import Terms from './pages/Terms';
 import GlobalBackground from './components/GlobalBackground';
 import Lenis from '@studio-freight/lenis';
 
+import Privacy from './pages/Privacy';
+import Security from './pages/Security';
+
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -39,6 +42,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/security" element={<Security />} />
         </Routes>
       </Router>
     </ThemeProvider>

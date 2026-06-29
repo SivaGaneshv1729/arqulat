@@ -69,6 +69,12 @@ const Footer = () => {
     if (item === 'TERMS') {
       navigate('/terms');
       window.scrollTo(0, 0);
+    } else if (item === 'PRIVACY') {
+      navigate('/privacy');
+      window.scrollTo(0, 0);
+    } else if (item === 'SECURITY') {
+      navigate('/security');
+      window.scrollTo(0, 0);
     } else {
       setModalContent(footerData[item]);
     }
