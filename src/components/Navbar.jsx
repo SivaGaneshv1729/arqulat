@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, IconButton, Container, Drawer, List, ListItem, ListItemButton, ListItemText, Avatar, Menu, MenuItem, Divider } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -111,7 +112,12 @@ const Navbar = () => {
         <Container maxWidth="lg">
           <Toolbar sx={{ justifyContent: 'space-between', height: scrolled ? '64px' : '80px', transition: 'height 0.4s' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: -1, color: '#ffffff' }}>
+              <Typography 
+                variant="h6" 
+                component={RouterLink}
+                to="/"
+                sx={{ fontWeight: 800, letterSpacing: -1, color: '#ffffff', textDecoration: 'none', transition: '0.2s', '&:hover': { opacity: 0.8 } }}
+              >
                 ARQULAT
               </Typography>
 
@@ -178,8 +184,8 @@ const Navbar = () => {
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
               {user ? (
                 <>
-                  <IconButton onClick={handleMenuClick} sx={{ p: 0, ml: 1 }}>
-                    <Avatar alt={user.name} src={user.picture || ''} sx={{ width: 40, height: 40, border: '2px solid rgba(255,255,255,0.2)' }} />
+                  <IconButton onClick={handleMenuClick} sx={{ p: 0, ml: 1, transition: '0.3s', '&:hover': { transform: 'scale(1.05)' } }}>
+                    <Avatar alt={user.name} src={user.picture || ''} sx={{ width: 42, height: 42, border: '2px solid rgba(255,255,255,0.1)', boxShadow: '0 0 15px rgba(255,255,255,0.1)' }} />
                   </IconButton>
                   <Menu
                     anchorEl={anchorEl}
@@ -188,29 +194,39 @@ const Navbar = () => {
                     onClick={handleMenuClose}
                     transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                    PaperProps={{
-                      sx: {
-                        mt: 1.5,
-                        background: '#161b22',
-                        color: 'white',
-                        border: '1px solid #30363d',
-                        minWidth: 200,
-                        '& .MuiMenuItem-root': {
-                          fontSize: '0.9rem',
-                          fontFamily: 'inherit',
-                          py: 1.5
+                    slotProps={{
+                      paper: {
+                        elevation: 0,
+                        sx: {
+                          mt: 2,
+                          background: 'rgba(13, 17, 23, 0.8)',
+                          backdropFilter: 'blur(20px)',
+                          color: 'white',
+                          border: '1px solid #30363d',
+                          borderRadius: '16px',
+                          minWidth: 260,
+                          overflow: 'hidden',
+                          boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+                          '& .MuiMenuItem-root': {
+                            fontSize: '0.9rem',
+                            fontFamily: 'inherit',
+                            py: 1.5,
+                            px: 3,
+                            transition: 'all 0.2s ease',
+                          }
                         }
                       }
                     }}
                   >
-                    <Box sx={{ px: 2, py: 1.5 }}>
-                      <Typography variant="body1" sx={{ fontWeight: 600, color: 'white' }}>{user.name}</Typography>
-                      <Typography variant="body2" sx={{ color: 'text.secondary' }}>{user.email}</Typography>
+                    <Box sx={{ px: 3, py: 2.5, background: 'rgba(255,255,255,0.02)', borderBottom: '1px solid #30363d' }}>
+                      <Typography variant="body1" sx={{ fontWeight: 700, color: 'white', mb: 0.5, letterSpacing: '-0.02em' }}>{user.name}</Typography>
+                      <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '0.8rem' }}>{user.email}</Typography>
                     </Box>
-                    <Divider sx={{ borderColor: '#30363d' }} />
-                    <MenuItem onClick={handleLogout} sx={{ color: '#ff7b72', '&:hover': { background: 'rgba(255, 123, 114, 0.1)' } }}>
-                      Logout
-                    </MenuItem>
+                    <Box sx={{ p: 1 }}>
+                      <MenuItem onClick={handleLogout} sx={{ borderRadius: '8px', color: '#ff7b72', fontWeight: 600, '&:hover': { background: 'rgba(255, 123, 114, 0.1)' } }}>
+                        Logout
+                      </MenuItem>
+                    </Box>
                   </Menu>
                 </>
               ) : (
@@ -266,7 +282,13 @@ const Navbar = () => {
       >
         <Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 6 }}>
-            <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: -1, color: '#ffffff' }}>
+            <Typography 
+              variant="h6" 
+              component={RouterLink}
+              to="/"
+              onClick={handleDrawerToggle}
+              sx={{ fontWeight: 800, letterSpacing: -1, color: '#ffffff', textDecoration: 'none' }}
+            >
               ARQULAT
             </Typography>
             <IconButton onClick={handleDrawerToggle} sx={{ color: 'text.secondary' }}>

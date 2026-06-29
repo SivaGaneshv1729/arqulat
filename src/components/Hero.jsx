@@ -48,7 +48,7 @@ const Hero = () => {
                 variant="h1" 
                 sx={{ 
                   fontSize: { xs: '3rem', md: '5rem', lg: '6rem' }, 
-                  lineHeight: 1, 
+                  lineHeight: 1.1, 
                   mb: 4,
                   color: 'text.primary',
                   fontWeight: 800,
@@ -59,7 +59,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.2 }}
-                  style={{ display: 'inline-block' }}
+                  style={{ display: 'inline-block', paddingBottom: '0.1em' }}
                 >
                   Architecting
                 </motion.span>
@@ -68,7 +68,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.4 }}
-                  style={{ display: 'inline-block' }}
+                  style={{ display: 'inline-block', paddingBottom: '0.1em' }}
                   className="text-gradient"
                 >
                   digital elegance.
