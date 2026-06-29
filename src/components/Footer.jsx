@@ -26,38 +26,38 @@ const Footer = () => {
 
   const footerData = {
     // ... rest of footerData stays same
-    'Autonomous Intelligence': { title: 'AI_SYSTEMS', content: ['Multi-agent networks', 'Cognitive loops', 'Neural orchestration'] },
-    'Hyperscale Infrastructure': { title: 'COMPUTE_NODES', content: ['Distributed clusters', 'Low-latency routing', 'Edge compute'] },
-    'Spatial UI & 3D': { title: 'VISUAL_ENGINES', content: ['Interactive 3D', 'Spatial canvases', 'Simulation layers'] },
-    'Enterprise Delivery': { title: 'SCALED_SOLUTIONS', content: ['Production frameworks', 'Security audits', 'Global deployment'] },
-    'Tech Documentation': { title: 'DEV_DOCS', content: ['API references', 'SDK guides', 'Architecture maps'] },
-    'Open Source Labs': { title: 'LAB_REPOS', content: ['Community research', 'Public tools', 'Lab prototypes'] },
-    'System Status': { title: 'NODE_HEALTH', content: ['Real-time metrics', 'Cluster status', 'Incident logs'] },
-    'Engineering Blog': { title: 'TECH_INSIGHTS', content: ['Deep dives', 'Lab updates', 'Core research'] },
-    'Our Journey': { title: 'EVOLUTION', content: ['Startup engine', 'Mission timeline', 'Core philosophy'] },
-    'Engineering Team': { title: 'COLLECTIVE', content: ['Lead researchers', 'Core engineers', 'Spatial designers'] },
-    'Future Labs': { title: 'R&D_HORIZON', content: ['Quantum research', 'Neuro-interfaces', 'Spatial compute'] },
-    'Join the Squad': { title: 'CAREERS', content: ['Open roles', 'Culture', 'Equity programs'] },
+    'AI Platform': { title: 'AI_PLATFORM', content: ['Intelligent automation', 'Predictive models', 'Data synthesis'] },
+    'Data Engine': { title: 'DATA_ENGINE', content: ['Data pipelines', 'Real-time analytics', 'Scalable storage'] },
+    'Cloud Infrastructure': { title: 'CLOUD_INFRA', content: ['Distributed computing', 'High availability', 'Global routing'] },
+    'Custom Solutions': { title: 'CUSTOM_SOLUTIONS', content: ['Enterprise integration', 'Security compliance', 'Dedicated support'] },
+    'Documentation': { title: 'DOCS', content: ['API references', 'SDK guides', 'Quickstarts'] },
+    'Open Source': { title: 'OPEN_SOURCE', content: ['Community projects', 'Developer tools', 'GitHub repositories'] },
+    'Status': { title: 'SYSTEM_STATUS', content: ['Real-time metrics', 'Uptime history', 'Incident reports'] },
+    'Blog': { title: 'BLOG', content: ['Product updates', 'Engineering deep-dives', 'Company news'] },
+    'Our Journey': { title: 'OUR_STORY', content: ['Company history', 'Milestones', 'Core values'] },
+    'Meet the Team': { title: 'TEAM', content: ['Founders', 'Engineers', 'Designers'] },
+    'Research': { title: 'RESEARCH', content: ['Whitepapers', 'Future labs', 'AI ethics'] },
+    'Careers': { title: 'CAREERS', content: ['Open roles', 'Culture', 'Benefits'] },
     'Email': { title: 'CONTACT_EMAIL', content: ['contact@arqulat.com', 'Response within 24h'] },
-    'Instagram': { title: 'SOCIAL_INSTAGRAM', content: ['@arqulat_agency', 'Daily lab updates'] },
-    'LinkedIn': { title: 'SOCIAL_LINKEDIN', content: ['Arqulat Agency', 'Professional network'] },
+    'Instagram': { title: 'SOCIAL_INSTAGRAM', content: ['@arqulat', 'Behind the scenes'] },
+    'LinkedIn': { title: 'SOCIAL_LINKEDIN', content: ['Arqulat', 'Professional network'] },
     'Twitter': { title: 'SOCIAL_TWITTER', content: ['@arqulat', 'Quick updates'] },
-    'PRIVACY': { title: 'PRIVACY_PROTOCOL', content: ['Data sovereignty', 'AES-256 encryption', 'No tracking pixels'] },
-    'SECURITY': { title: 'SECURITY_MANIFESTO', content: ['Audit history', 'Breach isolation', 'MFA protocols'] }
+    'PRIVACY': { title: 'PRIVACY_POLICY', content: ['Data protection', 'Encryption standards', 'No tracking pixels'] },
+    'SECURITY': { title: 'SECURITY', content: ['Audits', 'Compliance', 'MFA protocols'] }
   };
 
   const footerLinks = [
     {
-      title: 'CAPABILITIES',
-      links: ['Autonomous Intelligence', 'Hyperscale Infrastructure', 'Spatial UI & 3D', 'Enterprise Delivery']
+      title: 'PRODUCTS',
+      links: ['AI Platform', 'Data Engine', 'Cloud Infrastructure', 'Custom Solutions']
     },
     {
       title: 'RESOURCES',
-      links: ['Tech Documentation', 'Open Source Labs', 'System Status', 'Engineering Blog']
+      links: ['Documentation', 'Open Source', 'Status', 'Blog']
     },
     {
-      title: 'COLLECTIVE',
-      links: ['Our Journey', 'Engineering Team', 'Future Labs', 'Join the Squad']
+      title: 'COMPANY',
+      links: ['Our Journey', 'Meet the Team', 'Research', 'Careers']
     },
     {
       title: 'CONTACT',

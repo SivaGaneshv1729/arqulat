@@ -65,11 +65,11 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Capabilities', id: 'capabilities' },
-    { label: 'Evolution', id: 'evolution' },
+    { label: 'About Us', id: 'about' },
+    { label: 'Products', id: 'capabilities' },
+    { label: 'Our Journey', id: 'evolution' },
     // { label: 'Projects', id: 'projects' },
-    { label: 'Developer\'s', id: 'collective' }
+    { label: 'Our Team', id: 'collective' }
   ];
 
   const handleNavClick = (id) => {
