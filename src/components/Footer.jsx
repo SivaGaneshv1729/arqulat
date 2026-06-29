@@ -19,6 +19,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import CloseIcon from '@mui/icons-material/Close';
+import { icons, MailIcon } from 'lucide-react';
 
 const Footer = () => {
   const [modalContent, setModalContent] = useState(null);
