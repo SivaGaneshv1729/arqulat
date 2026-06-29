@@ -6,9 +6,9 @@ import LanguageIcon from '@mui/icons-material/Language';
 import EmailIcon from '@mui/icons-material/Email';
 
 const specialists = [
-  { 
-    name: 'Venkat Ganesh', 
-    role: 'Origin — Principal Architect', 
+  {
+    name: 'Venkata Ganesh',
+    role: 'Origin — Principal Architect',
     bio: 'Shapes Arqulat\'s vision, transforming ambitious ideas into scalable products, intelligent systems, and immersive digital experiences across AI and software.',
     image: 'https://github.com/github.png',
     links: {
@@ -20,9 +20,9 @@ const specialists = [
     color: '#2f81f7',
     alias: 'core_intel'
   },
-  { 
-    name: 'Siva Ganesh', 
-    role: 'Forge — Creative Architect', 
+  {
+    name: 'Siva Ganesh',
+    role: 'Forge — Creative Architect',
     bio: 'Crafts seamless product experiences blending functionality with design, turning complex concepts into intuitive interfaces and compelling visual user journeys.',
     image: 'https://github.com/github.png',
     links: {
@@ -34,9 +34,9 @@ const specialists = [
     color: '#38bdf8',
     alias: 'app_sync'
   },
-  { 
-    name: 'Sri Ram', 
-    role: 'Scout — Intelligence Strategist', 
+  {
+    name: 'Sri Ram',
+    role: 'Scout — Intelligence Strategist',
     bio: 'Explores emerging AI capabilities and validates new ideas to identify strategic opportunities that shape the future of our products.',
     image: 'https://github.com/github.png',
     links: {
@@ -48,9 +48,9 @@ const specialists = [
     color: '#8957e5',
     alias: 'infra_root'
   },
-  { 
-    name: 'Veeranna', 
-    role: 'Anchor — Operations Steward', 
+  {
+    name: 'Veeranna',
+    role: 'Anchor — Operations Steward',
     bio: 'Ensures ideas move from concept to completion by coordinating workflows, maintaining documentation, and supporting the team\'s daily execution.',
     image: 'https://github.com/github.png',
     links: {
@@ -78,10 +78,10 @@ const ModernTeam = () => {
           </Typography>
         </Box>
 
-        <Box 
-          sx={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
             gap: 3,
             flexWrap: { xs: 'wrap', lg: 'nowrap' },
             width: '100%'
@@ -96,8 +96,8 @@ const ModernTeam = () => {
               viewport={{ once: true }}
               style={{ flex: 1, minWidth: '260px', maxWidth: '320px' }}
             >
-              <Box 
-                sx={{ 
+              <Box
+                sx={{
                   py: 4,
                   px: 2.5,
                   height: '100%',
@@ -122,76 +122,76 @@ const ModernTeam = () => {
                   }
                 }}
               >
-                  <Avatar 
-                    src={member.image}
-                    className="member-image"
-                    sx={{ 
-                      width: 100, 
-                      height: 100, 
-                      mb: 3,
-                      background: '#0d1117', 
-                      border: `2px solid #30363d`,
-                      transition: '0.3s'
-                    }}
-                  />
-                  
-                  <Box sx={{ mb: 2, width: '100%' }}>
-                    <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.25rem', mb: 0.5, width: '100%' }}>
-                      {member.name}
-                    </Typography>
-                    <Typography className="font-mono" sx={{ color: member.color, fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em', width: '100%' }}>
-                      {member.role}
-                    </Typography>
-                  </Box>
+                <Avatar
+                  src={member.image}
+                  className="member-image"
+                  sx={{
+                    width: 100,
+                    height: 100,
+                    mb: 3,
+                    background: '#0d1117',
+                    border: `2px solid #30363d`,
+                    transition: '0.3s'
+                  }}
+                />
 
-                  <Typography variant="body2" sx={{ color: 'text.secondary', mb: 4, fontSize: '0.8rem', lineHeight: 1.6, flexGrow: 1, width: '100%' }}>
-                    {member.bio}
+                <Box sx={{ mb: 2, width: '100%' }}>
+                  <Typography variant="h6" sx={{ fontWeight: 800, fontSize: '1.25rem', mb: 0.5, width: '100%' }}>
+                    {member.name}
                   </Typography>
-
-                  <Stack direction="row" spacing={1}>
-                    <IconButton 
-                      size="small" 
-                      href={member.links.github} 
-                      target="_blank"
-                      sx={{ color: 'text.secondary', '&:hover': { color: '#fff', background: 'rgba(255,255,255,0.05)' } }}
-                    >
-                      <GitHubIcon sx={{ fontSize: 18 }} />
-                    </IconButton>
-                    <IconButton 
-                      size="small" 
-                      href={member.links.linkedin} 
-                      target="_blank"
-                      sx={{ color: 'text.secondary', '&:hover': { color: '#0077b5', background: 'rgba(0,119,181,0.05)' } }}
-                    >
-                      <LinkedInIcon sx={{ fontSize: 18 }} />
-                    </IconButton>
-                    {member.links.portfolio && (
-                      <IconButton 
-                        size="small" 
-                        href={member.links.portfolio} 
-                        target="_blank"
-                        sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main', background: 'rgba(47, 129, 247, 0.05)' } }}
-                      >
-                        <LanguageIcon sx={{ fontSize: 18 }} />
-                      </IconButton>
-                    )}
-                    <IconButton 
-                      size="small" 
-                      href={member.links.mail}
-                      sx={{ color: 'text.secondary', '&:hover': { color: '#f0883e', background: 'rgba(240,136,62,0.05)' } }}
-                    >
-                      <EmailIcon sx={{ fontSize: 18 }} />
-                    </IconButton>
-                  </Stack>
-
-                  {/* ID Tag in Corner */}
-                  <Box sx={{ position: 'absolute', top: 12, right: 12 }}>
-                    <Typography className="font-mono" sx={{ color: 'text.secondary', fontSize: '0.5rem', opacity: 0.4 }}>
-                      #{member.alias}
-                    </Typography>
-                  </Box>
+                  <Typography className="font-mono" sx={{ color: member.color, fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em', width: '100%' }}>
+                    {member.role}
+                  </Typography>
                 </Box>
-              </motion.div>
+
+                <Typography variant="body2" sx={{ color: 'text.secondary', mb: 4, fontSize: '0.8rem', lineHeight: 1.6, flexGrow: 1, width: '100%' }}>
+                  {member.bio}
+                </Typography>
+
+                <Stack direction="row" spacing={1}>
+                  <IconButton
+                    size="small"
+                    href={member.links.github}
+                    target="_blank"
+                    sx={{ color: 'text.secondary', '&:hover': { color: '#fff', background: 'rgba(255,255,255,0.05)' } }}
+                  >
+                    <GitHubIcon sx={{ fontSize: 18 }} />
+                  </IconButton>
+                  <IconButton
+                    size="small"
+                    href={member.links.linkedin}
+                    target="_blank"
+                    sx={{ color: 'text.secondary', '&:hover': { color: '#0077b5', background: 'rgba(0,119,181,0.05)' } }}
+                  >
+                    <LinkedInIcon sx={{ fontSize: 18 }} />
+                  </IconButton>
+                  {member.links.portfolio && (
+                    <IconButton
+                      size="small"
+                      href={member.links.portfolio}
+                      target="_blank"
+                      sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main', background: 'rgba(47, 129, 247, 0.05)' } }}
+                    >
+                      <LanguageIcon sx={{ fontSize: 18 }} />
+                    </IconButton>
+                  )}
+                  <IconButton
+                    size="small"
+                    href={member.links.mail}
+                    sx={{ color: 'text.secondary', '&:hover': { color: '#f0883e', background: 'rgba(240,136,62,0.05)' } }}
+                  >
+                    <EmailIcon sx={{ fontSize: 18 }} />
+                  </IconButton>
+                </Stack>
+
+                {/* ID Tag in Corner */}
+                <Box sx={{ position: 'absolute', top: 12, right: 12 }}>
+                  <Typography className="font-mono" sx={{ color: 'text.secondary', fontSize: '0.5rem', opacity: 0.4 }}>
+                    #{member.alias}
+                  </Typography>
+                </Box>
+              </Box>
+            </motion.div>
           ))}
         </Box>
       </Container>
