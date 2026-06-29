@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Typography, Button, Box, IconButton, Container, Drawer, List, ListItem, ListItemButton, ListItemText, Avatar, Menu, MenuItem, Divider } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box, IconButton, Container, Drawer, List, ListItem, ListItemButton, ListItemText, Avatar } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { motion } from 'framer-motion';
+import UserProfileModal from './UserProfileModal';
+import scifiAvatar from '../assets/avatar.png';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -185,49 +188,29 @@ const Navbar = () => {
               {user ? (
                 <>
                   <IconButton onClick={handleMenuClick} sx={{ p: 0, ml: 1, transition: '0.3s', '&:hover': { transform: 'scale(1.05)' } }}>
-                    <Avatar alt={user.name} src={user.picture || ''} sx={{ width: 42, height: 42, border: '2px solid rgba(255,255,255,0.1)', boxShadow: '0 0 15px rgba(255,255,255,0.1)' }} />
+                    <motion.div
+                      animate={{ y: [0, -3, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <Avatar 
+                        alt={user.name} 
+                        src={user.picture || scifiAvatar} 
+                        sx={{ 
+                          width: 46, 
+                          height: 46, 
+                          border: '2px solid rgba(47, 129, 247, 0.5)', 
+                          boxShadow: '0 0 15px rgba(47, 129, 247, 0.4)' 
+                        }} 
+                      />
+                    </motion.div>
                   </IconButton>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={openMenu}
-                    onClose={handleMenuClose}
-                    onClick={handleMenuClose}
-                    transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                    anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                    slotProps={{
-                      paper: {
-                        elevation: 0,
-                        sx: {
-                          mt: 2,
-                          background: 'rgba(13, 17, 23, 0.8)',
-                          backdropFilter: 'blur(20px)',
-                          color: 'white',
-                          border: '1px solid #30363d',
-                          borderRadius: '16px',
-                          minWidth: 260,
-                          overflow: 'hidden',
-                          boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-                          '& .MuiMenuItem-root': {
-                            fontSize: '0.9rem',
-                            fontFamily: 'inherit',
-                            py: 1.5,
-                            px: 3,
-                            transition: 'all 0.2s ease',
-                          }
-                        }
-                      }
-                    }}
-                  >
-                    <Box sx={{ px: 3, py: 2.5, background: 'rgba(255,255,255,0.02)', borderBottom: '1px solid #30363d' }}>
-                      <Typography variant="body1" sx={{ fontWeight: 700, color: 'white', mb: 0.5, letterSpacing: '-0.02em' }}>{user.name}</Typography>
-                      <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '0.8rem' }}>{user.email}</Typography>
-                    </Box>
-                    <Box sx={{ p: 1 }}>
-                      <MenuItem onClick={handleLogout} sx={{ borderRadius: '8px', color: '#ff7b72', fontWeight: 600, '&:hover': { background: 'rgba(255, 123, 114, 0.1)' } }}>
-                        Logout
-                      </MenuItem>
-                    </Box>
-                  </Menu>
+                  
+                  <UserProfileModal 
+                    open={openMenu} 
+                    onClose={handleMenuClose} 
+                    user={user} 
+                    onLogout={handleLogout} 
+                  />
                 </>
               ) : (
                 <Button 
@@ -321,7 +304,7 @@ const Navbar = () => {
           {user ? (
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 2, background: 'rgba(255,255,255,0.05)', borderRadius: '12px' }}>
-                <Avatar alt={user.name} src={user.picture || ''} />
+                <Avatar alt={user.name} src={user.picture || scifiAvatar} sx={{ border: '2px solid rgba(47, 129, 247, 0.5)' }} />
                 <Box>
                   <Typography variant="body1" sx={{ color: 'white', fontWeight: 600 }}>{user.name}</Typography>
                   <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '0.8rem' }}>{user.email}</Typography>

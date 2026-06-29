@@ -24,46 +24,47 @@ const Footer = () => {
   const [modalContent, setModalContent] = useState(null);
   const navigate = useNavigate();
 
-  const footerData = {
-    // ... rest of footerData stays same
-    'AI Platform': { title: 'AI_PLATFORM', content: ['Intelligent automation', 'Predictive models', 'Data synthesis'] },
-    'Data Engine': { title: 'DATA_ENGINE', content: ['Data pipelines', 'Real-time analytics', 'Scalable storage'] },
-    'Cloud Infrastructure': { title: 'CLOUD_INFRA', content: ['Distributed computing', 'High availability', 'Global routing'] },
-    'Custom Solutions': { title: 'CUSTOM_SOLUTIONS', content: ['Enterprise integration', 'Security compliance', 'Dedicated support'] },
-    'Documentation': { title: 'DOCS', content: ['API references', 'SDK guides', 'Quickstarts'] },
-    'Open Source': { title: 'OPEN_SOURCE', content: ['Community projects', 'Developer tools', 'GitHub repositories'] },
-    'Status': { title: 'SYSTEM_STATUS', content: ['Real-time metrics', 'Uptime history', 'Incident reports'] },
-    'Blog': { title: 'BLOG', content: ['Product updates', 'Engineering deep-dives', 'Company news'] },
-    'Our Journey': { title: 'OUR_STORY', content: ['Company history', 'Milestones', 'Core values'] },
-    'Meet the Team': { title: 'TEAM', content: ['Founders', 'Engineers', 'Designers'] },
-    'Research': { title: 'RESEARCH', content: ['Whitepapers', 'Future labs', 'AI ethics'] },
-    'Careers': { title: 'CAREERS', content: ['Open roles', 'Culture', 'Benefits'] },
-    'Email': { title: 'CONTACT_EMAIL', content: ['contact@arqulat.com', 'Response within 24h'] },
-    'Instagram': { title: 'SOCIAL_INSTAGRAM', content: ['@arqulat', 'Behind the scenes'] },
-    'LinkedIn': { title: 'SOCIAL_LINKEDIN', content: ['Arqulat', 'Professional network'] },
-    'Twitter': { title: 'SOCIAL_TWITTER', content: ['@arqulat', 'Quick updates'] },
-    'PRIVACY': { title: 'PRIVACY_POLICY', content: ['Data protection', 'Encryption standards', 'No tracking pixels'] },
-    'SECURITY': { title: 'SECURITY', content: ['Audits', 'Compliance', 'MFA protocols'] }
-  };
-
   const footerLinks = [
     {
-      title: 'PRODUCTS',
-      links: ['AI Platform', 'Data Engine', 'Cloud Infrastructure', 'Custom Solutions']
-    },
-    {
-      title: 'RESOURCES',
-      links: ['Documentation', 'Open Source', 'Status', 'Blog']
-    },
-    {
       title: 'COMPANY',
-      links: ['Our Journey', 'Meet the Team', 'Research', 'Careers']
+      links: [
+        { label: 'About Us', id: 'about' },
+        { label: 'Products', id: 'capabilities' },
+        { label: 'Our Journey', id: 'evolution' },
+        { label: 'Meet the Team', id: 'collective' }
+      ]
     },
     {
       title: 'CONTACT',
-      links: ['Email', 'Instagram', 'LinkedIn', 'Twitter']
+      links: [
+        { label: 'Email', href: 'mailto: admin@arqulat.com' }, 
+        { label: 'Instagram', href: 'https://www.instagram.com/arqulat/' }, 
+        // { label: 'LinkedIn', href: 'https://linkedin.com/in/YOUR_USERNAME' }, 
+        // { label: 'Twitter', href: 'https://twitter.com/YOUR_USERNAME' }
+      ]
     }
   ];
+
+  const handleNavClick = (id) => {
+    if (window.location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - offset;
+          window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+        }
+      }, 500);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - offset;
+        window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+      }
+    }
+  };
 
   const handleLegalClick = (item) => {
     if (item === 'TERMS') {
@@ -93,9 +94,22 @@ const Footer = () => {
               A unified collective building high-performance intelligence.
             </Typography>
             <Stack direction="row" spacing={1.5}>
-              {[<GitHubIcon key="gh" />, <LinkedInIcon key="li" />, <TwitterIcon key="tw" />, <InstagramIcon key="in" />].map((icon, i) => (
-                <IconButton key={i} size="small" sx={{ color: 'text.secondary', border: '1px solid #30363d', '&:hover': { color: 'white', borderColor: '#8b949e', background: 'rgba(255,255,255,0.05)' } }}>
-                  {icon}
+              {[
+                { icon: <GitHubIcon key="gh" />, url: 'https://github.com/SivaGaneshv1729/arqulat' },
+                { icon: <LinkedInIcon key="li" />, url: 'https://linkedin.com/in/YOUR_USERNAME' },
+                { icon: <TwitterIcon key="tw" />, url: 'https://twitter.com/YOUR_USERNAME' },
+                { icon: <InstagramIcon key="in" />, url: 'https://www.instagram.com/arqulat/' }
+              ].map((item, i) => (
+                <IconButton 
+                  key={i} 
+                  component="a"
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="small" 
+                  sx={{ color: 'text.secondary', border: '1px solid #30363d', '&:hover': { color: 'white', borderColor: '#8b949e', background: 'rgba(255,255,255,0.05)' } }}
+                >
+                  {item.icon}
                 </IconButton>
               ))}
             </Stack>
@@ -109,12 +123,22 @@ const Footer = () => {
               <Stack spacing={1.5}>
                 {section.links.map((link) => (
                   <Typography 
-                    key={link} 
+                    key={link.label} 
                     variant="body2" 
-                    onClick={() => setModalContent(footerData[link])}
-                    sx={{ cursor: 'pointer', color: 'text.secondary', fontSize: '0.85rem', transition: '0.2s', '&:hover': { color: 'primary.main', transform: 'translateX(4px)' } }}
+                    component={link.href ? "a" : "span"}
+                    href={link.href}
+                    target={link.href && link.href.startsWith('http') ? "_blank" : undefined}
+                    rel={link.href ? "noopener noreferrer" : undefined}
+                    onClick={() => {
+                      if (link.id) {
+                        handleNavClick(link.id);
+                      } else if (!link.href) {
+                        setModalContent(footerData[link.label]);
+                      }
+                    }}
+                    sx={{ textDecoration: 'none', cursor: 'pointer', color: 'text.secondary', fontSize: '0.85rem', transition: '0.2s', '&:hover': { color: 'primary.main', transform: 'translateX(4px)' } }}
                   >
-                    {link}
+                    {link.label}
                   </Typography>
                 ))}
               </Stack>

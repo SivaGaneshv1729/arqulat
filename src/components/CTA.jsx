@@ -55,6 +55,7 @@ const CTA = () => {
             <Button
               variant="contained"
               size="large"
+              href="mailto:YOUR_EMAIL_HERE@example.com"
               sx={{
                 borderRadius: '50px',
                 px: 6,
@@ -73,6 +74,9 @@ const CTA = () => {
             <Button
               variant="outlined"
               size="large"
+              href="https://YOUR_LINK_HERE.com"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 borderRadius: '50px',
                 px: 6,
