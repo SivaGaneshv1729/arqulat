@@ -49,7 +49,16 @@ const Privacy = () => {
 
           <Box>
             <Typography variant="h5" sx={{ color: 'white', mb: 2, fontWeight: 700 }}>
-              2. Data Usage
+              2. Third-Party AI and Voice Processing
+            </Typography>
+            <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+              To provide advanced AI features in tools like our diagramming applications, your text prompts and diagram context may be securely transmitted to third-party AI providers (such as Groq, Anthropic, Google, or OpenAI) for processing. Additionally, voice-to-text features utilize your browser's native Web Speech API, which means your voice audio may be sent to your browser provider (e.g., Google) for transcription. By using these features, you consent to this data processing.
+            </Typography>
+          </Box>
+
+          <Box>
+            <Typography variant="h5" sx={{ color: 'white', mb: 2, fontWeight: 700 }}>
+              3. Data Usage
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
               Your data is used strictly for authentication, service delivery, and performance improvements. We never sell your personal information or user data to third-party data brokers.
@@ -58,7 +67,7 @@ const Privacy = () => {
 
           <Box>
             <Typography variant="h5" sx={{ color: 'white', mb: 2, fontWeight: 700 }}>
-              3. Data Sovereignty and Storage
+              4. Data Sovereignty and Storage
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
               All collected data is stored in secured, encrypted databases (AES-256 standards). We respect data sovereignty and provide mechanisms for users to request full export or deletion of their personal profiles and system data.
@@ -67,7 +76,7 @@ const Privacy = () => {
 
           <Box>
             <Typography variant="h5" sx={{ color: 'white', mb: 2, fontWeight: 700 }}>
-              4. Cookies and Local Storage
+              5. Cookies and Local Storage
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
               We use secure cookies and local storage exclusively for session management and storing your UI preferences. We do not employ third-party advertising cookies.

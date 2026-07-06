@@ -79,7 +79,7 @@ const Terms = () => {
               5. Governing Law
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-              These terms shall be governed by and construed in accordance with the protocols of the Arqulat Global Governance, without regard to its conflict of law provisions.
+              These terms shall be governed by and construed in accordance with the laws of Andhra Pradesh, India, without regard to its conflict of law provisions.
             </Typography>
           </Box>
         </Stack>
