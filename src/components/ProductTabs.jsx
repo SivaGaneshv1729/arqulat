@@ -90,15 +90,15 @@ const AnimatedVisuals = ({ color }) => (
 
 const products = [
   { 
-    id: 'loom', 
+    id: 'arc', 
     label: 'WEB_APPLICATION', 
     icon: <TerminalIcon />, 
-    title: 'Loom Diagramming Tool', 
+    title: 'Arc Diagramming Tool', 
     desc: 'High-performance, professional-grade diagramming application with a modern Figma-like interface.',
-    detailedDesc: 'Built with React, TypeScript, and a Spring Boot backend, Loom is designed for rapid prototyping, flowcharting, and collaboration. It features a robust history system, categorized element library, smart layer management, and a highly interactive canvas.',
+    detailedDesc: 'Built with React, TypeScript, and a Spring Boot backend, Arqulat Arc is designed for rapid prototyping, flowcharting, and collaboration. It features a robust history system, categorized element library, smart layer management, and a highly interactive canvas.',
     color: '#2f81f7',
-    cta: 'View Loom',
-    link: 'https://loom.arqulat.com/',
+    cta: 'View Arqulat Arc',
+    link: 'https://arc.arqulat.com/',
     AnimationComponent: AnimatedVisuals
   },
   { 

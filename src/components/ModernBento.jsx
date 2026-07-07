@@ -20,7 +20,7 @@ const expertise = [
   },
   {
     title: 'High-Performance Backends',
-    desc: 'Robust architectures using Spring Boot, Node.js, and structured databases to power platforms like Project Loom.',
+    desc: 'Robust architectures using Spring Boot, Node.js, and structured databases to power platforms like Project Arqulat Arc.',
     label: 'CORE_SOFTWARE',
     icon: <ArchitectureIcon sx={{ fontSize: 24 }} />,
     color: '#8957e5',

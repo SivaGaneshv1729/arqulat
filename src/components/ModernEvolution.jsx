@@ -29,9 +29,9 @@ const timelineData = [
   },
   {
     date: 'PRESENT // ACTIVE DEVELOPMENT',
-    title: 'Project Loom',
-    description: 'We are currently laser-focused and actively working on Project Loom. All our previous hackathon and expo experiences have culminated into this product, and we are almost ready to deploy the very first version.',
-    products: ['Project Loom', 'V1 Launch'],
+    title: 'Project Arqulat Arc',
+    description: 'We are currently laser-focused and actively working on Project Arqulat Arc. All our previous hackathon and expo experiences have culminated into this product, and we are almost ready to deploy the very first version.',
+    products: ['Project Arqulat Arc', 'V1 Launch'],
     status: 'DEPLOYING SOON',
     color: '#d29922',
   }
