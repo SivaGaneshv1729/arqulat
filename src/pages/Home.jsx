@@ -10,6 +10,7 @@ import ModernEvolution from '../components/ModernEvolution';
 import ModernTeam from '../components/ModernTeam';
 // import CTA from '../components/CTA';
 import Footer from '../components/Footer';
+import { BannerAd } from '../components/BannerAd';
 
 const Home = () => {
   return (
@@ -25,6 +26,9 @@ const Home = () => {
       {/* <ModernVerticalReviews /> */}
       <ModernTeam />
       {/* <CTA /> */}
+      <div style={{ padding: '0 2rem', maxWidth: '1200px', margin: '0 auto' }}>
+        <BannerAd />
+      </div>
       <Footer />
     </>
   );
